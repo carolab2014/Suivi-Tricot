@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V10</title>
+<title>Suivi Tricot V11</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8b5a83">
 <style>
@@ -15,14 +15,14 @@
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">☰ Projets</button>
-<div class="title">🧶 Suivi Tricot V10</div>
+<div class="title">🧶 Suivi Tricot V11</div>
 <div class="spacer"></div>
 <button id="toggleAccessories" class="secondary">Accessoires</button>
 </header>
 <div class="layout">
 <aside id="sidebar" class="sidebar">
-<div class="card stickyCounter"><h2>🔢 Compteurs</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
 <div class="card"><h2>📂 Projets / patrons</h2><div id="projectList"></div><button id="newProject">+ Nouveau projet/patron</button><div class="row"><button id="renameProject" class="secondary">Renommer</button><button id="deleteProject" class="danger">Supprimer</button></div></div>
+<div class="card stickyCounter"><h2>🔢 Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
 <div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle<input type="range" id="ruleOpacity" min="15" max="80" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
 <div class="card"><h2>🎯 Taille à tricoter</h2><div class="row"><label>Taille<input id="sizeLabel" placeholder="Ex: L ou 4"></label><label>Position<select id="sizePosition"><option value="1">1re</option><option value="2">2e</option><option value="3">3e</option><option value="4">4e</option><option value="5">5e</option><option value="6">6e</option></select></label></div><label>Couleur<select id="highlightColor"><option value="yellow">Jaune</option><option value="lightgreen">Vert</option><option value="lightskyblue">Bleu</option><option value="pink">Rose</option><option value="orange">Orange</option></select></label></div>
 <div class="card"><h2>📝 Notes</h2><textarea id="notes" placeholder="Notes du projet..."></textarea></div>
@@ -32,9 +32,8 @@
 <aside id="accessoriesDrawer" class="drawer">
 <div class="card"><h2>Accessoires</h2><p class="hint">Menu de droite affichable/masquable. Tous les choix et champs d’écriture sont sauvegardés avec le patron actif.</p></div>
 <div class="card"><h2>📅 Projet</h2><label>Date de début :<input type="date" id="startDate"></label><br><br><label>Date de fin :<input type="date" id="endDate"></label><br><br><div id="duration" class="dur">Aucune date sélectionnée</div></div>
-<div class="card"><h2>🪡 Aiguilles</h2><details open><summary>Types d’aiguilles</summary><div id="needleTypesBox"></div></details><details><summary>Grosseurs d’aiguilles</summary><div id="needleSizesBox"></div></details><details><summary>Longueurs d’aiguilles</summary><div id="needleLengthsBox"></div></details></div>
-<div class="card"><h2>🔄 Câbles</h2><details open><summary>Longueurs de câbles</summary><div id="cables"></div></details></div>
-<div class="card"><h2>🔗 Combinaisons choisies</h2><p class="hint">Exemple : Interchangeables 3 — 5 mm avec câble 8 po.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo">+ Ajouter la combinaison</button><div id="comboList"></div></div>
+<div class="card"><h2>🔗 Combinaisons choisies</h2><p class="hint">Indique seulement les combinaisons réellement utilisées pour ce patron.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo">+ Ajouter la combinaison</button><div id="comboList"></div></div>
+<div style="display:none"><div id="needleTypesBox"></div><div id="needleSizesBox"></div><div id="needleLengthsBox"></div><div id="cables"></div></div>
 <div class="card"><h2>✂️ Outils</h2><div id="tools"></div></div>
 <div class="card"><h2>🧶 Laine</h2><div id="yarnFieldsBox"></div></div>
 </aside>
