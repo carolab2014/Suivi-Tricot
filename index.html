@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V11</title>
+<title>Suivi Tricot V12</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8b5a83">
 <style>
@@ -15,13 +15,13 @@
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">☰ Projets</button>
-<div class="title">🧶 Suivi Tricot V11</div>
+<div class="title">🧶 Suivi Tricot V12</div>
 <div class="spacer"></div>
 <button id="toggleAccessories" class="secondary">Accessoires</button>
 </header>
 <div class="layout">
 <aside id="sidebar" class="sidebar">
-<div class="card"><h2>📂 Projets / patrons</h2><div id="projectList"></div><button id="newProject">+ Nouveau projet/patron</button><div class="row"><button id="renameProject" class="secondary">Renommer</button><button id="deleteProject" class="danger">Supprimer</button></div></div>
+<div class="card"><h2>📂 Projets / patrons</h2><label>Projet à travailler :<select id="projectSelect"></select></label><div class="row"><button id="newProject">+ Nouveau projet/patron</button></div><div class="row"><button id="renameProject" class="secondary">Renommer</button><button id="deleteProject" class="danger">Supprimer</button></div><p class="hint">Choisis ici le patron actif. Chaque projet garde son PDF, ses compteurs, sa règle, ses notes et ses accessoires.</p></div>
 <div class="card stickyCounter"><h2>🔢 Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
 <div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle<input type="range" id="ruleOpacity" min="15" max="80" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
 <div class="card"><h2>🎯 Taille à tricoter</h2><div class="row"><label>Taille<input id="sizeLabel" placeholder="Ex: L ou 4"></label><label>Position<select id="sizePosition"><option value="1">1re</option><option value="2">2e</option><option value="3">3e</option><option value="4">4e</option><option value="5">5e</option><option value="6">6e</option></select></label></div><label>Couleur<select id="highlightColor"><option value="yellow">Jaune</option><option value="lightgreen">Vert</option><option value="lightskyblue">Bleu</option><option value="pink">Rose</option><option value="orange">Orange</option></select></label></div>
@@ -41,7 +41,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V10', KEY='suivi-tricot-v10-data', OLDKEY='suivi-tricot-v9-data';
+const VERSION='Suivi Tricot V12', KEY='suivi-tricot-v12-data', OLDKEYS=['suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -52,13 +52,13 @@ let data=load(), currentId=data.currentId, pdfDoc=null, pageNum=1, scale=1.15, p
 function uid(){return 'p'+Date.now()+Math.random().toString(16).slice(2)}
 function defaultProject(name='Nouveau projet'){return {id:uid(),name,pdfName:'',page:1,scale:1.15,ruleTop:120,ruleArrowLeft:50,ruleOpacity:42,ruleLocked:false,counters:[{name:'Corps',value:0}],notes:'',startDate:'',endDate:'',sizeLabel:'',sizePosition:'4',highlightColor:'yellow',checks:{},customTools:[],yarn:{},combos:[]}}
 function normalizeProject(pr){let d=defaultProject(pr?.name||'Projet');return Object.assign(d,pr,{checks:pr?.checks||{},customTools:pr?.customTools||[],yarn:pr?.yarn||{},combos:pr?.combos||[]})}
-function load(){for(const k of [KEY,OLDKEY]){try{let d=JSON.parse(localStorage.getItem(k));if(d&&d.projects?.length){d.projects=d.projects.map(normalizeProject);localStorage.setItem(KEY,JSON.stringify(d));return d}}catch(e){}}let p=defaultProject('Mon premier patron');return {currentId:p.id,projects:[p]}}
-function save(){data.currentId=currentId;localStorage.setItem(KEY,JSON.stringify(data))}
+function load(){for(const k of [KEY,...OLDKEYS]){try{let d=JSON.parse(localStorage.getItem(k));if(d&&d.projects?.length){d.projects=d.projects.map(normalizeProject);if(!d.currentId||!d.projects.some(p=>p.id===d.currentId))d.currentId=d.projects[0].id;localStorage.setItem(KEY,JSON.stringify(d));return d}}catch(e){}}let p=defaultProject('Nouveau patron');return {currentId:p.id,projects:[p]}}
+function save(){if(!data.projects.some(pr=>pr.id===currentId)&&data.projects.length)currentId=data.projects[0].id;data.currentId=currentId;localStorage.setItem(KEY,JSON.stringify(data))}
 function p(){return data.projects.find(x=>x.id===currentId)||data.projects[0]}
 function checkKey(prefix,val){return prefix+'|'+val}
 function allNeedles(){return needleSizesList.map(n=>n.split(' — ')[0])}
 function allCables(){return cableList}
-function renderProjects(){projectList.innerHTML='';data.projects.forEach(pr=>{let d=document.createElement('div');d.className='projectItem';d.innerHTML=`<button class="secondary ${pr.id===currentId?'active':''}">${pr.name}</button>`;d.querySelector('button').onclick=()=>{currentId=pr.id;save();loadProject()};projectList.appendChild(d)})}
+function renderProjects(){if(!window.projectSelect)return;projectSelect.innerHTML='';data.projects.forEach(pr=>{let opt=document.createElement('option');opt.value=pr.id;opt.textContent=pr.name;projectSelect.appendChild(opt)});projectSelect.value=currentId;projectSelect.onchange=e=>{currentId=e.target.value;save();pdfDoc=null;showEmptyPdf();loadProject()}}
 function renderCheckList(container,items,prefix){container.innerHTML='';items.forEach(label=>{let k=checkKey(prefix,label);let lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[k]?'checked':''}> <span>${label}</span>`;lab.querySelector('input').onchange=e=>{p().checks[k]=e.target.checked;save()};container.appendChild(lab)})}
 function renderComboSelectors(){comboNeedle.innerHTML=allNeedles().map(n=>`<option>${n}</option>`).join('');comboCable.innerHTML=allCables().map(c=>`<option>${c}</option>`).join('');comboType.innerHTML=needleTypesList.map(t=>`<option>${t}</option>`).join('');comboLength.innerHTML=needleLengthsList.map(l=>`<option>${l}</option>`).join('')}
 function renderCombos(){comboList.innerHTML='';(p().combos||[]).forEach((c,i)=>{let div=document.createElement('div');div.className='combo';div.innerHTML=`<div class="comboTitle">${escapeHtml(c.name||'Combinaison')}</div><div class="comboMeta">${escapeHtml(c.type||'')} • ${escapeHtml(c.needle)} • ${escapeHtml(c.length||'')} • câble ${escapeHtml(c.cable)}</div>${c.note?`<div class="comboMeta">${escapeHtml(c.note)}</div>`:''}<button class="danger small">Supprimer</button>`;div.querySelector('button').onclick=()=>{p().combos.splice(i,1);save();renderCombos()};comboList.appendChild(div)})}
@@ -107,12 +107,13 @@ async function renderTextLayer(page,viewport){
   });
   pdfwrap.appendChild(layer)
 }
+function showEmptyPdf(){pdfwrap.innerHTML='<div class="empty"><h2>Importe un patron PDF</h2><p>Le PDF est conservé par projet pendant la session. Si tu changes de projet et que le PDF ne s’affiche pas, réimporte-le pour ce projet.</p><input type="file" id="pdfInput" accept="application/pdf,.pdf"></div><div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';let inp=document.getElementById('pdfInput');if(inp)inp.onchange=e=>loadPdfFromFile(e.target.files[0]);window.rule=document.getElementById('rule');bindRule();renderAll()}
 function bindRule(){if(!window.rule)return;let dragging=false,dragArrow=false,offset=0;let arrow=document.getElementById('ruleArrow');rule.onpointerdown=e=>{if(e.target===arrow)return;dragging=true;offset=e.clientY-rule.offsetTop;rule.setPointerCapture(e.pointerId)};rule.onpointermove=e=>{if(!dragging)return;let y=e.clientY-pdfwrap.getBoundingClientRect().top-offset;y=Math.max(0,Math.min(pdfwrap.clientHeight-34,y));rule.style.top=y+'px';p().ruleTop=y;save()};rule.onpointerup=()=>dragging=false;if(arrow){arrow.onpointerdown=e=>{dragArrow=true;e.stopPropagation();arrow.setPointerCapture(e.pointerId)};arrow.onpointermove=e=>{if(!dragArrow)return;let r=rule.getBoundingClientRect();let pct=((e.clientX-r.left)/r.width)*100;pct=Math.max(0,Math.min(100,pct));arrow.style.left=pct+'%';p().ruleArrowLeft=pct;save()};arrow.onpointerup=()=>dragArrow=false}}
-function loadProject(){renderAll();if(pdfDoc)renderPage()}
+function loadProject(){renderAll();if(pdfDoc)renderPage();else showEmptyPdf()}
 function escapeHtml(s){return String(s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}function escapeAttr(s){return escapeHtml(s).replaceAll('"','&quot;')}
-newProject.onclick=()=>{let name=prompt('Nom du nouveau projet/patron :','Nouveau patron');if(!name)return;let pr=defaultProject(name);data.projects.push(pr);currentId=pr.id;save();pdfDoc=null;pdfwrap.innerHTML='<div class="empty"><h2>Importe un patron PDF</h2><input type="file" id="pdfInput" accept="application/pdf,.pdf"></div><div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';document.getElementById('pdfInput').onchange=e=>loadPdfFromFile(e.target.files[0]);renderAll()}
+newProject.onclick=()=>{let name=prompt('Nom du nouveau projet/patron :','Nouveau patron');if(!name)return;let pr=defaultProject(name);data.projects.push(pr);currentId=pr.id;save();pdfDoc=null;showEmptyPdf();renderAll()}
 renameProject.onclick=()=>{let n=prompt('Nouveau nom :',p().name);if(n){p().name=n;save();renderAll()}}
-deleteProject.onclick=()=>{if(data.projects.length<2)return alert('Il faut garder au moins un projet.');if(confirm('Supprimer ce projet?')){data.projects=data.projects.filter(x=>x.id!==currentId);currentId=data.projects[0].id;save();loadProject()}}
+deleteProject.onclick=()=>{if(data.projects.length<2)return alert('Il faut garder au moins un projet.');if(confirm('Supprimer ce projet?')){data.projects=data.projects.filter(x=>x.id!==currentId);currentId=data.projects[0].id;pdfDoc=null;save();loadProject()}}
 pdfInput2.onchange=e=>loadPdfFromFile(e.target.files[0]);document.addEventListener('change',e=>{if(e.target.id==='pdfInput')loadPdfFromFile(e.target.files[0])});
 prevPage.onclick=()=>{if(pdfDoc&&p().page>1){p().page--;save();renderPage()}};nextPage.onclick=()=>{if(pdfDoc&&p().page<pdfDoc.numPages){p().page++;save();renderPage()}};zoomIn.onclick=()=>{p().scale=(p().scale||1.15)+.15;save();renderPage()};zoomOut.onclick=()=>{p().scale=Math.max(.45,(p().scale||1.15)-.15);save();renderPage()};fitWidth.onclick=()=>{if(!pdfDoc)return;p().scale=Math.max(.5,(viewer.clientWidth-40)/600);save();renderPage()};fitPage.onclick=()=>{if(!pdfDoc)return;p().scale=.9;save();renderPage()};
 toggleSide.onclick=()=>sidebar.classList.toggle('closed');toggleAccessories.onclick=()=>accessoriesDrawer.classList.toggle('closed');
