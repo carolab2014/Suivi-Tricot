@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V17</title>
+<title>Suivi Tricot V20</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8b5a83">
 <style>
 :root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#347a50;--shadow:0 8px 24px rgba(66,38,68,.14)}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);height:100vh;overflow:hidden}button,input,select,textarea{font:inherit}button{border:0;border-radius:14px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}button.secondary{background:#fff;color:var(--accent);border:1px solid var(--line)}button.ghost{background:transparent;color:var(--accent);box-shadow:none;border:1px dashed var(--line)}button.danger{background:var(--danger)}button.small{padding:7px 10px;border-radius:12px;font-size:14px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:78px;resize:vertical}.app{display:grid;grid-template-rows:auto 1fr;height:100vh}.topbar{display:flex;gap:10px;align-items:center;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);z-index:40}.title{font-size:22px;font-weight:900;white-space:nowrap;color:var(--accent)}.spacer{flex:1}.layout{display:grid;grid-template-columns:330px 1fr;min-height:0}.sidebar{background:#fff;border-right:1px solid var(--line);overflow:auto;padding:12px;transition:margin-left .25s ease}.sidebar.closed{margin-left:-330px}.viewer{position:relative;min-width:0;min-height:0;overflow:auto;background:#d9d2dc;display:flex;align-items:flex-start;justify-content:center;padding:18px}.pdfwrap{position:relative;background:#fff;box-shadow:var(--shadow);min-height:70vh;min-width:min(760px,95%);display:flex;align-items:center;justify-content:center}.empty{padding:40px;text-align:center;color:var(--muted);line-height:1.5}.rule{position:absolute;left:0;right:0;height:34px;background:rgba(255,235,59,.42);border-top:2px solid rgba(139,90,131,.8);border-bottom:2px solid rgba(139,90,131,.8);top:120px;cursor:grab;touch-action:none;z-index:10}.rule.locked{pointer-events:none}.ruleArrow{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:26px;color:#8b5a83;text-shadow:0 1px 2px #fff;cursor:ew-resize;touch-action:none;z-index:12}.ruleArrow::after{content:"▲"}.ruleLabel{position:absolute;right:8px;top:6px;font-size:12px;font-weight:800;color:#8b5a83;background:rgba(255,255,255,.75);padding:2px 7px;border-radius:10px}.drawer{position:fixed;right:0;top:58px;bottom:0;width:380px;max-width:92vw;background:#fff;border-left:1px solid var(--line);overflow:auto;padding:12px;z-index:35;box-shadow:var(--shadow);transition:transform .25s ease}.drawer.closed{transform:translateX(102%)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.card h2,.card h3{margin:0 0 10px}.card h2{font-size:18px}.card h3{font-size:16px;color:var(--accent)}details{border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:8px 0;background:#fff}summary{font-weight:800;color:var(--accent);cursor:pointer}.check{display:flex;gap:8px;align-items:center;padding:5px 0;color:var(--ink);font-size:14px}.check input{width:auto}.row{display:flex;gap:8px;align-items:center;margin:8px 0}.row>*{flex:1}.hint{font-size:13px;color:var(--muted);line-height:1.35}.projectItem{display:flex;gap:6px;margin:6px 0}.projectItem button{flex:1;text-align:left}.projectItem .active{background:var(--accent2);color:var(--accent);border:1px solid var(--accent)}.counter{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}.stickyCounter{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--accent2)}.num{font-size:34px;font-weight:900;text-align:center;color:var(--accent)}.pdfcanvas{display:block;max-width:none}.textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;pointer-events:none}.textLayer span{position:absolute;white-space:pre;transform-origin:0 0;color:transparent}.hl{background:yellow;color:transparent;border-radius:3px;opacity:.72;min-height:1em}.dur{padding:10px;border-radius:12px;background:var(--accent2);color:var(--accent);font-weight:800;text-align:center}.combo{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;background:#fff}.comboTitle{font-weight:900;color:var(--accent)}.comboMeta{font-size:13px;color:var(--muted);margin-top:3px}.lightGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}.sectionIntro{font-size:13px;color:var(--muted);margin:4px 0 8px}@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:absolute;top:58px;bottom:0;width:88vw;z-index:30;box-shadow:var(--shadow)}.sidebar.closed{margin-left:-90vw}.title{font-size:18px}.topbar{gap:6px}.topbar button{padding:8px 10px}.viewer{padding:8px}.pdfwrap{min-width:100%;}.drawer{top:54px}}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);height:100vh;overflow:hidden}button,input,select,textarea{font:inherit}button{border:0;border-radius:14px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}button.secondary{background:#fff;color:var(--accent);border:1px solid var(--line)}button.ghost{background:transparent;color:var(--accent);box-shadow:none;border:1px dashed var(--line)}button.danger{background:var(--danger)}button.small{padding:7px 10px;border-radius:12px;font-size:14px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:78px;resize:vertical}.app{display:grid;grid-template-rows:auto 1fr;height:100vh}.topbar{display:flex;gap:10px;align-items:center;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);z-index:40}.title{font-size:22px;font-weight:900;white-space:nowrap;color:var(--accent)}.spacer{flex:1}.layout{display:grid;grid-template-columns:330px 1fr;min-height:0;transition:grid-template-columns .25s ease}.layout.sidebarHidden{grid-template-columns:0 1fr}.sidebar{background:#fff;border-right:1px solid var(--line);overflow:auto;padding:12px;transition:transform .25s ease,opacity .2s ease;min-width:0}.sidebar.closed{transform:translateX(-105%);opacity:0;pointer-events:none;padding-left:0;padding-right:0;border-right:0}.viewer{position:relative;min-width:0;min-height:0;overflow:auto;background:#d9d2dc;display:flex;align-items:flex-start;justify-content:center;padding:18px}.pdfwrap{position:relative;background:#fff;box-shadow:var(--shadow);min-height:70vh;min-width:min(760px,95%);display:flex;align-items:center;justify-content:center}.empty{padding:40px;text-align:center;color:var(--muted);line-height:1.5}.rule{position:absolute;left:0;right:0;height:34px;background:rgba(176,176,176,.42);border-top:2px solid rgba(120,120,120,.9);border-bottom:2px solid rgba(120,120,120,.9);border-radius:10px;top:120px;cursor:grab;touch-action:none;z-index:10}.rule.locked{pointer-events:none}.ruleArrow{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:26px;color:#7b2cff;text-shadow:0 1px 2px #fff;cursor:ew-resize;touch-action:none;z-index:12}.ruleArrow::after{content:"▲"}.ruleLabel{position:absolute;right:8px;top:6px;font-size:12px;font-weight:800;color:#7b2cff;background:rgba(255,255,255,.75);padding:2px 7px;border-radius:10px}.drawer{position:fixed;right:0;top:58px;bottom:0;width:380px;max-width:92vw;background:#fff;border-left:1px solid var(--line);overflow:auto;padding:12px;z-index:35;box-shadow:var(--shadow);transition:transform .25s ease}.drawer.closed{transform:translateX(102%)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.card h2,.card h3{margin:0 0 10px}.card h2{font-size:18px}.card h3{font-size:16px;color:var(--accent)}details{border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:8px 0;background:#fff}summary{font-weight:800;color:var(--accent);cursor:pointer}.check{display:flex;gap:8px;align-items:center;padding:5px 0;color:var(--ink);font-size:14px}.check input{width:auto}.row{display:flex;gap:8px;align-items:center;margin:8px 0}.row>*{flex:1}.hint{font-size:13px;color:var(--muted);line-height:1.35}.projectItem{display:flex;gap:6px;margin:6px 0}.projectItem button{flex:1;text-align:left}.projectItem .active{background:var(--accent2);color:var(--accent);border:1px solid var(--accent)}.counter{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}.stickyCounter{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--accent2)}.num{font-size:34px;font-weight:900;text-align:center;color:var(--accent)}.pdfcanvas{display:block;max-width:none}.textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;pointer-events:none}.textLayer span{position:absolute;white-space:pre;transform-origin:0 0;color:transparent}.hl{background:yellow;color:transparent;border-radius:3px;opacity:.72;min-height:1em}.dur{padding:10px;border-radius:12px;background:var(--accent2);color:var(--accent);font-weight:800;text-align:center}.combo{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;background:#fff}.comboTitle{font-weight:900;color:var(--accent)}.comboMeta{font-size:13px;color:var(--muted);margin-top:3px}.lightGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}.sectionIntro{font-size:13px;color:var(--muted);margin:4px 0 8px}@media(max-width:900px){.layout{grid-template-columns:1fr}.layout.sidebarHidden{grid-template-columns:1fr}.sidebar{position:absolute;top:58px;bottom:0;width:88vw;z-index:30;box-shadow:var(--shadow)}.sidebar.closed{margin-left:-90vw}.title{font-size:18px}.topbar{gap:6px}.topbar button{padding:8px 10px}.viewer{padding:8px}.pdfwrap{min-width:100%;}.drawer{top:54px}}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">☰ Projets</button>
-<div class="title">🧶 Suivi Tricot V17</div>
+<div class="title">🧶 Suivi Tricot V20</div>
 <div class="spacer"></div>
 <button id="toggleAccessories" class="secondary">Accessoires</button>
 </header>
-<div class="layout">
+<div id="layout" class="layout">
 <aside id="sidebar" class="sidebar">
 <div class="card"><h2>📂 Projets / patrons</h2><label>Projet à travailler :<select id="projectSelect"></select></label><div class="row"><button id="newProject">+ Nouveau projet/patron</button></div><div class="row"><button id="renameProject" class="secondary">Renommer</button><button id="deleteProject" class="danger">Supprimer</button></div>
 <div class="row"><button id="saveCurrentProject" class="secondary">💾 Sauvegarder ce projet</button></div>
@@ -28,7 +28,7 @@
 <input type="file" id="backupInput" accept=".json,.stk,application/json" style="display:none">
 <p class="hint">Choisis ici le patron actif. V17 sauvegarde un projet à la fois : chaque fichier .stk contient ce projet et son PDF.</p></div>
 <div class="card stickyCounter"><h2>🔢 Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
-<div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle<input type="range" id="ruleOpacity" min="15" max="80" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
+<div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle (10% à 100%)<input type="range" id="ruleOpacity" min="10" max="100" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
 <div class="card"><h2>🎯 Taille à tricoter</h2><div class="row"><label>Taille<input id="sizeLabel" placeholder="Ex: L ou 4"></label><label>Position<select id="sizePosition"><option value="1">1re</option><option value="2">2e</option><option value="3">3e</option><option value="4">4e</option><option value="5">5e</option><option value="6">6e</option></select></label></div><label>Couleur<select id="highlightColor"><option value="yellow">Jaune</option><option value="lightgreen">Vert</option><option value="lightskyblue">Bleu</option><option value="pink">Rose</option><option value="orange">Orange</option></select></label></div>
 <div class="card"><h2>📝 Notes</h2><textarea id="notes" placeholder="Notes du projet..."></textarea></div>
 </aside>
@@ -46,7 +46,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V17', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V20', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -80,7 +80,7 @@ function renderTools(){tools.innerHTML='';baseTools.forEach(it=>{let k=checkKey(
 function renderYarn(){yarnFieldsBox.innerHTML='';['Marque','Nom','Couleur'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))});let title=document.createElement('div');title.innerHTML='<strong>Épaisseur :</strong>';yarnFieldsBox.appendChild(title);yarnWeights.forEach(f=>{let lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[checkKey('yarnWeight',f)]?'checked':''}> <span>${f}</span>`;lab.querySelector('input').onchange=e=>{p().checks[checkKey('yarnWeight',f)]=e.target.checked;save()};yarnFieldsBox.appendChild(lab)});['Fibre','Le poids et métrage','Le nombre d’écheveaux/pelotes','Prix total','L’échantillon requis'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))})}
 function renderCounters(){counters.innerHTML='';p().counters.forEach((c,i)=>{let div=document.createElement('div');div.className='counter';div.innerHTML=`<input value="${escapeAttr(c.name)}"><div class="num">${c.value}</div><div class="row"><button class="secondary minus">−</button><button class="plus">+</button><button class="danger small del">Supprimer</button></div>`;div.querySelector('input').oninput=e=>{c.name=e.target.value;save()};div.querySelector('.minus').onclick=()=>{c.value=Math.max(0,c.value-1);save();renderCounters()};div.querySelector('.plus').onclick=()=>{c.value++;save();renderCounters()};div.querySelector('.del').onclick=()=>{p().counters.splice(i,1);save();renderCounters()};counters.appendChild(div)})}
 function updateDuration(){let pr=p();startDate.value=pr.startDate||'';endDate.value=pr.endDate||'';if(!pr.startDate){duration.textContent='Aucune date sélectionnée';return}let s=new Date(pr.startDate+'T00:00:00'),e=pr.endDate?new Date(pr.endDate+'T00:00:00'):new Date();let days=Math.max(0,Math.round((e-s)/86400000));duration.textContent=pr.endDate?`Projet terminé en ${days} jour${days>1?'s':''}`:`Projet en cours depuis ${days} jour${days>1?'s':''}`}
-function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';sizeLabel.value=p().sizeLabel||'';sizePosition.value=p().sizePosition||'4';highlightColor.value=p().highlightColor||'yellow';ruleOpacity.value=p().ruleOpacity||42;if(window.rule){rule.style.background=`rgba(255,235,59,${(p().ruleOpacity||42)/100})`;rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.textContent=p().ruleLocked?'Déverrouiller règle':'Verrouiller règle';updateDuration()}
+function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';sizeLabel.value=p().sizeLabel||'';sizePosition.value=p().sizePosition||'4';highlightColor.value=p().highlightColor||'yellow';ruleOpacity.value=p().ruleOpacity||42;if(window.rule){rule.style.background=`rgba(176,176,176,${(p().ruleOpacity||42)/100})`;rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.textContent=p().ruleLocked?'Déverrouiller règle':'Verrouiller règle';updateDuration()}
 function arrayBufferToBase64(buffer){let binary='', bytes=new Uint8Array(buffer), chunk=0x8000; for(let i=0;i<bytes.length;i+=chunk){binary+=String.fromCharCode.apply(null,bytes.subarray(i,i+chunk));} return btoa(binary)}
 function base64ToArrayBuffer(base64){let binary=atob(base64), len=binary.length, bytes=new Uint8Array(len); for(let i=0;i<len;i++)bytes[i]=binary.charCodeAt(i); return bytes.buffer}
 
@@ -145,7 +145,7 @@ async function attachAllPdfData(sourceData){
 async function diagnosticCurrentPdf(){
   const pr=p();
   const b64=(pr.pdfData||await getProjectPdf(pr.id)||'');
-  if(!b64){alert('Diagnostic : aucun PDF sauvegardé pour ce projet. Réimporte le PDF dans ce projet, puis utilise “Sauvegarder ce projet”.');return;}
+  if(!b64){alert('Diagnostic : aucun PDF sauvegardé pour ce projet. Réimporte le PDF dans ce projet, puis utilise “Sauvegarder ce projet” ou “Sauvegarder tous les projets”.');return;}
   let size=Math.round((b64.length*3/4)/1024);
   alert('Diagnostic OK : un PDF est associé à “'+pr.name+'”. Taille approximative : '+size+' Ko. Il sera inclus dans le fichier .stk exporté.');
 }
@@ -165,42 +165,129 @@ async function loadPdfFromFile(file){
 }
 async function renderPage(){if(!pdfDoc)return;let pr=p();pageNum=pr.page||1;scale=pr.scale||1.15;pdfwrap.innerHTML='<div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';window.rule=document.getElementById('rule');bindRule();let page=await pdfDoc.getPage(pageNum);let viewport=page.getViewport({scale});let canvas=document.createElement('canvas');canvas.className='pdfcanvas';canvas.width=viewport.width;canvas.height=viewport.height;pdfwrap.style.width=viewport.width+'px';pdfwrap.style.height=viewport.height+'px';pdfwrap.appendChild(canvas);await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;await renderTextLayer(page,viewport);pdfwrap.appendChild(rule);renderAll();pageInfo.textContent=`${pr.pdfName||'PDF'} — page ${pageNum} / ${pdfDoc.numPages}`}
 async function renderTextLayer(page,viewport){
-  let text=await page.getTextContent();
-  let layer=document.createElement('div');
+  const text=await page.getTextContent();
+  const layer=document.createElement('div');
   layer.className='textLayer';
   layer.style.width=viewport.width+'px';
   layer.style.height=viewport.height+'px';
-  let idx=Number(p().sizePosition||4)-1, color=p().highlightColor||'yellow';
-  text.items.forEach(item=>{
-    let str=item.str||'';
-    let tx=pdfjsLib.Util.transform(viewport.transform,item.transform);
-    let fontSize=Math.abs(tx[3])||12;
-    let base=document.createElement('span');
-    base.textContent=str;
-    base.style.left=tx[4]+'px';
-    base.style.top=(tx[5]-fontSize)+'px';
-    base.style.fontSize=fontSize+'px';
-    layer.appendChild(base);
 
-    // Surlignage V10 : on ne met en évidence que la valeur numérique correspondant
-    // à la position choisie dans ce bloc de texte, pas toute la ligne ni les chiffres suivants.
-    let matches=[...str.matchAll(/\d+(?:[\s.,]\d+)?/g)];
-    if(matches[idx]){
-      let m=matches[idx];
-      let totalW=(item.width?item.width*scale:fontSize*str.length*.55);
-      let charW=totalW/Math.max(str.length,1);
-      let hl=document.createElement('span');
-      hl.className='hl';
-      hl.textContent=m[0];
-      hl.style.left=(tx[4]+charW*m.index)+'px';
-      hl.style.top=(tx[5]-fontSize)+'px';
-      hl.style.fontSize=fontSize+'px';
-      hl.style.width=Math.max(charW*m[0].length,fontSize*.8)+'px';
-      hl.style.background=color;
-      layer.appendChild(hl);
+  const wantedIndex=Math.max(0,Number(p().sizePosition||1)-1);
+  const wantedLabel=(p().sizeLabel||'').trim().toLowerCase();
+  const color=p().highlightColor||'yellow';
+  const rows=[];
+
+  function tokenRegex(){return /[0-9]+(?:[.,][0-9]+)?\s*(?:xl|XL)?|[A-Za-zÀ-ÿ]+(?:[0-9]+)?/g;}
+  function normalizeToken(v){return String(v||'').toLowerCase().replace(/\s+/g,'').replace(',', '.');}
+  function addRowItem(item){
+    const str=item.str||'';
+    if(!str.trim())return;
+    const tx=pdfjsLib.Util.transform(viewport.transform,item.transform);
+    const fontSize=Math.abs(tx[3])||12;
+    const width=(item.width?item.width*scale:fontSize*str.length*.55);
+    const obj={str,x:tx[4],y:tx[5]-fontSize,fontSize,width,charW:width/Math.max(str.length,1)};
+    let row=rows.find(r=>Math.abs(r.y-obj.y)<Math.max(4,fontSize*.45));
+    if(!row){row={y:obj.y,fontSize,items:[]};rows.push(row)}
+    row.items.push(obj);
+  }
+  function drawBaseAndCollect(){
+    text.items.forEach(item=>{
+      const str=item.str||'';
+      if(!str)return;
+      const tx=pdfjsLib.Util.transform(viewport.transform,item.transform);
+      const fontSize=Math.abs(tx[3])||12;
+      const base=document.createElement('span');
+      base.textContent=str;
+      base.style.left=tx[4]+'px';
+      base.style.top=(tx[5]-fontSize)+'px';
+      base.style.fontSize=fontSize+'px';
+      layer.appendChild(base);
+      addRowItem(item);
+    });
+  }
+  function buildLine(row){
+    row.items.sort((a,b)=>a.x-b.x);
+    let full='', map=[];
+    row.items.forEach((it,idx)=>{
+      if(idx>0){
+        const prev=row.items[idx-1];
+        const gap=it.x-(prev.x+prev.width);
+        const spaces=Math.max(1,Math.min(6,Math.round(gap/Math.max(3,it.fontSize*.35))));
+        for(let s=0;s<spaces;s++){map.push({x:prev.x+prev.width+(gap*(s+1)/(spaces+1)),y:it.y,fontSize:it.fontSize,width:it.fontSize*.28,space:true});full+=' ';}
+      }
+      for(let i=0;i<it.str.length;i++){
+        map.push({x:it.x+it.charW*i,y:it.y,fontSize:it.fontSize,width:Math.max(it.charW,it.fontSize*.28)});
+        full+=it.str[i];
+      }
+    });
+    return {full,map};
+  }
+  function addHighlight(map,start,end){
+    if(start<0||end<=start||!map[start])return;
+    const chars=map.slice(start,end).filter(c=>!c.space);
+    if(!chars.length)return;
+    const left=Math.min(...chars.map(c=>c.x));
+    const right=Math.max(...chars.map(c=>c.x+c.width));
+    const top=Math.min(...chars.map(c=>c.y));
+    const fs=Math.max(...chars.map(c=>c.fontSize));
+    const hl=document.createElement('span');
+    hl.className='hl';
+    hl.textContent=' '.repeat(Math.max(1,end-start));
+    hl.style.left=left+'px';
+    hl.style.top=top+'px';
+    hl.style.fontSize=fs+'px';
+    hl.style.width=Math.max(right-left,fs*.8)+'px';
+    hl.style.height=(fs*1.08)+'px';
+    hl.style.background=color;
+    layer.appendChild(hl);
+  }
+  function tokenMatchesLabel(tok){
+    if(!wantedLabel)return false;
+    const t=normalizeToken(tok);
+    const w=normalizeToken(wantedLabel);
+    if(!w)return false;
+    return t===w;
+  }
+  function highlightLine(line,map){
+    const full=line;
+    const ranges=[];
+
+    // Mode principal V19 : repérer une série de tailles/valeurs sous la forme
+    // valeur (valeur, valeur, valeur) (valeur, valeur...), puis surligner uniquement
+    // la valeur à la position choisie. Exemple : XS (S, M, L, XL) (1XL, 2XL)
+    const parenRun=/\([^()]+\)(?:\s*\([^()]+\))*/g;
+    let run;
+    while((run=parenRun.exec(full))!==null){
+      const runStart=run.index;
+      const runEnd=run.index+run[0].length;
+      const before=full.slice(0,runStart);
+      const pre=[...before.matchAll(tokenRegex())].pop();
+      let tokens=[];
+      if(pre && runStart-(pre.index+pre[0].length)<=8){tokens.push({text:pre[0],start:pre.index,end:pre.index+pre[0].length});}
+      const inside=full.slice(runStart,runEnd);
+      for(const m of inside.matchAll(tokenRegex()))tokens.push({text:m[0],start:runStart+m.index,end:runStart+m.index+m[0].length});
+      const chosen=tokens[wantedIndex];
+      if(chosen)ranges.push(chosen);
     }
+
+    // Secours : si un libellé exact est entré (ex. L ou 4XL), on le souligne seulement
+    // comme mot complet, jamais comme simple lettre dans une phrase.
+    if(wantedLabel){
+      for(const m of full.matchAll(tokenRegex())){
+        if(tokenMatchesLabel(m[0]))ranges.push({text:m[0],start:m.index,end:m.index+m[0].length});
+      }
+    }
+
+    // Éviter les doublons superposés.
+    const seen=new Set();
+    ranges.forEach(r=>{const key=r.start+'-'+r.end; if(!seen.has(key)){seen.add(key); addHighlight(map,r.start,r.end);}});
+  }
+
+  drawBaseAndCollect();
+  rows.forEach(row=>{
+    const {full,map}=buildLine(row);
+    highlightLine(full,map);
   });
-  pdfwrap.appendChild(layer)
+  pdfwrap.appendChild(layer);
 }
 function showEmptyPdf(){pdfwrap.innerHTML='<div class="empty"><h2>Importe un patron PDF</h2><p>Une fois importé, le PDF est sauvegardé avec ce projet. Il sera aussi inclus dans les fichiers .stk exportés.</p><input type="file" id="pdfInput" accept="application/pdf,.pdf"></div><div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';let inp=document.getElementById('pdfInput');if(inp)inp.onchange=e=>loadPdfFromFile(e.target.files[0]);window.rule=document.getElementById('rule');bindRule();renderAll();pageInfo.textContent='Aucun PDF importé pour ce projet.'}
 function bindRule(){if(!window.rule)return;let dragging=false,dragArrow=false,offset=0;let arrow=document.getElementById('ruleArrow');rule.onpointerdown=e=>{if(e.target===arrow)return;dragging=true;offset=e.clientY-rule.offsetTop;rule.setPointerCapture(e.pointerId)};rule.onpointermove=e=>{if(!dragging)return;let y=e.clientY-pdfwrap.getBoundingClientRect().top-offset;y=Math.max(0,Math.min(pdfwrap.clientHeight-34,y));rule.style.top=y+'px';p().ruleTop=y;save()};rule.onpointerup=()=>dragging=false;if(arrow){arrow.onpointerdown=e=>{dragArrow=true;e.stopPropagation();arrow.setPointerCapture(e.pointerId)};arrow.onpointermove=e=>{if(!dragArrow)return;let r=rule.getBoundingClientRect();let pct=((e.clientX-r.left)/r.width)*100;pct=Math.max(0,Math.min(100,pct));arrow.style.left=pct+'%';p().ruleArrowLeft=pct;save()};arrow.onpointerup=()=>dragArrow=false}}
@@ -279,8 +366,14 @@ if(window.openBackup)openBackup.onclick=()=>backupInput.click();
 if(window.backupInput)backupInput.onchange=e=>importBackupFile(e.target.files[0]);
 pdfInput2.onchange=e=>loadPdfFromFile(e.target.files[0]);document.addEventListener('change',e=>{if(e.target.id==='pdfInput')loadPdfFromFile(e.target.files[0])});
 prevPage.onclick=()=>{if(pdfDoc&&p().page>1){p().page--;save();renderPage()}};nextPage.onclick=()=>{if(pdfDoc&&p().page<pdfDoc.numPages){p().page++;save();renderPage()}};zoomIn.onclick=()=>{p().scale=(p().scale||1.15)+.15;save();renderPage()};zoomOut.onclick=()=>{p().scale=Math.max(.45,(p().scale||1.15)-.15);save();renderPage()};fitWidth.onclick=()=>{if(!pdfDoc)return;p().scale=Math.max(.5,(viewer.clientWidth-40)/600);save();renderPage()};fitPage.onclick=()=>{if(!pdfDoc)return;p().scale=.9;save();renderPage()};
-toggleSide.onclick=()=>sidebar.classList.toggle('closed');toggleAccessories.onclick=()=>accessoriesDrawer.classList.toggle('closed');
-ruleOpacity.oninput=e=>{p().ruleOpacity=e.target.value;save();if(window.rule)rule.style.background=`rgba(255,235,59,${e.target.value/100})`};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
+toggleSide.onclick=()=>{
+  sidebar.classList.toggle('closed');
+  const hidden=sidebar.classList.contains('closed');
+  const lay=document.getElementById('layout');
+  if(lay) lay.classList.toggle('sidebarHidden',hidden);
+  toggleSide.textContent=hidden?'☰ Projets':'✕ Projets';
+};toggleAccessories.onclick=()=>accessoriesDrawer.classList.toggle('closed');
+ruleOpacity.oninput=e=>{p().ruleOpacity=e.target.value;save();if(window.rule)rule.style.background=`rgba(176,176,176,${e.target.value/100})`};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
 addCounter.onclick=()=>{p().counters.push({name:'Nouveau compteur',value:0});save();renderCounters()};notes.oninput=e=>{p().notes=e.target.value;save()};
 
 addCombo.onclick=()=>{let name=comboName.value.trim()||'Combinaison';p().combos.push({name,type:comboType.value,needle:comboNeedle.value,length:comboLength.value,cable:comboCable.value,note:comboNote.value.trim()});comboName.value='';comboNote.value='';save();renderCombos()};
