@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V21</title>
+<title>Suivi Tricot V22</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8b5a83">
 <style>
@@ -15,7 +15,7 @@
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">☰ Projets</button>
-<div class="title">🧶 Suivi Tricot V21</div>
+<div class="title">🧶 Suivi Tricot V22</div>
 <div class="spacer"></div>
 <button id="toggleAccessories" class="secondary">Accessoires</button>
 </header>
@@ -29,7 +29,7 @@
 <p class="hint">Choisis ici le patron actif. V17 sauvegarde un projet à la fois : chaque fichier .stk contient ce projet et son PDF.</p></div>
 <div class="card stickyCounter"><h2>🔢 Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
 <div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle couleur bouton (10% à 100%)<input type="range" id="ruleOpacity" min="10" max="100" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
-<div class="card"><h2>🖍️ Tailles à souligner</h2><p class="hint">La fonction automatique est retirée. Active le mode manuel, puis glisse ton doigt directement sur la taille à souligner dans le PDF. Le soulignement est rose fluorescent opaque à 40%.</p><div class="row"><button id="manualHighlightToggle" class="secondary">Activer soulignage manuel</button></div><div class="row"><button id="undoManualHighlight" class="secondary">Annuler dernier soulignement</button><button id="clearPageHighlights" class="danger">Effacer page</button></div><p id="manualHighlightStatus" class="hint">Mode manuel désactivé.</p></div>
+<div class="card"><h2>🖍️ Tailles à souligner</h2><div class="row"><button id="manualHighlightToggle" class="secondary">Activer soulignage manuel</button></div><div class="row"><button id="undoManualHighlight" class="secondary">Annuler dernier soulignement</button><button id="clearPageHighlights" class="danger">Effacer page</button></div><p class="hint">Active le mode manuel, puis glisse ton doigt directement sur la taille à souligner dans le PDF.</p><p id="manualHighlightStatus" class="hint">Désactivé.</p></div>
 <div class="card"><h2>📝 Notes</h2><textarea id="notes" placeholder="Notes du projet..."></textarea></div>
 </aside>
 <main class="viewer" id="viewer"><div class="pdfwrap" id="pdfwrap"><div class="empty"><h2>Importe un patron PDF</h2><p>Choisis un projet, importe son PDF, puis utilise la règle mobile pour suivre ton rang.</p><input type="file" id="pdfInput" accept="application/pdf,.pdf"></div><div id="rule" class="rule"></div></div></main>
@@ -163,6 +163,39 @@ async function loadPdfFromFile(file){
   save();
   renderPage();
 }
+
+function pageKey(){return String((p()&&p().page)||1)}
+function getPageHighlights(){let pr=p(); if(!pr.manualHighlights) pr.manualHighlights={}; const key=pageKey(); if(!Array.isArray(pr.manualHighlights[key])) pr.manualHighlights[key]=[]; return pr.manualHighlights[key];}
+function updateManualHighlightUI(){
+  const pr=p(); const active=!!(pr&&pr.manualHighlightMode);
+  if(window.manualHighlightToggle) manualHighlightToggle.textContent=active?'Désactiver soulignage manuel':'Activer soulignage manuel';
+  if(window.manualHighlightStatus) manualHighlightStatus.textContent=active?'Activé.':'Désactivé.';
+  const ov=document.getElementById('manualHlOverlay'); if(ov) ov.classList.toggle('active',active);
+}
+function ensureManualOverlay(){
+  let ov=document.getElementById('manualHlOverlay');
+  if(!ov){ov=document.createElement('div'); ov.id='manualHlOverlay'; ov.className='manualHlOverlay'; pdfwrap.appendChild(ov);}
+  ov.style.width=pdfwrap.clientWidth+'px'; ov.style.height=pdfwrap.clientHeight+'px';
+  ov.onpointerdown=null; ov.onpointermove=null; ov.onpointerup=null; ov.onpointercancel=null;
+  let drawing=false, sx=0, sy=0, preview=null;
+  const pos=(e)=>{const r=ov.getBoundingClientRect(); return {x:Math.max(0,Math.min(r.width,e.clientX-r.left)), y:Math.max(0,Math.min(r.height,e.clientY-r.top)), w:r.width, h:r.height};};
+  const drawPreview=(a,b)=>{ if(!preview){preview=document.createElement('div'); preview.className='manualPreview'; ov.appendChild(preview);} const left=Math.min(a.x,b.x), width=Math.max(6,Math.abs(b.x-a.x)); const y=Math.max(0,Math.min(a.h-10,((a.y+b.y)/2)-5)); preview.style.left=left+'px'; preview.style.top=y+'px'; preview.style.width=width+'px'; preview.style.height='10px'; };
+  ov.onpointerdown=(e)=>{ if(!p().manualHighlightMode) return; e.preventDefault(); e.stopPropagation(); drawing=true; const a=pos(e); sx=a.x; sy=a.y; ov.setPointerCapture(e.pointerId); drawPreview({x:sx,y:sy,w:a.w,h:a.h},a); };
+  ov.onpointermove=(e)=>{ if(!drawing) return; e.preventDefault(); const b=pos(e); drawPreview({x:sx,y:sy,w:b.w,h:b.h},b); };
+  ov.onpointerup=(e)=>{ if(!drawing) return; e.preventDefault(); const b=pos(e); drawing=false; const w=b.w||ov.clientWidth, h=b.h||ov.clientHeight; const left=Math.min(sx,b.x), width=Math.max(6,Math.abs(b.x-sx)); const y=Math.max(0,Math.min(h-10,((sy+b.y)/2)-5)); if(preview){preview.remove(); preview=null;} getPageHighlights().push({x:left/w,y:y/h,width:width/w,height:10/h}); save(); renderManualHighlights(); };
+  ov.onpointercancel=()=>{drawing=false; if(preview){preview.remove(); preview=null;}};
+  updateManualHighlightUI();
+}
+function renderManualHighlights(){
+  const ov=document.getElementById('manualHlOverlay'); if(!ov)return; ov.querySelectorAll('.manualHighlight,.manualPreview').forEach(n=>n.remove());
+  const w=ov.clientWidth||pdfwrap.clientWidth, h=ov.clientHeight||pdfwrap.clientHeight;
+  getPageHighlights().forEach(r=>{const d=document.createElement('div'); d.className='manualHighlight'; d.style.left=(r.x*w)+'px'; d.style.top=(r.y*h)+'px'; d.style.width=Math.max(6,r.width*w)+'px'; d.style.height=Math.max(6,r.height*h)+'px'; ov.appendChild(d);});
+  updateManualHighlightUI();
+}
+function toggleManualHighlight(){p().manualHighlightMode=!p().manualHighlightMode; save(); ensureManualOverlay(); updateManualHighlightUI();}
+function undoLastManualHighlight(){const arr=getPageHighlights(); if(arr.length){arr.pop(); save(); renderManualHighlights();}}
+function clearCurrentPageManualHighlights(){if(confirm('Effacer les soulignements de cette page?')){p().manualHighlights[pageKey()]=[]; save(); renderManualHighlights();}}
+
 async function renderPage(){if(!pdfDoc)return;let pr=p();pageNum=pr.page||1;scale=pr.scale||1.15;pdfwrap.innerHTML='<div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';window.rule=document.getElementById('rule');bindRule();let page=await pdfDoc.getPage(pageNum);let viewport=page.getViewport({scale});let canvas=document.createElement('canvas');canvas.className='pdfcanvas';canvas.width=viewport.width;canvas.height=viewport.height;pdfwrap.style.width=viewport.width+'px';pdfwrap.style.height=viewport.height+'px';pdfwrap.appendChild(canvas);await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;await renderTextLayer(page,viewport);ensureManualOverlay();renderManualHighlights();pdfwrap.appendChild(rule);renderAll();pageInfo.textContent=`${pr.pdfName||'PDF'} — page ${pageNum} / ${pdfDoc.numPages}`}
 async function renderTextLayer(page,viewport){
   const text=await page.getTextContent();
@@ -380,6 +413,9 @@ addCounter.onclick=()=>{p().counters.push({name:'Nouveau compteur',value:0});sav
 addCombo.onclick=()=>{let name=comboName.value.trim()||'Combinaison';p().combos.push({name,type:comboType.value,needle:comboNeedle.value,length:comboLength.value,cable:comboCable.value,note:comboNote.value.trim()});comboName.value='';comboNote.value='';save();renderCombos()};
 [startDate,endDate].forEach(el=>el.oninput=e=>{p()[el.id]=e.target.value;save();updateDuration();});
 if(window.resetArrow)resetArrow.onclick=()=>{p().ruleArrowLeft=50;save();renderAll()};
+if(window.manualHighlightToggle)manualHighlightToggle.onclick=toggleManualHighlight;
+if(window.undoManualHighlight)undoManualHighlight.onclick=undoLastManualHighlight;
+if(window.clearPageHighlights)clearPageHighlights.onclick=clearCurrentPageManualHighlights;
 loadProject();
 </script>
 </body></html>
