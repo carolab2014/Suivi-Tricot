@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V15</title>
+<title>Suivi Tricot V16</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8b5a83">
 <style>
@@ -15,7 +15,7 @@
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">☰ Projets</button>
-<div class="title">🧶 Suivi Tricot V15</div>
+<div class="title">🧶 Suivi Tricot V16</div>
 <div class="spacer"></div>
 <button id="toggleAccessories" class="secondary">Accessoires</button>
 </header>
@@ -25,8 +25,9 @@
 <div class="row"><button id="saveCurrentProject" class="secondary">💾 Sauvegarder ce projet</button></div>
 <div class="row"><button id="saveAllProjects" class="secondary">💾 Sauvegarder tous les projets</button></div>
 <div class="row"><button id="openBackup" class="secondary">📂 Ouvrir / restaurer</button></div>
+<div class="row"><button id="diagnosticPdf" class="secondary">🧪 Vérifier PDF du projet</button></div>
 <input type="file" id="backupInput" accept=".json,.stk,application/json" style="display:none">
-<p class="hint">Choisis ici le patron actif. V15 conserve le PDF dans le projet et dans les sauvegardes .stk pour le restaurer depuis Fichiers/iCloud.</p></div>
+<p class="hint">Choisis ici le patron actif. V16 inclut un diagnostic PDF : le patron est gardé dans le stockage de l’application et inclus dans les sauvegardes .stk.</p></div>
 <div class="card stickyCounter"><h2>🔢 Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
 <div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle<input type="range" id="ruleOpacity" min="15" max="80" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
 <div class="card"><h2>🎯 Taille à tricoter</h2><div class="row"><label>Taille<input id="sizeLabel" placeholder="Ex: L ou 4"></label><label>Position<select id="sizePosition"><option value="1">1re</option><option value="2">2e</option><option value="3">3e</option><option value="4">4e</option><option value="5">5e</option><option value="6">6e</option></select></label></div><label>Couleur<select id="highlightColor"><option value="yellow">Jaune</option><option value="lightgreen">Vert</option><option value="lightskyblue">Bleu</option><option value="pink">Rose</option><option value="orange">Orange</option></select></label></div>
@@ -46,7 +47,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V15', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V16', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -83,6 +84,73 @@ function updateDuration(){let pr=p();startDate.value=pr.startDate||'';endDate.va
 function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';sizeLabel.value=p().sizeLabel||'';sizePosition.value=p().sizePosition||'4';highlightColor.value=p().highlightColor||'yellow';ruleOpacity.value=p().ruleOpacity||42;if(window.rule){rule.style.background=`rgba(255,235,59,${(p().ruleOpacity||42)/100})`;rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.textContent=p().ruleLocked?'Déverrouiller règle':'Verrouiller règle';updateDuration()}
 function arrayBufferToBase64(buffer){let binary='', bytes=new Uint8Array(buffer), chunk=0x8000; for(let i=0;i<bytes.length;i+=chunk){binary+=String.fromCharCode.apply(null,bytes.subarray(i,i+chunk));} return btoa(binary)}
 function base64ToArrayBuffer(base64){let binary=atob(base64), len=binary.length, bytes=new Uint8Array(len); for(let i=0;i<len;i++)bytes[i]=binary.charCodeAt(i); return bytes.buffer}
+
+// V16 — stockage robuste des PDF par projet dans IndexedDB.
+// Important sur iPad : l’application Web ne peut pas relire automatiquement un fichier placé dans iCloud Drive.
+// Il faut choisir le fichier .stk avec “Ouvrir / restaurer”. Une fois restauré/importé, le PDF est copié ici.
+const PDF_DB='suivi_tricot_pdf_db_v16';
+const PDF_STORE='pdfs';
+function openPdfDB(){
+  return new Promise((resolve,reject)=>{
+    if(!('indexedDB' in window)){reject(new Error('IndexedDB non disponible'));return;}
+    const req=indexedDB.open(PDF_DB,1);
+    req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains(PDF_STORE))db.createObjectStore(PDF_STORE,{keyPath:'id'});};
+    req.onsuccess=()=>resolve(req.result);
+    req.onerror=()=>reject(req.error||new Error('Erreur IndexedDB'));
+  });
+}
+async function putProjectPdf(projectId, base64, name){
+  if(!projectId||!base64)return;
+  const db=await openPdfDB();
+  return new Promise((resolve,reject)=>{
+    const tx=db.transaction(PDF_STORE,'readwrite');
+    tx.objectStore(PDF_STORE).put({id:projectId,pdfData:base64,pdfName:name||'',updatedAt:new Date().toISOString()});
+    tx.oncomplete=()=>{db.close();resolve(true)};
+    tx.onerror=()=>{db.close();reject(tx.error||new Error('Erreur sauvegarde PDF'))};
+  });
+}
+async function getProjectPdf(projectId){
+  if(!projectId)return '';
+  try{
+    const db=await openPdfDB();
+    return await new Promise((resolve,reject)=>{
+      const tx=db.transaction(PDF_STORE,'readonly');
+      const req=tx.objectStore(PDF_STORE).get(projectId);
+      req.onsuccess=()=>resolve((req.result&&req.result.pdfData)||'');
+      req.onerror=()=>reject(req.error||new Error('Erreur lecture PDF'));
+      tx.oncomplete=()=>db.close();
+    });
+  }catch(e){console.warn(e);return '';}
+}
+async function deleteProjectPdf(projectId){
+  try{
+    const db=await openPdfDB();
+    return await new Promise((resolve,reject)=>{
+      const tx=db.transaction(PDF_STORE,'readwrite');
+      tx.objectStore(PDF_STORE).delete(projectId);
+      tx.oncomplete=()=>{db.close();resolve(true)};
+      tx.onerror=()=>{db.close();reject(tx.error||new Error('Erreur suppression PDF'))};
+    });
+  }catch(e){console.warn(e);}
+}
+async function attachPdfData(project){
+  const copy=JSON.parse(JSON.stringify(project));
+  copy.pdfData=copy.pdfData||await getProjectPdf(copy.id)||'';
+  return copy;
+}
+async function attachAllPdfData(sourceData){
+  const copy=JSON.parse(JSON.stringify(sourceData));
+  for(const pr of copy.projects){ pr.pdfData=pr.pdfData||await getProjectPdf(pr.id)||''; }
+  return copy;
+}
+async function diagnosticCurrentPdf(){
+  const pr=p();
+  const b64=(pr.pdfData||await getProjectPdf(pr.id)||'');
+  if(!b64){alert('Diagnostic : aucun PDF sauvegardé pour ce projet. Réimporte le PDF dans ce projet, puis utilise “Sauvegarder ce projet” ou “Sauvegarder tous les projets”.');return;}
+  let size=Math.round((b64.length*3/4)/1024);
+  alert('Diagnostic OK : un PDF est associé à “'+pr.name+'”. Taille approximative : '+size+' Ko. Il sera inclus dans le fichier .stk exporté.');
+}
+
 async function loadPdfFromFile(file){
   if(!file)return;
   pdfBytes=await file.arrayBuffer();
@@ -91,7 +159,7 @@ async function loadPdfFromFile(file){
   pr.pdfData='';
   pr.pdfName=file.name;
   pr.page=1;
-  try{await putProjectPdf(pr.id,b64);}catch(e){alert('Le PDF n’a pas pu être sauvegardé dans le stockage de l’iPad. Il restera visible pour l’instant, mais il faudra peut-être le réimporter plus tard.');}
+  try{await putProjectPdf(pr.id,b64,pr.pdfName);}catch(e){alert('Le PDF n’a pas pu être sauvegardé dans le stockage de l’iPad. Il restera visible pour l’instant, mais il faudra peut-être le réimporter plus tard.');}
   pdfDoc=await pdfjsLib.getDocument({data:pdfBytes.slice(0)}).promise;
   save();
   renderPage();
@@ -222,6 +290,7 @@ renameProject.onclick=()=>{let n=prompt('Nouveau nom :',p().name);if(n){p().name
 deleteProject.onclick=()=>{if(data.projects.length<2)return alert('Il faut garder au moins un projet.');if(confirm('Supprimer ce projet?')){let oldId=currentId;data.projects=data.projects.filter(x=>x.id!==currentId);currentId=data.projects[0].id;pdfDoc=null;deleteProjectPdf(oldId);save();loadProject()}}
 if(window.saveCurrentProject)saveCurrentProject.onclick=exportCurrentProject;
 if(window.saveAllProjects)saveAllProjects.onclick=exportAllProjects;
+if(window.diagnosticPdf)diagnosticPdf.onclick=diagnosticCurrentPdf;
 if(window.openBackup)openBackup.onclick=()=>backupInput.click();
 if(window.backupInput)backupInput.onchange=e=>importBackupFile(e.target.files[0]);
 pdfInput2.onchange=e=>loadPdfFromFile(e.target.files[0]);document.addEventListener('change',e=>{if(e.target.id==='pdfInput')loadPdfFromFile(e.target.files[0])});
