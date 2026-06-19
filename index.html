@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V16</title>
+<title>Suivi Tricot V17</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#8b5a83">
 <style>
@@ -15,7 +15,7 @@
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">☰ Projets</button>
-<div class="title">🧶 Suivi Tricot V16</div>
+<div class="title">🧶 Suivi Tricot V17</div>
 <div class="spacer"></div>
 <button id="toggleAccessories" class="secondary">Accessoires</button>
 </header>
@@ -23,11 +23,10 @@
 <aside id="sidebar" class="sidebar">
 <div class="card"><h2>📂 Projets / patrons</h2><label>Projet à travailler :<select id="projectSelect"></select></label><div class="row"><button id="newProject">+ Nouveau projet/patron</button></div><div class="row"><button id="renameProject" class="secondary">Renommer</button><button id="deleteProject" class="danger">Supprimer</button></div>
 <div class="row"><button id="saveCurrentProject" class="secondary">💾 Sauvegarder ce projet</button></div>
-<div class="row"><button id="saveAllProjects" class="secondary">💾 Sauvegarder tous les projets</button></div>
 <div class="row"><button id="openBackup" class="secondary">📂 Ouvrir / restaurer</button></div>
 <div class="row"><button id="diagnosticPdf" class="secondary">🧪 Vérifier PDF du projet</button></div>
 <input type="file" id="backupInput" accept=".json,.stk,application/json" style="display:none">
-<p class="hint">Choisis ici le patron actif. V16 inclut un diagnostic PDF : le patron est gardé dans le stockage de l’application et inclus dans les sauvegardes .stk.</p></div>
+<p class="hint">Choisis ici le patron actif. V17 sauvegarde un projet à la fois : chaque fichier .stk contient ce projet et son PDF.</p></div>
 <div class="card stickyCounter"><h2>🔢 Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
 <div class="card"><h2>📄 Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle<input type="range" id="ruleOpacity" min="15" max="80" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div><p class="hint">La règle se déplace de haut en bas. La flèche sur la règle se déplace de gauche à droite pour suivre une phrase.</p></div>
 <div class="card"><h2>🎯 Taille à tricoter</h2><div class="row"><label>Taille<input id="sizeLabel" placeholder="Ex: L ou 4"></label><label>Position<select id="sizePosition"><option value="1">1re</option><option value="2">2e</option><option value="3">3e</option><option value="4">4e</option><option value="5">5e</option><option value="6">6e</option></select></label></div><label>Couleur<select id="highlightColor"><option value="yellow">Jaune</option><option value="lightgreen">Vert</option><option value="lightskyblue">Bleu</option><option value="pink">Rose</option><option value="orange">Orange</option></select></label></div>
@@ -47,7 +46,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V16', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V17', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -73,7 +72,7 @@ function p(){return data.projects.find(x=>x.id===currentId)||data.projects[0]}
 function checkKey(prefix,val){return prefix+'|'+val}
 function allNeedles(){return needleSizesList.map(n=>n.split(' — ')[0])}
 function allCables(){return cableList}
-function renderProjects(){if(!window.projectSelect)return;projectSelect.innerHTML='';data.projects.forEach(pr=>{let opt=document.createElement('option');opt.value=pr.id;opt.textContent=pr.name;projectSelect.appendChild(opt)});projectSelect.value=currentId;projectSelect.onchange=e=>{currentId=e.target.value;save();loadProject()}}
+function renderProjects(){if(!window.projectSelect)return;projectSelect.innerHTML='';data.projects.forEach(pr=>{let opt=document.createElement('option');opt.value=pr.id;let hasPdf=!!(pr.pdfName||pr.pdfData);opt.textContent=(hasPdf?'📄 ':'⚠️ ')+pr.name+(hasPdf?' — PDF présent':' — aucun PDF');projectSelect.appendChild(opt)});projectSelect.value=currentId;projectSelect.onchange=e=>{currentId=e.target.value;save();loadProject()}}
 function renderCheckList(container,items,prefix){container.innerHTML='';items.forEach(label=>{let k=checkKey(prefix,label);let lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[k]?'checked':''}> <span>${label}</span>`;lab.querySelector('input').onchange=e=>{p().checks[k]=e.target.checked;save()};container.appendChild(lab)})}
 function renderComboSelectors(){comboNeedle.innerHTML=allNeedles().map(n=>`<option>${n}</option>`).join('');comboCable.innerHTML=allCables().map(c=>`<option>${c}</option>`).join('');comboType.innerHTML=needleTypesList.map(t=>`<option>${t}</option>`).join('');comboLength.innerHTML=needleLengthsList.map(l=>`<option>${l}</option>`).join('')}
 function renderCombos(){comboList.innerHTML='';(p().combos||[]).forEach((c,i)=>{let div=document.createElement('div');div.className='combo';div.innerHTML=`<div class="comboTitle">${escapeHtml(c.name||'Combinaison')}</div><div class="comboMeta">${escapeHtml(c.type||'')} • ${escapeHtml(c.needle)} • ${escapeHtml(c.length||'')} • câble ${escapeHtml(c.cable)}</div>${c.note?`<div class="comboMeta">${escapeHtml(c.note)}</div>`:''}<button class="danger small">Supprimer</button>`;div.querySelector('button').onclick=()=>{p().combos.splice(i,1);save();renderCombos()};comboList.appendChild(div)})}
@@ -146,7 +145,7 @@ async function attachAllPdfData(sourceData){
 async function diagnosticCurrentPdf(){
   const pr=p();
   const b64=(pr.pdfData||await getProjectPdf(pr.id)||'');
-  if(!b64){alert('Diagnostic : aucun PDF sauvegardé pour ce projet. Réimporte le PDF dans ce projet, puis utilise “Sauvegarder ce projet” ou “Sauvegarder tous les projets”.');return;}
+  if(!b64){alert('Diagnostic : aucun PDF sauvegardé pour ce projet. Réimporte le PDF dans ce projet, puis utilise “Sauvegarder ce projet”.');return;}
   let size=Math.round((b64.length*3/4)/1024);
   alert('Diagnostic OK : un PDF est associé à “'+pr.name+'”. Taille approximative : '+size+' Ko. Il sera inclus dans le fichier .stk exporté.');
 }
@@ -238,10 +237,6 @@ async function exportCurrentProject(){
   if(!pr.pdfData) alert('Attention : aucun PDF n’est associé à ce projet dans la sauvegarde.');
   downloadJson({app:'Suivi Tricot',version:VERSION,type:'project',exportedAt:new Date().toISOString(),project:pr}, safeFileName(pr.name)+'.stk');
 }
-async function exportAllProjects(){
-  const full=await attachAllPdfData(data);
-  downloadJson({app:'Suivi Tricot',version:VERSION,type:'backup',exportedAt:new Date().toISOString(),data:full}, 'SuiviTricot_Backup_'+todayStr()+'.stk');
-}
 function importBackupFile(file){
   if(!file)return;
   const reader=new FileReader();
@@ -254,29 +249,19 @@ function importBackupFile(file){
         imported.pdfData='';
         imported.id=uid();
         let base=imported.name||'Projet importé';
-        imported.name=base+' (importé)';
+        imported.name=base;
+        // Évite deux projets avec le même nom dans la liste.
+        if(data.projects.some(pr=>pr.name===imported.name)) imported.name=base+' (importé)';
         data.projects.push(imported);
         currentId=imported.id;
         if(incomingPdf) await putProjectPdf(imported.id,incomingPdf);
         save();
         alert('Projet restauré : '+imported.name+(incomingPdf?' avec son PDF.':' sans PDF.'));
         loadProject();
-      }else if(obj.type==='backup'&&obj.data&&Array.isArray(obj.data.projects)){
-        if(!confirm('Restaurer cette sauvegarde complète? Elle remplacera les projets actuellement dans l’application.'))return;
-        data.projects=obj.data.projects.map(normalizeProject);
-        for(const pr of data.projects){ if(pr.pdfData){ await putProjectPdf(pr.id,pr.pdfData); pr.pdfData=''; } }
-        currentId=obj.data.currentId&&data.projects.some(pr=>pr.id===obj.data.currentId)?obj.data.currentId:data.projects[0].id;
-        save();
-        alert('Sauvegarde complète restaurée avec les PDF inclus.');
-        loadProject();
-      }else if(Array.isArray(obj.projects)){
-        if(!confirm('Restaurer cette sauvegarde complète? Elle remplacera les projets actuellement dans l’application.'))return;
-        data.projects=obj.projects.map(normalizeProject);
-        for(const pr of data.projects){ if(pr.pdfData){ await putProjectPdf(pr.id,pr.pdfData); pr.pdfData=''; } }
-        currentId=obj.currentId&&data.projects.some(pr=>pr.id===obj.currentId)?obj.currentId:data.projects[0].id;
-        save();loadProject();
+      }else if(obj.type==='backup'||(obj.data&&Array.isArray(obj.data.projects))||Array.isArray(obj.projects)){
+        alert('V17 restaure seulement un projet à la fois. Ouvre plutôt le fichier .stk du projet voulu, par exemple Raglan Patrick.stk.');
       }else{
-        alert('Ce fichier ne semble pas être une sauvegarde Suivi Tricot valide.');
+        alert('Ce fichier ne semble pas être une sauvegarde de projet Suivi Tricot valide.');
       }
     }catch(e){console.error(e);alert('Impossible de lire la sauvegarde. Le fichier est peut-être invalide.');}
     backupInput.value='';
@@ -289,7 +274,6 @@ newProject.onclick=()=>{let name=prompt('Nom du nouveau projet/patron :','Nouvea
 renameProject.onclick=()=>{let n=prompt('Nouveau nom :',p().name);if(n){p().name=n;save();renderAll()}}
 deleteProject.onclick=()=>{if(data.projects.length<2)return alert('Il faut garder au moins un projet.');if(confirm('Supprimer ce projet?')){let oldId=currentId;data.projects=data.projects.filter(x=>x.id!==currentId);currentId=data.projects[0].id;pdfDoc=null;deleteProjectPdf(oldId);save();loadProject()}}
 if(window.saveCurrentProject)saveCurrentProject.onclick=exportCurrentProject;
-if(window.saveAllProjects)saveAllProjects.onclick=exportAllProjects;
 if(window.diagnosticPdf)diagnosticPdf.onclick=diagnosticCurrentPdf;
 if(window.openBackup)openBackup.onclick=()=>backupInput.click();
 if(window.backupInput)backupInput.onchange=e=>importBackupFile(e.target.files[0]);
