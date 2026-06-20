@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V30.2 Luxe monochrome</title>
+<title>Suivi Tricot V33 Luxe</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#B58A58">
 <style>:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
@@ -332,13 +332,58 @@ body.dark button:not(.secondary):not(.ghost):not(.danger) .sficon, body.dark but
 /* V30.2 - flèche de règle plus voyante */
 .ruleArrow{color:#0057B8!important;text-shadow:0 1px 2px rgba(255,255,255,.9)!important;}
 body.dark .ruleArrow{color:#7CCBFF!important;text-shadow:0 1px 2px rgba(0,0,0,.9)!important;}
+
+/* ===== V32 corrections ciblées ===== */
+.manualHighlight,.manualPreview{
+  background:rgba(181,138,88,.24)!important;
+  box-shadow:0 0 2px rgba(181,138,88,.30)!important;
+}
+.manualPreview{outline:1px dashed rgba(181,138,88,.60)!important;}
+.sf-yarn,.logoYarn{
+  mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%20%20%3Cpath%20fill%3D%22black%22%20d%3D%22M48.9%206.2%2053%2010.3%2039.7%2023.6c7.2%202.6%2012.4%209.5%2012.4%2017.6%200%2010.4-8.4%2018.8-18.8%2018.8s-18.8-8.4-18.8-18.8c0-8.1%205.1-15%2012.3-17.6L13.5%2010.3l4.1-4.1%2015.7%2015.7L48.9%206.2ZM33.3%2026.9c-7.9%200-14.3%206.4-14.3%2014.3S25.4%2055.5%2033.3%2055.5s14.3-6.4%2014.3-14.3-6.4-14.3-14.3-14.3Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22black%22%20d%3D%22M22.4%2037.4c1.8-4.2%205.9-7.1%2010.8-7.1%203%200%205.7%201.1%207.8%202.9l-3.1%203.1c-1.3-1-3-1.6-4.7-1.6-3.1%200-5.8%201.8-7.1%204.4l-3.7-1.7Zm-.8%204.8%203.9-1.5c.1%202%20.9%203.8%202.1%205.2l-3%203c-1.8-1.8-2.9-4.1-3-6.7Zm6%208.5%203.1-3.1c1.1.6%202.3.9%203.6.9%202.5%200%204.8-1.2%206.2-3.1l3.6%202.1c-2.2%203.2-5.8%205.3-9.9%205.3-2.4%200-4.7-.8-6.6-2.1Zm14.7-13.1%203.4-2.4c1.2%201.8%201.9%203.9%201.9%206.1%200%201.1-.2%202.1-.5%203.1l-3.9-1.3c.1-.6.2-1.2.2-1.8%200-1.4-.4-2.7-1.1-3.7Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22black%22%20d%3D%22M7.3%2055.2%2025.6%2036.9l3.1%203.1L10.4%2058.3l-3.1-3.1Zm32.6-15.2%203.1-3.1%2014.9%2014.9-3.1%203.1-14.9-14.9Z%22%2F%3E%0A%3C%2Fsvg%3E")!important;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%20%20%3Cpath%20fill%3D%22black%22%20d%3D%22M48.9%206.2%2053%2010.3%2039.7%2023.6c7.2%202.6%2012.4%209.5%2012.4%2017.6%200%2010.4-8.4%2018.8-18.8%2018.8s-18.8-8.4-18.8-18.8c0-8.1%205.1-15%2012.3-17.6L13.5%2010.3l4.1-4.1%2015.7%2015.7L48.9%206.2ZM33.3%2026.9c-7.9%200-14.3%206.4-14.3%2014.3S25.4%2055.5%2033.3%2055.5s14.3-6.4%2014.3-14.3-6.4-14.3-14.3-14.3Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22black%22%20d%3D%22M22.4%2037.4c1.8-4.2%205.9-7.1%2010.8-7.1%203%200%205.7%201.1%207.8%202.9l-3.1%203.1c-1.3-1-3-1.6-4.7-1.6-3.1%200-5.8%201.8-7.1%204.4l-3.7-1.7Zm-.8%204.8%203.9-1.5c.1%202%20.9%203.8%202.1%205.2l-3%203c-1.8-1.8-2.9-4.1-3-6.7Zm6%208.5%203.1-3.1c1.1.6%202.3.9%203.6.9%202.5%200%204.8-1.2%206.2-3.1l3.6%202.1c-2.2%203.2-5.8%205.3-9.9%205.3-2.4%200-4.7-.8-6.6-2.1Zm14.7-13.1%203.4-2.4c1.2%201.8%201.9%203.9%201.9%206.1%200%201.1-.2%202.1-.5%203.1l-3.9-1.3c.1-.6.2-1.2.2-1.8%200-1.4-.4-2.7-1.1-3.7Z%22%2F%3E%0A%20%20%3Cpath%20fill%3D%22black%22%20d%3D%22M7.3%2055.2%2025.6%2036.9l3.1%203.1L10.4%2058.3l-3.1-3.1Zm32.6-15.2%203.1-3.1%2014.9%2014.9-3.1%203.1-14.9-14.9Z%22%2F%3E%0A%3C%2Fsvg%3E")!important;
+  background:var(--iconLight)!important;
+  width:1.25em!important;
+  height:1.25em!important;
+  display:inline-block!important;
+  vertical-align:-0.18em!important;
+  background-repeat:no-repeat!important;
+  background-size:contain!important;
+  filter:none!important;
+}
+body.dark .sf-yarn,body.dark .logoYarn{background:var(--iconDark)!important;filter:none!important;}
+.logoYarn{display:inline-block!important;width:52px!important;height:40px!important;margin-right:8px!important;vertical-align:-8px!important;}
+
+
+/* ===== V33 icône Laine approuvée : pelote claire nette, sans aiguilles ===== */
+.sf-yarn,
+.logoYarn {
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20128%20128%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22ball%22%20cx%3D%2238%25%22%20cy%3D%2230%25%22%20r%3D%2272%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23FFF7E8%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.55%22%20stop-color%3D%22%23F0DEC0%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23C9B289%22%2F%3E%0A%20%20%20%20%3C%2FradialGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22strand%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23FFF9EB%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.45%22%20stop-color%3D%22%23E6D0AA%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23A98D5B%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%225%22%20stdDeviation%3D%224%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%3C%2Ffilter%3E%0A%20%20%20%20%3CclipPath%20id%3D%22clip%22%3E%3Ccircle%20cx%3D%2262%22%20cy%3D%2258%22%20r%3D%2242%22%2F%3E%3C%2FclipPath%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Cellipse%20cx%3D%2264%22%20cy%3D%22105%22%20rx%3D%2237%22%20ry%3D%2210%22%20fill%3D%22%23000%22%20opacity%3D%220.12%22%2F%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2262%22%20cy%3D%2258%22%20r%3D%2243%22%20fill%3D%22url%28%23ball%29%22%20stroke%3D%22%2328231C%22%20stroke-width%3D%223.2%22%2F%3E%0A%20%20%20%20%3Cg%20clip-path%3D%22url%28%23clip%29%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%2048%20C39%2018%2084%2018%20105%2047%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%2048%20C39%2018%2084%2018%20105%2047%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M16%2064%20C38%2038%2077%2033%20108%2061%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.2%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M16%2064%20C38%2038%2077%2033%20108%2061%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M23%2079%20C48%2054%2080%2051%20104%2079%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M23%2079%20C48%2054%2080%2051%20104%2079%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M36%2093%20C51%2072%2077%2065%2092%2093%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M36%2093%20C51%2072%2077%2065%2092%2093%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M35%2023%20C51%2039%2064%2059%2074%20100%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M35%2023%20C51%2039%2064%2059%2074%20100%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M58%2018%20C67%2040%2081%2062%2098%2087%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M58%2018%20C67%2040%2081%2062%2098%2087%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M88%2028%20C72%2043%2054%2063%2037%2091%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M88%2028%20C72%2043%2054%2063%2037%2091%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%2043%20C79%2053%2052%2070%2029%2096%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%2043%20C79%2053%2052%2070%2029%2096%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M92%2084%20C109%2083%20112%2095%20101%2099%20C92%20103%2084%2098%2091%2092%22%20fill%3D%22none%22%20stroke%3D%22%2328231C%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.9%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M92%2084%20C109%2083%20112%2095%20101%2099%20C92%20103%2084%2098%2091%2092%22%20fill%3D%22none%22%20stroke%3D%22%23E9D9BD%22%20stroke-width%3D%226.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2247%22%20cy%3D%2238%22%20r%3D%225%22%20fill%3D%22%23FFF8E8%22%20opacity%3D%220.58%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E") !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+  border: 0 !important;
+  filter: none !important;
+}
+body.dark .sf-yarn,
+body.dark .logoYarn {
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20128%20128%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3CradialGradient%20id%3D%22ball%22%20cx%3D%2238%25%22%20cy%3D%2230%25%22%20r%3D%2272%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23FFF7E8%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.55%22%20stop-color%3D%22%23F0DEC0%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23C9B289%22%2F%3E%0A%20%20%20%20%3C%2FradialGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22strand%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23FFF9EB%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220.45%22%20stop-color%3D%22%23E6D0AA%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23A98D5B%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%22shadow%22%20x%3D%22-25%25%22%20y%3D%22-25%25%22%20width%3D%22150%25%22%20height%3D%22150%25%22%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%220%22%20dy%3D%225%22%20stdDeviation%3D%224%22%20flood-color%3D%22%23000000%22%20flood-opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%3C%2Ffilter%3E%0A%20%20%20%20%3CclipPath%20id%3D%22clip%22%3E%3Ccircle%20cx%3D%2262%22%20cy%3D%2258%22%20r%3D%2242%22%2F%3E%3C%2FclipPath%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Cellipse%20cx%3D%2264%22%20cy%3D%22105%22%20rx%3D%2237%22%20ry%3D%2210%22%20fill%3D%22%23000%22%20opacity%3D%220.12%22%2F%3E%0A%20%20%3Cg%20filter%3D%22url%28%23shadow%29%22%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2262%22%20cy%3D%2258%22%20r%3D%2243%22%20fill%3D%22url%28%23ball%29%22%20stroke%3D%22%2328231C%22%20stroke-width%3D%223.2%22%2F%3E%0A%20%20%20%20%3Cg%20clip-path%3D%22url%28%23clip%29%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%2048%20C39%2018%2084%2018%20105%2047%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.22%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M20%2048%20C39%2018%2084%2018%20105%2047%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M16%2064%20C38%2038%2077%2033%20108%2061%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.2%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M16%2064%20C38%2038%2077%2033%20108%2061%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M23%2079%20C48%2054%2080%2051%20104%2079%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M23%2079%20C48%2054%2080%2051%20104%2079%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M36%2093%20C51%2072%2077%2065%2092%2093%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M36%2093%20C51%2072%2077%2065%2092%2093%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M35%2023%20C51%2039%2064%2059%2074%20100%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M35%2023%20C51%2039%2064%2059%2074%20100%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M58%2018%20C67%2040%2081%2062%2098%2087%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M58%2018%20C67%2040%2081%2062%2098%2087%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M88%2028%20C72%2043%2054%2063%2037%2091%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.18%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M88%2028%20C72%2043%2054%2063%2037%2091%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%2043%20C79%2053%2052%2070%2029%2096%22%20stroke%3D%22%236B5B42%22%20stroke-width%3D%2211%22%20opacity%3D%220.16%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M102%2043%20C79%2053%2052%2070%2029%2096%22%20stroke%3D%22url%28%23strand%29%22%20stroke-width%3D%227%22%2F%3E%0A%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3Cpath%20d%3D%22M92%2084%20C109%2083%20112%2095%20101%2099%20C92%20103%2084%2098%2091%2092%22%20fill%3D%22none%22%20stroke%3D%22%2328231C%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%20opacity%3D%220.9%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M92%2084%20C109%2083%20112%2095%20101%2099%20C92%20103%2084%2098%2091%2092%22%20fill%3D%22none%22%20stroke%3D%22%23E9D9BD%22%20stroke-width%3D%226.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%20%20%3Ccircle%20cx%3D%2247%22%20cy%3D%2238%22%20r%3D%225%22%20fill%3D%22%23FFF8E8%22%20opacity%3D%220.58%22%2F%3E%0A%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E") !important;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.25)) !important;
+}
+.sficon.sf-yarn { width: 1.45em !important; height: 1.45em !important; vertical-align: -0.32em !important; margin-right: .42em !important; }
+.logoYarn { width: 58px !important; height: 48px !important; vertical-align: -11px !important; }
+
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets</button>
-<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V30.2</div>
+<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V33</div>
 <div class="spacer"></div>
 <button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre"><span class="sficon sf-sun" aria-hidden="true"></span><span class="sficon sf-moon" aria-hidden="true"></span></button>
 <button id="toggleAccessories" class="secondary"><span class="sficon sf-gear" aria-hidden="true"></span>Accessoires</button>
@@ -368,7 +413,7 @@ body.dark .ruleArrow{color:#7CCBFF!important;text-shadow:0 1px 2px rgba(0,0,0,.9
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V30.2 Luxe monochrome', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V33 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -515,7 +560,7 @@ function ensureManualOverlay(){
   const drawPreview=(a,b)=>{ if(!preview){preview=document.createElement('div'); preview.className='manualPreview'; ov.appendChild(preview);} const left=Math.min(a.x,b.x), width=Math.max(6,Math.abs(b.x-a.x)); const y=Math.max(0,Math.min(a.h-10,((a.y+b.y)/2)-5)); preview.style.left=left+'px'; preview.style.top=y+'px'; preview.style.width=width+'px'; preview.style.height='10px'; };
   ov.onpointerdown=(e)=>{ if(!p().manualHighlightMode) return; e.preventDefault(); e.stopPropagation(); drawing=true; const a=pos(e); sx=a.x; sy=a.y; ov.setPointerCapture(e.pointerId); drawPreview({x:sx,y:sy,w:a.w,h:a.h},a); };
   ov.onpointermove=(e)=>{ if(!drawing) return; e.preventDefault(); const b=pos(e); drawPreview({x:sx,y:sy,w:b.w,h:b.h},b); };
-  ov.onpointerup=(e)=>{ if(!drawing) return; e.preventDefault(); const b=pos(e); drawing=false; const w=b.w||ov.clientWidth, h=b.h||ov.clientHeight; const left=Math.min(sx,b.x), width=Math.max(6,Math.abs(b.x-sx)); const y=Math.max(0,Math.min(h-10,((sy+b.y)/2)-5)); if(preview){preview.remove(); preview=null;} getPageHighlights().push({x:left/w,y:y/h,width:width/w,height:10/h}); save(); renderManualHighlights(); };
+  ov.onpointerup=(e)=>{ if(!drawing) return; e.preventDefault(); const b=pos(e); drawing=false; const w=b.w||ov.clientWidth, h=b.h||ov.clientHeight; const left=Math.min(sx,b.x), width=Math.max(6,Math.abs(b.x-sx)); const y=Math.max(0,Math.min(h-10,((sy+b.y)/2)-5)); if(preview){preview.remove(); preview=null;} getPageHighlights().push({x:left/w,y:y/h,width:width/w,height:10/h,createdAt:Date.now(),page:pageKey()}); save(); renderManualHighlights(); };
   ov.onpointercancel=()=>{drawing=false; if(preview){preview.remove(); preview=null;}};
   updateManualHighlightUI();
 }
@@ -526,7 +571,25 @@ function renderManualHighlights(){
   updateManualHighlightUI();
 }
 function toggleManualHighlight(){p().manualHighlightMode=!p().manualHighlightMode; save(); ensureManualOverlay(); updateManualHighlightUI();}
-function undoManualHighlight(){const arr=getPageHighlights(); if(arr.length){arr.pop(); save(); renderManualHighlights();}}
+function undoManualHighlight(){
+  const pr=p(); if(!pr.manualHighlights) return;
+  let bestKey=null,bestIndex=-1,bestTime=-1;
+  Object.keys(pr.manualHighlights).forEach(key=>{
+    const arr=Array.isArray(pr.manualHighlights[key])?pr.manualHighlights[key]:[];
+    arr.forEach((h,i)=>{
+      const t=Number(h.createdAt||0);
+      if(t>bestTime){bestTime=t;bestKey=key;bestIndex=i;}
+    });
+  });
+  // Compatibilité avec les anciens soulignements sans date : annule d'abord sur la page courante.
+  if(bestIndex<0){
+    const cur=getPageHighlights();
+    if(cur.length){cur.pop(); save(); renderManualHighlights();}
+    return;
+  }
+  pr.manualHighlights[bestKey].splice(bestIndex,1);
+  save(); renderManualHighlights();
+}
 function clearPageManualHighlights(){if(confirm('Effacer les soulignements de cette page?')){p().manualHighlights[pageKey()]=[]; save(); renderManualHighlights();}}
 
 async function renderPage(){if(!pdfDoc)return;let pr=p();pageNum=pr.page||1;scale=pr.scale||1.15;pdfwrap.innerHTML='<div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';window.rule=document.getElementById('rule');bindRule();let page=await pdfDoc.getPage(pageNum);let viewport=page.getViewport({scale});let canvas=document.createElement('canvas');canvas.className='pdfcanvas';canvas.width=viewport.width;canvas.height=viewport.height;pdfwrap.style.width=viewport.width+'px';pdfwrap.style.height=viewport.height+'px';pdfwrap.appendChild(canvas);await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;await renderTextLayer(page,viewport);ensureManualOverlay();renderManualHighlights();pdfwrap.appendChild(rule);renderAll();pageInfo.textContent=`${pr.pdfName||'PDF'} — page ${pageNum} / ${pdfDoc.numPages}`}
@@ -807,3 +870,5 @@ loadProject();
 })();
 </script>
 </body></html>
+
+<!-- V33: icône pelote de laine claire, nette et raffinée intégrée et testée. -->
