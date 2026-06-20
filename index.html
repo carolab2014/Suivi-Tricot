@@ -3,11 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V28 Finale Luxe Monochrome</title>
+<title>Suivi Tricot V30 Luxe monochrome</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#B58A58">
-<style>
-:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
+<style>:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);height:100vh;overflow:hidden}button,input,select,textarea{font:inherit}button{border:0;border-radius:14px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}button.secondary{background:#fff;color:var(--accent);border:1px solid var(--line)}button.ghost{background:transparent;color:var(--accent);box-shadow:none;border:1px dashed var(--line)}button.danger{background:var(--danger)}button.small{padding:7px 10px;border-radius:12px;font-size:14px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:78px;resize:bronzeical}.app{display:grid;grid-template-rows:auto 1fr;height:100vh}.topbar{display:flex;gap:10px;align-items:center;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);z-index:40}.title{font-size:22px;font-weight:900;white-space:nowrap;color:var(--accent)}.spacer{flex:1}.layout{display:grid;grid-template-columns:330px 1fr;min-height:0;transition:grid-template-columns .25s ease}.layout.sidebarHidden{grid-template-columns:0 1fr}.sidebar{background:#fff;border-right:1px solid var(--line);overflow:auto;padding:12px;transition:transform .25s ease,opacity .2s ease;min-width:0}.sidebar.closed{transform:translateX(-105%);opacity:0;pointer-events:none;padding-left:0;padding-right:0;border-right:0}.viewer{position:relative;min-width:0;min-height:0;overflow:auto;background:#d9d2dc;display:flex;align-items:flex-start;justify-content:center;padding:18px}.pdfwrap{position:relative;background:#fff;box-shadow:var(--shadow);min-height:70vh;min-width:min(760px,95%);display:flex;align-items:center;justify-content:center}.empty{padding:40px;text-align:center;color:var(--muted);line-height:1.5}.rule{position:absolute;left:0;right:0;height:34px;background:rgba(139,90,131,.42);border-top:2px solid rgba(139,90,131,.95);border-bottom:2px solid rgba(139,90,131,.95);border-radius:10px;top:120px;cursor:grab;touch-action:none;z-index:10}.rule.locked{pointer-events:none}.ruleArrow{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:26px;color:#ff1493;text-shadow:0 1px 2px #fff;cursor:ew-resize;touch-action:none;z-index:12}.ruleArrow::after{content:"▲"}.ruleLabel{position:absolute;right:8px;top:6px;font-size:12px;font-weight:800;color:#ff1493;background:rgba(255,255,255,.75);padding:2px 7px;border-radius:10px}.drawer{position:fixed;right:0;top:58px;bottom:0;width:380px;max-width:92vw;background:#fff;border-left:1px solid var(--line);overflow:auto;padding:12px;z-index:35;box-shadow:var(--shadow);transition:transform .25s ease}.drawer.closed{transform:translateX(102%)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.card h2,.card h3{margin:0 0 10px}.card h2{font-size:18px}.card h3{font-size:16px;color:var(--accent)}details{border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:8px 0;background:#fff}summary{font-weight:800;color:var(--accent);cursor:pointer}.check{display:flex;gap:8px;align-items:center;padding:5px 0;color:var(--ink);font-size:14px}.check input{width:auto}.row{display:flex;gap:8px;align-items:center;margin:8px 0}.row>*{flex:1}.hint{font-size:13px;color:var(--muted);line-height:1.35}.projectItem{display:flex;gap:6px;margin:6px 0}.projectItem button{flex:1;text-align:left}.projectItem .active{background:var(--accent2);color:var(--accent);border:1px solid var(--accent)}.counter{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}.stickyCounter{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--accent2)}.num{font-size:34px;font-weight:900;text-align:center;color:var(--accent)}.pdfcanvas{display:block;max-width:none}.textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;pointer-events:none}.textLayer span{position:absolute;white-space:pre;transform-origin:0 0;color:transparent}.hl{background:transparent;color:transparent;border-radius:3px;opacity:0;min-height:1em}.manualHlOverlay{position:absolute;inset:0;z-index:8;pointer-events:none}.manualHlOverlay.active{pointer-events:auto;cursor:crosshair;touch-action:none}.manualHighlight{position:absolute;height:10px;border-radius:8px;background:rgba(255,20,147,.40);box-shadow:0 0 2px rgba(255,20,147,.45)}.manualPreview{position:absolute;height:10px;border-radius:8px;background:rgba(255,20,147,.40);outline:1px dashed rgba(255,20,147,.8)}.dur{padding:10px;border-radius:12px;background:var(--accent2);color:var(--accent);font-weight:800;text-align:center}.combo{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;background:#fff}.comboTitle{font-weight:900;color:var(--accent)}.comboMeta{font-size:13px;color:var(--muted);margin-top:3px}.lightGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}.sectionIntro{font-size:13px;color:var(--muted);margin:4px 0 8px}@media(max-width:900px){.layout{grid-template-columns:1fr}.layout.sidebarHidden{grid-template-columns:1fr}.sidebar{position:absolute;top:58px;bottom:0;width:88vw;z-index:30;box-shadow:var(--shadow)}.sidebar.closed{margin-left:-90vw}.title{font-size:18px}.topbar{gap:6px}.topbar button{padding:8px 10px}.viewer{padding:8px}.pdfwrap{min-width:100%;}.drawer{top:54px}}
 
 /* ===== V27 LUXE : mêmes dispositions, nouvelles couleurs seulement ===== */
@@ -248,44 +247,124 @@ body.dark button.secondary,body.dark button.ghost{background:rgba(35,35,35,.92)!
 .manualHighlight,.manualPreview{background:rgba(181,138,88,.40)!important;box-shadow:0 0 2px rgba(181,138,88,.5)!important;}
 .counter .num{border-color:#9D9D9D!important;background:linear-gradient(180deg,#F7F7F7,#DADADA)!important;color:#111!important;} body.dark .counter .num{border-color:#5F5F5F!important;background:linear-gradient(180deg,#3A3A3A,#191919)!important;color:#F0E4CC!important;}
 
+
+
+/* ===== V29 : icônes style clavier Apple + règle corrigée ===== */
+.emojiIcon{display:inline-flex;align-items:center;justify-content:center;width:1.45em;filter:grayscale(1) brightness(.05) contrast(1.5);vertical-align:-.12em;margin-right:.15em}
+button .emojiIcon{filter:grayscale(1) brightness(.05) contrast(1.5)}
+body.dark .emojiIcon{filter:sepia(1) saturate(.55) hue-rotate(350deg) brightness(1.4) contrast(1.1)}
+button{letter-spacing:.01em}
+button.secondary{background:var(--card)!important;color:var(--ink)!important;border:1px solid var(--line)!important}
+button:not(.secondary):not(.danger):not(.ghost){background:var(--accent)!important;color:#fff!important}
+.viewer{background:#EFEDEA!important}
+body.dark .viewer{background:#111!important}
+.rule{background-color:rgba(197,154,90,.42)!important;border-top:2px solid rgba(141,107,63,.95)!important;border-bottom:2px solid rgba(141,107,63,.95)!important;opacity:1!important}
+.ruleArrow{color:#C59A5A!important;text-shadow:0 1px 2px rgba(255,255,255,.85)!important}
+body.dark .ruleArrow{text-shadow:0 1px 2px #000!important;color:#D2B06F!important}
+.ruleLabel{color:#1E1E1E!important;background:rgba(255,255,255,.78)!important}
+body.dark .ruleLabel{color:#F0E4CC!important;background:rgba(0,0,0,.45)!important}
+input[type="range"]{accent-color:var(--accent)}
+
+
+/* V29.1 — icônes Apple uniformisées */
+.emojiIcon{
+  display:inline-flex;align-items:center;justify-content:center;width:1.45em;
+  filter: grayscale(1) brightness(0) contrast(1.4) !important;
+  opacity:.98;vertical-align:-.12em;margin-right:.15em;
+}
+button .emojiIcon{filter:grayscale(1) brightness(0) contrast(1.4) !important;}
+body.dark .emojiIcon{filter: grayscale(1) sepia(1) saturate(.35) hue-rotate(355deg) brightness(1.45) contrast(1.05) !important;}
+/* Règle: opacité fonctionnelle de 10 % à 100 % par JS, sans opacité globale */
+.rule{opacity:1!important;}
+
+
+
+/* ===== V30 — TOUTES les icônes harmonisées ===== */
+:root{--iconLight:#1E1E1E;--iconDark:#F0E4CC;}
+/* Les emojis Apple gardent leur forme, mais sont convertis visuellement en monochrome. */
+.emojiIcon,.autoEmojiIcon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:1.45em;margin-right:.15em;vertical-align:-.12em;
+  filter: grayscale(1) brightness(0) contrast(1.7) !important;
+  opacity:1 !important;
+}
+body.dark .emojiIcon,body.dark .autoEmojiIcon{
+  filter: grayscale(1) sepia(1) saturate(.35) hue-rotate(355deg) brightness(1.55) contrast(1.05) !important;
+}
+/* SVG/icônes dessinées */
+.icon,svg,[class*="icon"]{color:var(--iconLight)!important;stroke:var(--iconLight)!important;}
+body.dark .icon,body.dark svg,body.dark [class*="icon"]{color:var(--iconDark)!important;stroke:var(--iconDark)!important;}
+/* Règle: le JS ajuste bien 10 à 100 %, sans opacité globale. */
+.rule{opacity:1!important;}
+
+
+
+/* ===== V30 : icônes vectorielles monochromes, sans emojis couleur ===== */
+:root{--iconLight:#1E1E1E;--iconDark:#F0E4CC;}
+.sficon{display:inline-block;width:1.13em;height:1.13em;margin-right:.38em;vertical-align:-.18em;background:var(--iconLight)!important;mask-size:contain;mask-position:center;mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:center;-webkit-mask-repeat:no-repeat;filter:none!important;flex:0 0 auto;}
+body.dark .sficon{background:var(--iconDark)!important;}
+button .sficon{background:var(--iconLight)!important;}
+body.dark button .sficon{background:var(--iconDark)!important;}
+button:not(.secondary):not(.ghost):not(.danger) .sficon, button.danger .sficon{background:#1E1E1E!important;}
+body.dark button:not(.secondary):not(.ghost):not(.danger) .sficon, body.dark button.danger .sficon{background:#F0E4CC!important;}
+.emojiIcon,.autoEmojiIcon{display:none!important;}
+.themeBtn .sficon{margin-right:.18em;margin-left:.18em;}
+.sf-lightbulb{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M9%2021h6v-2H9v2zm3-20C7.6%201%204%204.6%204%209c0%202.8%201.5%205.2%203.8%206.6.7.4%201.2%201.2%201.2%202.1V18h6v-.3c0-.9.5-1.7%201.2-2.1C18.5%2014.2%2020%2011.8%2020%209c0-4.4-3.6-8-8-8zm3.1%2012.9c-1.1.7-1.8%201.8-2%203.1h-2.2c-.2-1.3-.9-2.4-2-3.1C7.1%2012.8%206%2011%206%209c0-3.3%202.7-6%206-6s6%202.7%206%206c0%202-1.1%203.8-2.9%204.9z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M9%2021h6v-2H9v2zm3-20C7.6%201%204%204.6%204%209c0%202.8%201.5%205.2%203.8%206.6.7.4%201.2%201.2%201.2%202.1V18h6v-.3c0-.9.5-1.7%201.2-2.1C18.5%2014.2%2020%2011.8%2020%209c0-4.4-3.6-8-8-8zm3.1%2012.9c-1.1.7-1.8%201.8-2%203.1h-2.2c-.2-1.3-.9-2.4-2-3.1C7.1%2012.8%206%2011%206%209c0-3.3%202.7-6%206-6s6%202.7%206%206c0%202-1.1%203.8-2.9%204.9z%22/%3E%3C/svg%3E");}
+.sf-pen{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M3%2017.3V21h3.7L17.8%209.9l-3.7-3.7L3%2017.3zM20.7%207c.4-.4.4-1%200-1.4l-2.3-2.3c-.4-.4-1-.4-1.4%200l-1.8%201.8%203.7%203.7L20.7%207z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M3%2017.3V21h3.7L17.8%209.9l-3.7-3.7L3%2017.3zM20.7%207c.4-.4.4-1%200-1.4l-2.3-2.3c-.4-.4-1-.4-1.4%200l-1.8%201.8%203.7%203.7L20.7%207z%22/%3E%3C/svg%3E");}
+.sf-yarn{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M12%202a9%209%200%201%200%200%2018c4.1%200%207.6-2.7%208.7-6.5l2%202%201.3-1.5-3.9-3.9-.7.7C18.7%205.8%2015.6%202%2012%202zm0%202c1.9%200%203.7.9%205%202.3L6.4%2016.9A7%207%200%200%201%2012%204zM4.9%2014.7A7%207%200%200%201%2014.7%204.9l-2%202A4.3%204.3%200%200%200%206.9%2012.7l-2%202zm2.5%203.1L18.1%207.1A7%207%200%200%201%2019%2010c0%20.5-.1%201-.2%201.5l-6.8%206.8c-1.7%200-3.2-.1-4.6-.5zm7.8-.8%202.5-2.5c-.7%201.1-1.5%201.9-2.5%202.5z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M12%202a9%209%200%201%200%200%2018c4.1%200%207.6-2.7%208.7-6.5l2%202%201.3-1.5-3.9-3.9-.7.7C18.7%205.8%2015.6%202%2012%202zm0%202c1.9%200%203.7.9%205%202.3L6.4%2016.9A7%207%200%200%201%2012%204zM4.9%2014.7A7%207%200%200%201%2014.7%204.9l-2%202A4.3%204.3%200%200%200%206.9%2012.7l-2%202zm2.5%203.1L18.1%207.1A7%207%200%200%201%2019%2010c0%20.5-.1%201-.2%201.5l-6.8%206.8c-1.7%200-3.2-.1-4.6-.5zm7.8-.8%202.5-2.5c-.7%201.1-1.5%201.9-2.5%202.5z%22/%3E%3C/svg%3E");}
+.sf-save{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M17%203H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V7l-4-4zM12%2019a3%203%200%201%201%200-6%203%203%200%200%201%200%206zM6%205h9v5H6V5z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M17%203H5a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V7l-4-4zM12%2019a3%203%200%201%201%200-6%203%203%200%200%201%200%206zM6%205h9v5H6V5z%22/%3E%3C/svg%3E");}
+.sf-link{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M3.9%2012a5%205%200%200%201%205-5h4v2h-4a3%203%200%201%200%200%206h4v2h-4a5%205%200%200%201-5-5zm5.1%201h6v-2H9v2zm2-6h4a5%205%200%200%201%200%2010h-4v-2h4a3%203%200%201%200%200-6h-4V7z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M3.9%2012a5%205%200%200%201%205-5h4v2h-4a3%203%200%201%200%200%206h4v2h-4a5%205%200%200%201-5-5zm5.1%201h6v-2H9v2zm2-6h4a5%205%200%200%201%200%2010h-4v-2h4a3%203%200%201%200%200-6h-4V7z%22/%3E%3C/svg%3E");}
+.sf-folder{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M10%204l2%202h8a2%202%200%200%201%202%202v10a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2h6z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M10%204l2%202h8a2%202%200%200%201%202%202v10a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2h6z%22/%3E%3C/svg%3E");}
+.sf-calendar{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M7%202h2v2h6V2h2v2h3a2%202%200%200%201%202%202v14a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2h3V2zm13%208H4v10h16V10z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M7%202h2v2h6V2h2v2h3a2%202%200%200%201%202%202v14a2%202%200%200%201-2%202H4a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2h3V2zm13%208H4v10h16V10z%22/%3E%3C/svg%3E");}
+.sf-check{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M12%202a10%2010%200%201%200%200%2020%2010%2010%200%200%200%200-20zm-1.2%2014.2-4-4%201.4-1.4%202.6%202.6%205.6-5.6%201.4%201.4-7%207z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M12%202a10%2010%200%201%200%200%2020%2010%2010%200%200%200%200-20zm-1.2%2014.2-4-4%201.4-1.4%202.6%202.6%205.6-5.6%201.4%201.4-7%207z%22/%3E%3C/svg%3E");}
+.sf-counter{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M7%203h10a3%203%200%200%201%203%203v10a5%205%200%200%201-5%205H9a5%205%200%200%201-5-5V6a3%203%200%200%201%203-3zm0%202a1%201%200%200%200-1%201v10a3%203%200%200%200%203%203h6a3%203%200%200%200%203-3V6a1%201%200%200%200-1-1H7zm2%203h6v4H9V8zm-1%207h2v2H8v-2zm3%200h2v2h-2v-2zm3%200h2v2h-2v-2z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M7%203h10a3%203%200%200%201%203%203v10a5%205%200%200%201-5%205H9a5%205%200%200%201-5-5V6a3%203%200%200%201%203-3zm0%202a1%201%200%200%200-1%201v10a3%203%200%200%200%203%203h6a3%203%200%200%200%203-3V6a1%201%200%200%200-1-1H7zm2%203h6v4H9V8zm-1%207h2v2H8v-2zm3%200h2v2h-2v-2zm3%200h2v2h-2v-2z%22/%3E%3C/svg%3E");}
+.sf-doc{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M6%202h9l5%205v15H6a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2zm8%201.5V8h4.5L14%203.5zM7%2012h10v2H7v-2zm0%204h10v2H7v-2z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M6%202h9l5%205v15H6a2%202%200%200%201-2-2V4a2%202%200%200%201%202-2zm8%201.5V8h4.5L14%203.5zM7%2012h10v2H7v-2zm0%204h10v2H7v-2z%22/%3E%3C/svg%3E");}
+.sf-lock{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M17%209V7a5%205%200%200%200-10%200v2H5v13h14V9h-2zm-8%200V7a3%203%200%200%201%206%200v2H9z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M17%209V7a5%205%200%200%200-10%200v2H5v13h14V9h-2zm-8%200V7a3%203%200%200%201%206%200v2H9z%22/%3E%3C/svg%3E");}
+.sf-undo{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M7%207V3L1%209l6%206v-4h8a4%204%200%201%201%200%208H9v2h6a6%206%200%201%200%200-12H7z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M7%207V3L1%209l6%206v-4h8a4%204%200%201%201%200%208H9v2h6a6%206%200%201%200%200-12H7z%22/%3E%3C/svg%3E");}
+.sf-eraser{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M16.2%203.3%2021%208.1a2%202%200%200%201%200%202.8L11.9%2020H3v-3.9l10.4-12.8a2%202%200%200%201%202.8%200zM5%2018h6.1l2.4-2.4-4.8-4.8L5%2015.4V18z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M16.2%203.3%2021%208.1a2%202%200%200%201%200%202.8L11.9%2020H3v-3.9l10.4-12.8a2%202%200%200%201%202.8%200zM5%2018h6.1l2.4-2.4-4.8-4.8L5%2015.4V18z%22/%3E%3C/svg%3E");}
+.sf-scissors{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M9.6%207.6%2012%2010l8-8%201.4%201.4-8%208%208%208-1.4%201.4-8-8-2.4%202.4A4%204%200%201%201%208.2%2014L10.6%2012%208.2%209.6A4%204%200%201%201%209.6%207.6zM6%208a2%202%200%201%200%200-4%202%202%200%200%200%200%204zm0%2012a2%202%200%201%200%200-4%202%202%200%200%200%200%204z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M9.6%207.6%2012%2010l8-8%201.4%201.4-8%208%208%208-1.4%201.4-8-8-2.4%202.4A4%204%200%201%201%208.2%2014L10.6%2012%208.2%209.6A4%204%200%201%201%209.6%207.6zM6%208a2%202%200%201%200%200-4%202%202%200%200%200%200%204zm0%2012a2%202%200%201%200%200-4%202%202%200%200%200%200%204z%22/%3E%3C/svg%3E");}
+.sf-gear{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M19.4%2013.5c.1-.5.1-1%20.1-1.5s0-1-.1-1.5l2.1-1.6-2-3.5-2.5%201a7.9%207.9%200%200%200-2.6-1.5L14%202h-4l-.4%202.9A7.9%207.9%200%200%200%207%206.4l-2.5-1-2%203.5%202.1%201.6c-.1.5-.1%201-.1%201.5s0%201%20.1%201.5l-2.1%201.6%202%203.5%202.5-1a7.9%207.9%200%200%200%202.6%201.5L10%2022h4l.4-2.9a7.9%207.9%200%200%200%202.6-1.5l2.5%201%202-3.5-2.1-1.6zM12%2015.5A3.5%203.5%200%201%201%2012%208a3.5%203.5%200%200%201%200%207.5z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M19.4%2013.5c.1-.5.1-1%20.1-1.5s0-1-.1-1.5l2.1-1.6-2-3.5-2.5%201a7.9%207.9%200%200%200-2.6-1.5L14%202h-4l-.4%202.9A7.9%207.9%200%200%200%207%206.4l-2.5-1-2%203.5%202.1%201.6c-.1.5-.1%201-.1%201.5s0%201%20.1%201.5l-2.1%201.6%202%203.5%202.5-1a7.9%207.9%200%200%200%202.6%201.5L10%2022h4l.4-2.9a7.9%207.9%200%200%200%202.6-1.5l2.5%201%202-3.5-2.1-1.6zM12%2015.5A3.5%203.5%200%201%201%2012%208a3.5%203.5%200%200%201%200%207.5z%22/%3E%3C/svg%3E");}
+.sf-sun{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M6.8%204.2%205.4%202.8%204%204.2l1.4%201.4%201.4-1.4zM13%201h-2v3h2V1zm7%203.2-1.4-1.4-1.4%201.4%201.4%201.4L20%204.2zM12%206a6%206%200%201%200%200%2012%206%206%200%200%200%200-12zm0%2010a4%204%200%201%201%200-8%204%204%200%200%201%200%208zm11-5h-3v2h3v-2zM4%2011H1v2h3v-2zm16%208.8-1.4-1.4-1.4%201.4%201.4%201.4%201.4-1.4zM13%2020h-2v3h2v-3zM6.8%2019.8l-1.4-1.4L4%2019.8l1.4%201.4%201.4-1.4z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M6.8%204.2%205.4%202.8%204%204.2l1.4%201.4%201.4-1.4zM13%201h-2v3h2V1zm7%203.2-1.4-1.4-1.4%201.4%201.4%201.4L20%204.2zM12%206a6%206%200%201%200%200%2012%206%206%200%200%200%200-12zm0%2010a4%204%200%201%201%200-8%204%204%200%200%201%200%208zm11-5h-3v2h3v-2zM4%2011H1v2h3v-2zm16%208.8-1.4-1.4-1.4%201.4%201.4%201.4%201.4-1.4zM13%2020h-2v3h2v-3zM6.8%2019.8l-1.4-1.4L4%2019.8l1.4%201.4%201.4-1.4z%22/%3E%3C/svg%3E");}
+.sf-moon{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M21%2014.5A8%208%200%200%201%209.5%203a9%209%200%201%200%2011.5%2011.5z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M21%2014.5A8%208%200%200%201%209.5%203a9%209%200%201%200%2011.5%2011.5z%22/%3E%3C/svg%3E");}
+.sf-trash{mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M9%203h6l1%202h5v2H3V5h5l1-2zm-3%206h12l-1%2012H7L6%209z%22/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22black%22%20d%3D%22M9%203h6l1%202h5v2H3V5h5l1-2zm-3%206h12l-1%2012H7L6%209z%22/%3E%3C/svg%3E");}
+
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
-<button id="toggleSide" class="secondary">⌁ Projets</button>
-<div class="title"><span class="logoYarn" aria-hidden="true"></span> Suivi Tricot V28 Finale</div>
+<button id="toggleSide" class="secondary"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets</button>
+<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V30</div>
 <div class="spacer"></div>
-<button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre">Clair / Sombre</button>
-<button id="toggleAccessories" class="secondary"><span class="monoIcon" aria-hidden="true">⚙</span> Accessoires</button>
+<button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre"><span class="sficon sf-sun" aria-hidden="true"></span><span class="sficon sf-moon" aria-hidden="true"></span></button>
+<button id="toggleAccessories" class="secondary"><span class="sficon sf-gear" aria-hidden="true"></span>Accessoires</button>
 </header>
 <div id="layout" class="layout">
 <aside id="sidebar" class="sidebar">
-<div class="card"><h2>⌁ Projets / patrons</h2><label>Projet à travailler :<select id="projectSelect"></select></label><div class="row"><button id="newProject">+ Nouveau projet/patron</button></div><div class="row"><button id="renameProject" class="secondary">Renommer</button><button id="deleteProject" class="danger">Supprimer</button></div>
-<div class="row"><button id="saveCurrentProject" class="secondary">⇧ Sauvegarder ce projet</button></div>
-<div class="row"><button id="openBackup" class="secondary">□ Ouvrir / restaurer</button></div>
-<div class="row"><button id="diagnosticPdf" class="secondary">▣ Vérifier PDF</button></div>
+<div class="card"><h2><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets / patrons</h2><label>Projet à travailler :<select id="projectSelect"></select></label><div class="row"><button id="newProject"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Nouveau projet/patron</button></div><div class="row"><button id="renameProject" class="secondary"><span class="sficon sf-pen" aria-hidden="true"></span>Renommer</button><button id="deleteProject" class="danger"><span class="sficon sf-trash" aria-hidden="true"></span>Supprimer</button></div>
+<div class="row"><button id="saveCurrentProject" class="secondary"><span class="sficon sf-save" aria-hidden="true"></span>Sauvegarder ce projet</button></div>
+<div class="row"><button id="openBackup" class="secondary"><span class="sficon sf-folder" aria-hidden="true"></span>Ouvrir / restaurer</button></div>
+<div class="row"><button id="diagnosticPdf" class="secondary"><span class="sficon sf-check" aria-hidden="true"></span>Vérifier PDF</button></div>
 <input type="file" id="backupInput" accept=".json,.stk,application/json" style="display:none">
 </div>
-<div class="card stickyCounter"><h2>▣ Compteurs de rang</h2><div id="counters"></div><button id="addCounter">+ Ajouter un compteur</button></div>
-<div class="card"><h2>▤ Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle couleur bouton (10% à 100%)<input type="range" id="ruleOpacity" min="10" max="100" value="42"></label><div class="row"><button id="lockRule" class="secondary">Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">Centrer flèche</button></div></div>
-<div class="card"><h2>✎ Tailles à souligner</h2><div class="row"><button id="manualHighlightToggle" class="secondary">Activer soulignage manuel</button></div><div class="row"><button id="undoManualHighlight" class="secondary">Annuler dernier soulignement</button><button id="clearPageHighlights" class="danger">Effacer page</button></div><p id="manualHighlightStatus" class="hint">Désactivé.</p></div>
-<div class="card"><h2>☷ Notes</h2><textarea id="notes" placeholder="Notes du projet..."></textarea></div>
+<div class="card stickyCounter"><h2><span class="sficon sf-counter" aria-hidden="true"></span>Compteurs de rang</h2><div id="counters"></div><button id="addCounter"><span class="sficon sf-counter" aria-hidden="true"></span>Ajouter un compteur</button></div>
+<div class="card"><h2><span class="sficon sf-doc" aria-hidden="true"></span>Patron PDF</h2><input type="file" id="pdfInput2" accept="application/pdf,.pdf"><div class="row"><button id="prevPage" class="secondary">← Page</button><button id="nextPage" class="secondary">Page →</button></div><div class="row"><button id="zoomOut" class="secondary">− Zoom</button><button id="zoomIn" class="secondary">+ Zoom</button></div><div class="row"><button id="fitWidth" class="secondary">Largeur</button><button id="fitPage" class="secondary">Page entière</button></div><p id="pageInfo" class="hint">Aucun PDF importé.</p><label>Transparence règle couleur bouton (10% à 100%)<input type="range" id="ruleOpacity" min="10" max="100" value="42"></label><div class="row"><button id="lockRule" class="secondary"><span class="sficon sf-lock" aria-hidden="true"></span>Verrouiller règle</button></div><div class="row"><button id="resetArrow" class="secondary">▲ Centrer flèche</button></div></div>
+<div class="card"><h2><span class="sficon sf-pen" aria-hidden="true"></span>Tailles à souligner</h2><div class="row"><button id="manualHighlightToggle" class="secondary"><span class="sficon sf-pen" aria-hidden="true"></span>Souligner</button></div><div class="row"><button id="undoManualHighlight" class="secondary"><span class="sficon sf-undo" aria-hidden="true"></span>Annuler</button><button id="clearPageHighlights" class="danger"><span class="sficon sf-eraser" aria-hidden="true"></span>Effacer page</button></div><p id="manualHighlightStatus" class="hint">Désactivé.</p></div>
+<div class="card"><h2><span class="sficon sf-pen" aria-hidden="true"></span>Notes</h2><textarea id="notes" placeholder="Notes du projet..."></textarea></div>
 </aside>
 <main class="viewer" id="viewer"><div class="pdfwrap" id="pdfwrap"><div class="empty"><h2>Importe un patron PDF</h2></div><div id="rule" class="rule"></div></div></main>
 </div>
 <aside id="accessoriesDrawer" class="drawer">
-<div class="card"><h2>□ Projet</h2><label>Date de début :<input type="date" id="startDate"></label><br><br><label>Date de fin :<input type="date" id="endDate"></label><br><br><div id="duration" class="dur">Aucune date sélectionnée</div></div>
-<div class="card"><h2>◇ Combinaisons choisies</h2><p class="hint">Indique seulement les combinaisons réellement utilisées pour ce patron.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo">+ Ajouter la combinaison</button><div id="comboList"></div></div>
+<div class="card"><h2><span class="sficon sf-calendar" aria-hidden="true"></span>Projet</h2><label>Date de début :<input type="date" id="startDate"></label><br><br><label>Date de fin :<input type="date" id="endDate"></label><br><br><div id="duration" class="dur">Aucune date sélectionnée</div></div>
+<div class="card"><h2><span class="sficon sf-link" aria-hidden="true"></span>Combinaisons choisies</h2><p class="hint">Indique seulement les combinaisons réellement utilisées pour ce patron.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo"><span class="sficon sf-link" aria-hidden="true"></span>Ajouter la combinaison</button><div id="comboList"></div></div>
 <div style="display:none"><div id="needleTypesBox"></div><div id="needleSizesBox"></div><div id="needleLengthsBox"></div><div id="cables"></div></div>
-<div class="card"><h2><span class="monoIcon">✂</span> Outils</h2><div id="tools"></div></div>
-<div class="card"><h2><span class="yarnMini" aria-hidden="true"></span> Laine</h2><div id="yarnFieldsBox"></div></div>
+<div class="card"><h2><span class="sficon sf-scissors" aria-hidden="true"></span>Outils</h2><div id="tools"></div></div>
+<div class="card"><h2><span class="sficon sf-yarn" aria-hidden="true"></span>Laine</h2><div id="yarnFieldsBox"></div></div>
 </aside>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script>
-pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V28 Finale Luxe Monochrome', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+<script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+const VERSION='Suivi Tricot V30 Luxe monochrome', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -317,9 +396,20 @@ function renderComboSelectors(){comboNeedle.innerHTML=allNeedles().map(n=>`<opti
 function renderCombos(){comboList.innerHTML='';(p().combos||[]).forEach((c,i)=>{let div=document.createElement('div');div.className='combo';div.innerHTML=`<div class="comboTitle">${escapeHtml(c.name||'Combinaison')}</div><div class="comboMeta">${escapeHtml(c.type||'')} • ${escapeHtml(c.needle)} • ${escapeHtml(c.length||'')} • câble ${escapeHtml(c.cable)}</div>${c.note?`<div class="comboMeta">${escapeHtml(c.note)}</div>`:''}<button class="danger small">Supprimer</button>`;div.querySelector('button').onclick=()=>{p().combos.splice(i,1);save();renderCombos()};comboList.appendChild(div)})}
 function renderTools(){tools.innerHTML='';baseTools.forEach(it=>{let k=checkKey('tool',it), lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[k]?'checked':''}> <span>${it}${it==='Marqueurs de mailles'?', Nombre :':it==='Autre'?' :':''}</span>`;lab.querySelector('input').onchange=e=>{p().checks[k]=e.target.checked;save()};tools.appendChild(lab);if(it==='Marqueurs de mailles'||it==='Autre'){let inp=document.createElement('input');inp.placeholder=it==='Marqueurs de mailles'?'Nombre':'Préciser';inp.value=(p().toolNotes&&p().toolNotes[it])||'';inp.oninput=e=>{p().toolNotes=p().toolNotes||{};p().toolNotes[it]=e.target.value;save()};tools.appendChild(inp)}})}
 function renderYarn(){yarnFieldsBox.innerHTML='';['Marque','Nom','Couleur'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))});let title=document.createElement('div');title.innerHTML='<strong>Épaisseur :</strong>';yarnFieldsBox.appendChild(title);yarnWeights.forEach(f=>{let lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[checkKey('yarnWeight',f)]?'checked':''}> <span>${f}</span>`;lab.querySelector('input').onchange=e=>{p().checks[checkKey('yarnWeight',f)]=e.target.checked;save()};yarnFieldsBox.appendChild(lab)});['Fibre','Le poids et métrage','Le nombre d’écheveaux/pelotes','Prix total','L’échantillon requis'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))})}
-function renderCounters(){counters.innerHTML='';p().counters.forEach((c,i)=>{let div=document.createElement('div');div.className='counter';div.innerHTML=`<input value="${escapeAttr(c.name)}"><div class="num">${c.value}</div><div class="row"><button class="secondary minus">−</button><button class="plus">+</button><button class="danger small del">Supprimer</button></div>`;div.querySelector('input').oninput=e=>{c.name=e.target.value;save()};div.querySelector('.minus').onclick=()=>{c.value=Math.max(0,c.value-1);save();renderCounters()};div.querySelector('.plus').onclick=()=>{c.value++;save();renderCounters()};div.querySelector('.del').onclick=()=>{p().counters.splice(i,1);save();renderCounters()};counters.appendChild(div)})}
+function renderCounters(){counters.innerHTML='';p().counters.forEach((c,i)=>{let div=document.createElement('div');div.className='counter';div.innerHTML=`<input value="${escapeAttr(c.name)}"><div class="num">${c.value}</div><div class="row"><button class="secondary minus">−</button><button class="plus">+</button><button class="danger small del"><span class="sficon sf-trash" aria-hidden="true"></span>Supprimer</button></div>`;div.querySelector('input').oninput=e=>{c.name=e.target.value;save()};div.querySelector('.minus').onclick=()=>{c.value=Math.max(0,c.value-1);save();renderCounters()};div.querySelector('.plus').onclick=()=>{c.value++;save();renderCounters()};div.querySelector('.del').onclick=()=>{p().counters.splice(i,1);save();renderCounters()};counters.appendChild(div)})}
 function updateDuration(){let pr=p();startDate.value=pr.startDate||'';endDate.value=pr.endDate||'';if(!pr.startDate){duration.textContent='Aucune date sélectionnée';return}let s=new Date(pr.startDate+'T00:00:00'),e=pr.endDate?new Date(pr.endDate+'T00:00:00'):new Date();let days=Math.max(0,Math.round((e-s)/86400000));duration.textContent=pr.endDate?`Projet terminé en ${days} jour${days>1?'s':''}`:`Projet en cours depuis ${days} jour${days>1?'s':''}`}
-function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';ruleOpacity.value=p().ruleOpacity||42;if(window.rule){rule.style.background=`rgba(181,138,88,${(p().ruleOpacity||42)/100})`; rule.style.borderTop='2px solid rgba(141,107,63,.95)'; rule.style.borderBottom='2px solid rgba(141,107,63,.95)';renderManualHighlights();updateManualHighlightUI();rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.textContent=p().ruleLocked?'Déverrouiller règle':'Verrouiller règle';updateDuration()}
+function applyRuleStyle(){
+  const val=Math.max(10,Math.min(100,parseInt(p().ruleOpacity||42,10)||42));
+  if(ruleOpacity) ruleOpacity.value=val;
+  if(window.rule){
+    const a=val/100;
+    window.rule.style.setProperty('background-color',`rgba(197,154,90,${a})`,'important');
+    window.rule.style.setProperty('border-top',`2px solid rgba(141,107,63,${Math.max(.35,a)})`,'important');
+    window.rule.style.setProperty('border-bottom',`2px solid rgba(141,107,63,${Math.max(.35,a)})`,'important');
+    window.rule.style.opacity='1';
+  }
+}
+function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';applyRuleStyle();if(window.rule){renderManualHighlights();updateManualHighlightUI();rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.innerHTML=p().ruleLocked?'Déverrouiller règle':'<span class="sficon sf-lock" aria-hidden="true"></span>Verrouiller règle';updateDuration()}
 function arrayBufferToBase64(buffer){let binary='', bytes=new Uint8Array(buffer), chunk=0x8000; for(let i=0;i<bytes.length;i+=chunk){binary+=String.fromCharCode.apply(null,bytes.subarray(i,i+chunk));} return btoa(binary)}
 function base64ToArrayBuffer(base64){let binary=atob(base64), len=binary.length, bytes=new Uint8Array(len); for(let i=0;i<len;i++)bytes[i]=binary.charCodeAt(i); return bytes.buffer}
 
@@ -407,7 +497,7 @@ function pageKey(){return String((p()&&p().page)||1)}
 function getPageHighlights(){let pr=p(); if(!pr.manualHighlights) pr.manualHighlights={}; const key=pageKey(); if(!Array.isArray(pr.manualHighlights[key])) pr.manualHighlights[key]=[]; return pr.manualHighlights[key];}
 function updateManualHighlightUI(){
   const pr=p(); const active=!!(pr&&pr.manualHighlightMode);
-  if(window.manualHighlightToggle) manualHighlightToggle.textContent=active?'Désactiver soulignage manuel':'Activer soulignage manuel';
+  if(window.manualHighlightToggle) manualHighlightToggle.innerHTML=active?'Désactiver':'<span class="sficon sf-pen" aria-hidden="true"></span>Souligner';
   if(window.manualHighlightStatus) manualHighlightStatus.textContent=active?'Activé.':'Désactivé.';
   const ov=document.getElementById('manualHlOverlay'); if(ov) ov.classList.toggle('active',active);
 }
@@ -632,7 +722,7 @@ function importBackupFile(file){
 function escapeHtml(s){return String(s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}function escapeAttr(s){return escapeHtml(s).replaceAll('"','&quot;')}
 newProject.onclick=()=>{let name=prompt('Nom du nouveau projet/patron :','Nouveau patron');if(!name)return;let pr=defaultProject(name);data.projects.push(pr);currentId=pr.id;save();pdfDoc=null;showEmptyPdf();renderAll()}
 renameProject.onclick=()=>{let n=prompt('Nouveau nom :',p().name);if(n){p().name=n;save();renderAll()}}
-deleteProject.onclick=()=>{if(data.projects.length<2)return alert('Il faut garder au moins un projet.');if(confirm('Supprimer ce projet?')){let oldId=currentId;data.projects=data.projects.filter(x=>x.id!==currentId);currentId=data.projects[0].id;pdfDoc=null;deleteProjectPdf(oldId);save();loadProject()}}
+deleteProject.onclick=()=>{if(data.projects.length<2)return alert('Il faut garder au moins un projet.');if(confirm(' Supprimer ce projet?')){let oldId=currentId;data.projects=data.projects.filter(x=>x.id!==currentId);currentId=data.projects[0].id;pdfDoc=null;deleteProjectPdf(oldId);save();loadProject()}}
 if(window.saveCurrentProject)saveCurrentProject.onclick=exportCurrentProject;
 if(window.diagnosticPdf)diagnosticPdf.onclick=diagnosticCurrentPdf;
 if(window.openBackup)openBackup.onclick=()=>backupInput.click();
@@ -644,9 +734,9 @@ toggleSide.onclick=()=>{
   const hidden=sidebar.classList.contains('closed');
   const lay=document.getElementById('layout');
   if(lay) lay.classList.toggle('sidebarHidden',hidden);
-  toggleSide.textContent=hidden?'⌁ Projets':'✕ Projets';
+  toggleSide.innerHTML='<span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets';
 };toggleAccessories.onclick=()=>accessoriesDrawer.classList.toggle('closed');
-ruleOpacity.oninput=e=>{p().ruleOpacity=e.target.value;save();if(window.rule)rule.style.background=`rgba(181,138,88,${e.target.value/100})`};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
+ruleOpacity.oninput=e=>{p().ruleOpacity=Math.max(10,Math.min(100,parseInt(e.target.value,10)||42));save();applyRuleStyle();};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
 addCounter.onclick=()=>{p().counters.push({name:'Nouveau compteur',value:0});save();renderCounters()};notes.oninput=e=>{p().notes=e.target.value;save()};
 
 addCombo.onclick=()=>{let name=comboName.value.trim()||'Combinaison';p().combos.push({name,type:comboType.value,needle:comboNeedle.value,length:comboLength.value,cable:comboCable.value,note:comboNote.value.trim()});comboName.value='';comboNote.value='';save();renderCombos()};
@@ -657,15 +747,58 @@ if(window.undoManualHighlight)undoManualHighlight.onclick=undoManualHighlight;
 if(window.clearPageHighlights)clearPageHighlights.onclick=clearPageManualHighlights;
 loadProject();
 </script>
-
-<script>
-(function(){
+<script>(function(){
   const k='suivi-tricot-v24-theme';
   function apply(t){document.body.classList.toggle('dark',t==='dark'); const b=document.getElementById('themeToggle'); if(b) b.textContent=t==='dark'?'Clair':'Sombre';}
   window.addEventListener('DOMContentLoaded',()=>{
     const saved=localStorage.getItem(k)||'light'; apply(saved);
     const b=document.getElementById('themeToggle');
     if(b)b.addEventListener('click',()=>{const next=document.body.classList.contains('dark')?'light':'dark';localStorage.setItem(k,next);apply(next);});
+  });
+})();
+</script>
+<script>(function(){
+  const emojiRE=/([\u2600-\u27BF]|[\uD83C-\uDBFF][\uDC00-\uDFFF])(?:\uFE0F|[\uD83C][\uDFFB-\uDFFF])?/g;
+  function shouldSkip(node){
+    const p=node.parentElement;
+    if(!p) return true;
+    return p.closest('script,style,textarea,input,select,.emojiIcon,.autoEmojiIcon,.textLayer,.pdfcanvas');
+  }
+  function wrapTextNode(node){
+    const text=node.nodeValue;
+    if(!emojiRE.test(text)) return;
+    emojiRE.lastIndex=0;
+    const frag=document.createDocumentFragment();
+    let last=0,m;
+    while((m=emojiRE.exec(text))){
+      if(m.index>last) frag.appendChild(document.createTextNode(text.slice(last,m.index)));
+      const sp=document.createElement('span');
+      sp.className='autoEmojiIcon';
+      sp.setAttribute('aria-hidden','true');
+      sp.textContent=m[0];
+      frag.appendChild(sp);
+      last=m.index+m[0].length;
+    }
+    if(last<text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+    node.parentNode.replaceChild(frag,node);
+  }
+  function harmonizeIcons(root=document.body){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){return shouldSkip(n)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;}});
+    const nodes=[]; let n;
+    while(n=walker.nextNode()) nodes.push(n);
+    nodes.forEach(wrapTextNode);
+  }
+  document.addEventListener('DOMContentLoaded',()=>{
+    harmonizeIcons();
+    const obs=new MutationObserver(muts=>{
+      for(const mut of muts){
+        mut.addedNodes.forEach(node=>{
+          if(node.nodeType===Node.TEXT_NODE && !shouldSkip(node)) wrapTextNode(node);
+          else if(node.nodeType===Node.ELEMENT_NODE && !node.matches('script,style,textarea,input,select,.textLayer')) harmonizeIcons(node);
+        });
+      }
+    });
+    obs.observe(document.body,{childList:true,subtree:true});
   });
 })();
 </script>
