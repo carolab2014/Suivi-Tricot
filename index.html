@@ -3,30 +3,30 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V24 Botanique</title>
+<title>Suivi Tricot V25 Botanique</title>
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#8b5a83">
+<meta name="theme-color" content="#7C9473">
 <style>
 :root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#347a50;--shadow:0 8px 24px rgba(66,38,68,.14)}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);height:100vh;overflow:hidden}button,input,select,textarea{font:inherit}button{border:0;border-radius:14px;padding:10px 14px;background:var(--accent);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.08)}button.secondary{background:#fff;color:var(--accent);border:1px solid var(--line)}button.ghost{background:transparent;color:var(--accent);box-shadow:none;border:1px dashed var(--line)}button.danger{background:var(--danger)}button.small{padding:7px 10px;border-radius:12px;font-size:14px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:78px;resize:vertical}.app{display:grid;grid-template-rows:auto 1fr;height:100vh}.topbar{display:flex;gap:10px;align-items:center;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);z-index:40}.title{font-size:22px;font-weight:900;white-space:nowrap;color:var(--accent)}.spacer{flex:1}.layout{display:grid;grid-template-columns:330px 1fr;min-height:0;transition:grid-template-columns .25s ease}.layout.sidebarHidden{grid-template-columns:0 1fr}.sidebar{background:#fff;border-right:1px solid var(--line);overflow:auto;padding:12px;transition:transform .25s ease,opacity .2s ease;min-width:0}.sidebar.closed{transform:translateX(-105%);opacity:0;pointer-events:none;padding-left:0;padding-right:0;border-right:0}.viewer{position:relative;min-width:0;min-height:0;overflow:auto;background:#d9d2dc;display:flex;align-items:flex-start;justify-content:center;padding:18px}.pdfwrap{position:relative;background:#fff;box-shadow:var(--shadow);min-height:70vh;min-width:min(760px,95%);display:flex;align-items:center;justify-content:center}.empty{padding:40px;text-align:center;color:var(--muted);line-height:1.5}.rule{position:absolute;left:0;right:0;height:34px;background:rgba(139,90,131,.42);border-top:2px solid rgba(139,90,131,.95);border-bottom:2px solid rgba(139,90,131,.95);border-radius:10px;top:120px;cursor:grab;touch-action:none;z-index:10}.rule.locked{pointer-events:none}.ruleArrow{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:26px;color:#ff1493;text-shadow:0 1px 2px #fff;cursor:ew-resize;touch-action:none;z-index:12}.ruleArrow::after{content:"▲"}.ruleLabel{position:absolute;right:8px;top:6px;font-size:12px;font-weight:800;color:#ff1493;background:rgba(255,255,255,.75);padding:2px 7px;border-radius:10px}.drawer{position:fixed;right:0;top:58px;bottom:0;width:380px;max-width:92vw;background:#fff;border-left:1px solid var(--line);overflow:auto;padding:12px;z-index:35;box-shadow:var(--shadow);transition:transform .25s ease}.drawer.closed{transform:translateX(102%)}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:12px;box-shadow:0 2px 10px rgba(0,0,0,.04)}.card h2,.card h3{margin:0 0 10px}.card h2{font-size:18px}.card h3{font-size:16px;color:var(--accent)}details{border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:8px 0;background:#fff}summary{font-weight:800;color:var(--accent);cursor:pointer}.check{display:flex;gap:8px;align-items:center;padding:5px 0;color:var(--ink);font-size:14px}.check input{width:auto}.row{display:flex;gap:8px;align-items:center;margin:8px 0}.row>*{flex:1}.hint{font-size:13px;color:var(--muted);line-height:1.35}.projectItem{display:flex;gap:6px;margin:6px 0}.projectItem button{flex:1;text-align:left}.projectItem .active{background:var(--accent2);color:var(--accent);border:1px solid var(--accent)}.counter{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0}.stickyCounter{position:sticky;top:0;z-index:5;background:#fff;border:2px solid var(--accent2)}.num{font-size:34px;font-weight:900;text-align:center;color:var(--accent)}.pdfcanvas{display:block;max-width:none}.textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;pointer-events:none}.textLayer span{position:absolute;white-space:pre;transform-origin:0 0;color:transparent}.hl{background:transparent;color:transparent;border-radius:3px;opacity:0;min-height:1em}.manualHlOverlay{position:absolute;inset:0;z-index:8;pointer-events:none}.manualHlOverlay.active{pointer-events:auto;cursor:crosshair;touch-action:none}.manualHighlight{position:absolute;height:10px;border-radius:8px;background:rgba(255,20,147,.40);box-shadow:0 0 2px rgba(255,20,147,.45)}.manualPreview{position:absolute;height:10px;border-radius:8px;background:rgba(255,20,147,.40);outline:1px dashed rgba(255,20,147,.8)}.dur{padding:10px;border-radius:12px;background:var(--accent2);color:var(--accent);font-weight:800;text-align:center}.combo{border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;background:#fff}.comboTitle{font-weight:900;color:var(--accent)}.comboMeta{font-size:13px;color:var(--muted);margin-top:3px}.lightGrid{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}.sectionIntro{font-size:13px;color:var(--muted);margin:4px 0 8px}@media(max-width:900px){.layout{grid-template-columns:1fr}.layout.sidebarHidden{grid-template-columns:1fr}.sidebar{position:absolute;top:58px;bottom:0;width:88vw;z-index:30;box-shadow:var(--shadow)}.sidebar.closed{margin-left:-90vw}.title{font-size:18px}.topbar{gap:6px}.topbar button{padding:8px 10px}.viewer{padding:8px}.pdfwrap{min-width:100%;}.drawer{top:54px}}
 
-/* ===== V24 BOTANIQUE : couche graphique fidèle à la maquette ===== */
+/* ===== V25 BOTANIQUE : couche graphique fidèle à la maquette ===== */
 :root{
-  --bg:#f7f4ec;
+  --bg:#F7F5EF;
   --card:#fffdf7;
-  --ink:#17331f;
+  --ink:#253225;
   --muted:#6c705f;
-  --accent:#3f6848;
-  --accentDark:#24452d;
-  --accent2:#e8efdf;
-  --line:#d9d0bd;
-  --danger:#b58c5c;
-  --ok:#3f6848;
+  --accent:#7C9473;
+  --accentDark:#556B55;
+  --accent2:#E9EFE1;
+  --line:#D8C9A7;
+  --danger:#B08D57;
+  --ok:#7C9473;
   --cream:#fffdf7;
-  --sand:#eadcc7;
-  --leaf:#6f8f68;
-  --bronze:#b89b67;
-  --shadow:0 12px 28px rgba(36,69,45,.13);
+  --sand:#D8C9A7;
+  --leaf:#7C9473;
+  --bronze:#B08D57;
+  --shadow:0 12px 28px rgba(85,107,85,.13);
 }
 body{background:
  radial-gradient(circle at 15% 10%, rgba(236,230,214,.75), transparent 30%),
@@ -36,8 +36,8 @@ body.dark{
   --card:#202722;
   --ink:#f4efe4;
   --muted:#c7bfae;
-  --accent:#9caf88;
-  --accentDark:#d6c08f;
+  --accent:#9CAF88;
+  --accentDark:#C9A66B;
   --accent2:#2c382f;
   --line:#59604d;
   --danger:#9d744a;
@@ -45,30 +45,45 @@ body.dark{
   --cream:#1a211d;
   --sand:#3a3328;
   --leaf:#7f956f;
-  --bronze:#c3a36b;
+  --bronze:#C9A66B;
   --shadow:0 14px 32px rgba(0,0,0,.38);
   background:radial-gradient(circle at 50% 20%,rgba(60,72,60,.22),transparent 30%),linear-gradient(180deg,#111614 0%,#18201c 100%);
 }
 .topbar{background:rgba(255,253,247,.84);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(30,50,30,.05)}
 body.dark .topbar{background:rgba(21,26,24,.88)}
-.title{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:600;color:var(--accent);font-size:28px;letter-spacing:.3px;display:flex;align-items:center;gap:10px}.logoYarn{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--accent);border-radius:50%;position:relative;color:transparent;background:repeating-linear-gradient(135deg,transparent 0 5px,rgba(63,104,72,.45) 6px 8px)}.logoYarn:before{content:'✢';color:var(--accent);font-size:24px}.logoYarn:after{content:'';position:absolute;right:-12px;bottom:4px;width:22px;height:13px;border-bottom:2px solid var(--accent);border-radius:50%;transform:rotate(-20deg)}
-button{background:linear-gradient(180deg,#547b5a,#3f6848);border:1px solid rgba(36,69,45,.22);box-shadow:0 5px 14px rgba(63,104,72,.18)}button.secondary{background:rgba(255,253,247,.82);color:var(--accentDark);border:1px solid var(--line)}button.danger{background:linear-gradient(180deg,#c9b18e,#b58c5c);color:#fff}.themeBtn{min-width:84px}.card{position:relative;background:rgba(255,253,247,.91);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}.card h2,.card h3{color:var(--accentDark)}body.dark .card, body.dark details, body.dark input, body.dark select, body.dark textarea, body.dark .combo{background:rgba(32,39,34,.92);color:var(--ink)}
-.card:before{content:'❧';position:absolute;right:16px;top:-10px;font-size:52px;color:rgba(63,104,72,.18);transform:rotate(30deg);pointer-events:none}.card:after{content:'⌇';position:absolute;right:42px;top:4px;font-size:54px;color:rgba(184,155,103,.16);transform:rotate(-35deg);pointer-events:none}.stickyCounter:before{content:'☷';font-size:44px}.viewer{background:#d7d2ca;background:linear-gradient(120deg,#dcd6ce,#cfc9c3)}body.dark .viewer{background:linear-gradient(120deg,#141917,#272b28)}.pdfwrap{border-radius:18px;overflow:hidden;background:var(--cream);box-shadow:var(--shadow);border:1px solid var(--line)}.pdfwrap:before{content:'❧';position:absolute;left:14px;bottom:-10px;font-size:120px;color:rgba(63,104,72,.28);transform:rotate(-25deg);z-index:1;pointer-events:none}.pdfwrap:after{content:'❧';position:absolute;right:12px;bottom:-14px;font-size:130px;color:rgba(184,155,103,.28);transform:rotate(25deg);z-index:1;pointer-events:none}.empty{position:relative;z-index:2}.empty h2{font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--accentDark);font-size:38px;font-weight:500}.empty h2:before{content:'◌';display:block;margin:0 auto 12px;width:78px;height:78px;line-height:78px;border:3px solid var(--accent);border-radius:50%;font-size:0;background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(63,104,72,.42) 9px 12px)}.empty h2:after{content:''}.rule{background:rgba(63,104,72,.18);border-top:2px solid rgba(63,104,72,.85);border-bottom:2px solid rgba(63,104,72,.85)}.ruleArrow{color:var(--accentDark);text-shadow:none}.ruleLabel{color:var(--accentDark);font-family:Georgia,'Times New Roman',serif;font-style:italic}.manualHighlight{background:rgba(255,20,147,.40)}input,select,textarea{background:rgba(255,253,247,.88);border-color:var(--line)}.drawer{background:var(--card)}details{background:rgba(255,253,247,.82);border-color:var(--line)}summary{color:var(--accentDark)}.num{color:var(--accent)}
+.title{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:600;color:var(--accent);font-size:28px;letter-spacing:.3px;display:flex;align-items:center;gap:10px}.logoYarn{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border:2px solid var(--accent);border-radius:50%;position:relative;color:transparent;background:repeating-linear-gradient(135deg,transparent 0 5px,rgba(124,148,115,.45) 6px 8px)}.logoYarn:before{content:'✢';color:var(--accent);font-size:24px}.logoYarn:after{content:'';position:absolute;right:-12px;bottom:4px;width:22px;height:13px;border-bottom:2px solid var(--accent);border-radius:50%;transform:rotate(-20deg)}
+button{background:linear-gradient(180deg,#8EA583,#6F8765);border:1px solid rgba(85,107,85,.22);box-shadow:0 5px 14px rgba(124,148,115,.18)}button.secondary{background:rgba(255,253,247,.82);color:var(--accentDark);border:1px solid var(--line)}button.danger{background:linear-gradient(180deg,#c9b18e,#b58c5c);color:#fff}.themeBtn{min-width:84px}.card{position:relative;background:rgba(255,253,247,.91);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}.card h2,.card h3{color:var(--accentDark)}body.dark .card, body.dark details, body.dark input, body.dark select, body.dark textarea, body.dark .combo{background:rgba(32,39,34,.92);color:var(--ink)}
+.card:before{content:'❧';position:absolute;right:16px;top:-10px;font-size:52px;color:rgba(124,148,115,.18);transform:rotate(30deg);pointer-events:none}.card:after{content:'⌇';position:absolute;right:42px;top:4px;font-size:54px;color:rgba(184,155,103,.16);transform:rotate(-35deg);pointer-events:none}.stickyCounter:before{content:'☷';font-size:44px}.viewer{background:#d7d2ca;background:linear-gradient(120deg,#dcd6ce,#cfc9c3)}body.dark .viewer{background:linear-gradient(120deg,#141917,#272b28)}.pdfwrap{border-radius:18px;overflow:hidden;background:var(--cream);box-shadow:var(--shadow);border:1px solid var(--line)}.pdfwrap:before{content:'❧';position:absolute;left:14px;bottom:-10px;font-size:120px;color:rgba(124,148,115,.28);transform:rotate(-25deg);z-index:1;pointer-events:none}.pdfwrap:after{content:'❧';position:absolute;right:12px;bottom:-14px;font-size:130px;color:rgba(184,155,103,.28);transform:rotate(25deg);z-index:1;pointer-events:none}.empty{position:relative;z-index:2}.empty h2{font-family:Georgia,'Times New Roman',serif;font-style:italic;color:var(--accentDark);font-size:38px;font-weight:500}.empty h2:before{content:'◌';display:block;margin:0 auto 12px;width:78px;height:78px;line-height:78px;border:3px solid var(--accent);border-radius:50%;font-size:0;background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(124,148,115,.42) 9px 12px)}.empty h2:after{content:''}.rule{background:rgba(124,148,115,.18);border-top:2px solid rgba(85,107,85,.85);border-bottom:2px solid rgba(85,107,85,.85)}.ruleArrow{color:var(--accentDark);text-shadow:none}.ruleLabel{color:var(--accentDark);font-family:Georgia,'Times New Roman',serif;font-style:italic}.manualHighlight{background:rgba(255,20,147,.40)}input,select,textarea{background:rgba(255,253,247,.88);border-color:var(--line)}.drawer{background:var(--card)}details{background:rgba(255,253,247,.82);border-color:var(--line)}summary{color:var(--accentDark)}.num{color:var(--accent)}
 #counters .counter{background:rgba(255,253,247,.84)}
 .counter .num{font-family:'Courier New',monospace;background:linear-gradient(180deg,#eeeeea,#d2d4cd);border:2px solid #8c9583;border-radius:7px;letter-spacing:.18em;color:#111;box-shadow:inset 0 2px 8px rgba(0,0,0,.16);display:inline-block;min-width:130px;padding:6px 10px;position:relative;left:50%;transform:translateX(-50%)}body.dark .counter .num{background:linear-gradient(180deg,#303630,#191d1a);border-color:#606c5b;color:#f6f2e9}.lightGrid label,.check{color:var(--ink)}
 #toggleSide:before{content:''}#diagnosticPdf,#manualHighlightStatus{display:none!important}
 @media(max-width:900px){.title{font-size:22px}.logoYarn{width:30px;height:30px}.empty h2{font-size:28px}.themeBtn{min-width:auto}}
 
+
+/* Corrections V25 : icônes botaniques uniformes */
+.leafSvg{display:inline-block;width:15px;height:9px;background:currentColor;border-radius:100% 0 100% 0;transform:rotate(-35deg);margin-right:7px;vertical-align:middle;position:relative}
+.leafSvg:after{content:'';position:absolute;width:11px;height:1.5px;background:currentColor;left:6px;top:8px;transform:rotate(38deg);opacity:.75}
+.monoIcon{color:var(--accent);font-weight:900;font-size:1.08em;margin-right:6px;filter:none}
+.yarnMini{display:inline-block;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;vertical-align:-4px;margin-right:7px;background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(124,148,115,.34) 5px 7px)}
+body.dark .yarnMini{background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(156,175,136,.34) 5px 7px)}
+
+/* V25 : règle verte et flèche orange harmonisées */
+.rule{background:rgba(124,148,115,.42)!important;border-top:2px solid rgba(85,107,85,.90)!important;border-bottom:2px solid rgba(85,107,85,.90)!important}
+.ruleArrow{color:#C98242!important;text-shadow:0 1px 2px rgba(255,253,247,.65)!important}
+.ruleLabel{color:#C98242!important}
+.manualHighlight,.manualPreview{background:rgba(201,130,66,.40)!important;box-shadow:0 0 2px rgba(201,130,66,.45)!important}
+.monoIcon,.leafSvg{color:var(--accent)!important}
+.yarnMini{border-color:var(--accent)!important;background:repeating-linear-gradient(135deg,transparent 0 4px,rgba(124,148,115,.34) 5px 7px)!important}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary">💡 Projets</button>
-<div class="title"><span class="logoYarn">◌</span> Suivi Tricot V24</div>
+<div class="title"><span class="logoYarn">◌</span> Suivi Tricot V25</div>
 <div class="spacer"></div>
 <button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre">☀️ / 🌙</button>
-<button id="toggleAccessories" class="secondary">🌿 🌿 Accessoires</button>
+<button id="toggleAccessories" class="secondary"><span class="leafSvg" aria-hidden="true"></span> Accessoires</button>
 </header>
 <div id="layout" class="layout">
 <aside id="sidebar" class="sidebar">
@@ -83,21 +98,20 @@ button{background:linear-gradient(180deg,#547b5a,#3f6848);border:1px solid rgba(
 <div class="card"><h2>✎ Tailles à souligner</h2><div class="row"><button id="manualHighlightToggle" class="secondary">Activer soulignage manuel</button></div><div class="row"><button id="undoManualHighlight" class="secondary">Annuler dernier soulignement</button><button id="clearPageHighlights" class="danger">Effacer page</button></div><p id="manualHighlightStatus" class="hint">Désactivé.</p></div>
 <div class="card"><h2>☷ Notes</h2><textarea id="notes" placeholder="Notes du projet..."></textarea></div>
 </aside>
-<main class="viewer" id="viewer"><div class="pdfwrap" id="pdfwrap"><div class="empty"><h2>Importe un patron PDF</h2><p>Choisis un projet, importe son PDF, puis utilise la règle mobile pour suivre ton rang.</p><input type="file" id="pdfInput" accept="application/pdf,.pdf"></div><div id="rule" class="rule"></div></div></main>
+<main class="viewer" id="viewer"><div class="pdfwrap" id="pdfwrap"><div class="empty"><h2>Importe un patron PDF</h2></div><div id="rule" class="rule"></div></div></main>
 </div>
 <aside id="accessoriesDrawer" class="drawer">
-<div class="card"><h2>🌿 Accessoires</h2></div>
 <div class="card"><h2>📅 Projet</h2><label>Date de début :<input type="date" id="startDate"></label><br><br><label>Date de fin :<input type="date" id="endDate"></label><br><br><div id="duration" class="dur">Aucune date sélectionnée</div></div>
 <div class="card"><h2>🔗 Combinaisons choisies</h2><p class="hint">Indique seulement les combinaisons réellement utilisées pour ce patron.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo">+ Ajouter la combinaison</button><div id="comboList"></div></div>
 <div style="display:none"><div id="needleTypesBox"></div><div id="needleSizesBox"></div><div id="needleLengthsBox"></div><div id="cables"></div></div>
-<div class="card"><h2>✂️ Outils</h2><div id="tools"></div></div>
-<div class="card"><h2>🧶 Laine</h2><div id="yarnFieldsBox"></div></div>
+<div class="card"><h2><span class="monoIcon">✂</span> Outils</h2><div id="tools"></div></div>
+<div class="card"><h2><span class="yarnMini" aria-hidden="true"></span> Laine</h2><div id="yarnFieldsBox"></div></div>
 </aside>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V24 Botanique', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V25 Botanique', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -131,7 +145,7 @@ function renderTools(){tools.innerHTML='';baseTools.forEach(it=>{let k=checkKey(
 function renderYarn(){yarnFieldsBox.innerHTML='';['Marque','Nom','Couleur'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))});let title=document.createElement('div');title.innerHTML='<strong>Épaisseur :</strong>';yarnFieldsBox.appendChild(title);yarnWeights.forEach(f=>{let lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[checkKey('yarnWeight',f)]?'checked':''}> <span>${f}</span>`;lab.querySelector('input').onchange=e=>{p().checks[checkKey('yarnWeight',f)]=e.target.checked;save()};yarnFieldsBox.appendChild(lab)});['Fibre','Le poids et métrage','Le nombre d’écheveaux/pelotes','Prix total','L’échantillon requis'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))})}
 function renderCounters(){counters.innerHTML='';p().counters.forEach((c,i)=>{let div=document.createElement('div');div.className='counter';div.innerHTML=`<input value="${escapeAttr(c.name)}"><div class="num">${c.value}</div><div class="row"><button class="secondary minus">−</button><button class="plus">+</button><button class="danger small del">Supprimer</button></div>`;div.querySelector('input').oninput=e=>{c.name=e.target.value;save()};div.querySelector('.minus').onclick=()=>{c.value=Math.max(0,c.value-1);save();renderCounters()};div.querySelector('.plus').onclick=()=>{c.value++;save();renderCounters()};div.querySelector('.del').onclick=()=>{p().counters.splice(i,1);save();renderCounters()};counters.appendChild(div)})}
 function updateDuration(){let pr=p();startDate.value=pr.startDate||'';endDate.value=pr.endDate||'';if(!pr.startDate){duration.textContent='Aucune date sélectionnée';return}let s=new Date(pr.startDate+'T00:00:00'),e=pr.endDate?new Date(pr.endDate+'T00:00:00'):new Date();let days=Math.max(0,Math.round((e-s)/86400000));duration.textContent=pr.endDate?`Projet terminé en ${days} jour${days>1?'s':''}`:`Projet en cours depuis ${days} jour${days>1?'s':''}`}
-function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';ruleOpacity.value=p().ruleOpacity||42;if(window.rule){rule.style.background=`rgba(139,90,131,${(p().ruleOpacity||42)/100})`;renderManualHighlights();updateManualHighlightUI();rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.textContent=p().ruleLocked?'Déverrouiller règle':'Verrouiller règle';updateDuration()}
+function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';ruleOpacity.value=p().ruleOpacity||42;if(window.rule){rule.style.background=`rgba(124,148,115,${(p().ruleOpacity||42)/100})`;renderManualHighlights();updateManualHighlightUI();rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.textContent=p().ruleLocked?'Déverrouiller règle':'Verrouiller règle';updateDuration()}
 function arrayBufferToBase64(buffer){let binary='', bytes=new Uint8Array(buffer), chunk=0x8000; for(let i=0;i<bytes.length;i+=chunk){binary+=String.fromCharCode.apply(null,bytes.subarray(i,i+chunk));} return btoa(binary)}
 function base64ToArrayBuffer(base64){let binary=atob(base64), len=binary.length, bytes=new Uint8Array(len); for(let i=0;i<len;i++)bytes[i]=binary.charCodeAt(i); return bytes.buffer}
 
@@ -374,7 +388,7 @@ async function renderTextLayer(page,viewport){
   });
   pdfwrap.appendChild(layer);
 }
-function showEmptyPdf(){pdfwrap.innerHTML='<div class="empty"><h2>Importe un patron PDF</h2><p>Une fois importé, le PDF est sauvegardé avec ce projet. Il sera aussi inclus dans les fichiers .stk exportés.</p><input type="file" id="pdfInput" accept="application/pdf,.pdf"></div><div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';let inp=document.getElementById('pdfInput');if(inp)inp.onchange=e=>loadPdfFromFile(e.target.files[0]);window.rule=document.getElementById('rule');bindRule();renderAll();pageInfo.textContent='Aucun PDF importé pour ce projet.'}
+function showEmptyPdf(){pdfwrap.innerHTML='<div class="empty"><h2>Importe un patron PDF</h2></div><div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';window.rule=document.getElementById('rule');bindRule();renderAll();pageInfo.textContent='Aucun PDF importé pour ce projet.'}
 function bindRule(){if(!window.rule)return;let dragging=false,dragArrow=false,offset=0;let arrow=document.getElementById('ruleArrow');rule.onpointerdown=e=>{if(e.target===arrow)return;dragging=true;offset=e.clientY-rule.offsetTop;rule.setPointerCapture(e.pointerId)};rule.onpointermove=e=>{if(!dragging)return;let y=e.clientY-pdfwrap.getBoundingClientRect().top-offset;y=Math.max(0,Math.min(pdfwrap.clientHeight-34,y));rule.style.top=y+'px';p().ruleTop=y;save()};rule.onpointerup=()=>dragging=false;if(arrow){arrow.onpointerdown=e=>{dragArrow=true;e.stopPropagation();arrow.setPointerCapture(e.pointerId)};arrow.onpointermove=e=>{if(!dragArrow)return;let r=rule.getBoundingClientRect();let pct=((e.clientX-r.left)/r.width)*100;pct=Math.max(0,Math.min(100,pct));arrow.style.left=pct+'%';p().ruleArrowLeft=pct;save()};arrow.onpointerup=()=>dragArrow=false}}
 async function loadProject(){
   renderAll();pdfDoc=null;pdfBytes=null;
@@ -458,7 +472,7 @@ toggleSide.onclick=()=>{
   if(lay) lay.classList.toggle('sidebarHidden',hidden);
   toggleSide.textContent=hidden?'💡 Projets':'✕ Projets';
 };toggleAccessories.onclick=()=>accessoriesDrawer.classList.toggle('closed');
-ruleOpacity.oninput=e=>{p().ruleOpacity=e.target.value;save();if(window.rule)rule.style.background=`rgba(139,90,131,${e.target.value/100})`};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
+ruleOpacity.oninput=e=>{p().ruleOpacity=e.target.value;save();if(window.rule)rule.style.background=`rgba(124,148,115,${e.target.value/100})`};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
 addCounter.onclick=()=>{p().counters.push({name:'Nouveau compteur',value:0});save();renderCounters()};notes.oninput=e=>{p().notes=e.target.value;save()};
 
 addCombo.onclick=()=>{let name=comboName.value.trim()||'Combinaison';p().combos.push({name,type:comboType.value,needle:comboNeedle.value,length:comboLength.value,cable:comboCable.value,note:comboNote.value.trim()});comboName.value='';comboNote.value='';save();renderCombos()};
