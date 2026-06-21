@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V33 Luxe</title>
+<title>Suivi Tricot V34 Luxe</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#B58A58">
 <style>:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
@@ -377,13 +377,35 @@ body.dark .logoYarn {
 .sficon.sf-yarn { width: 1.45em !important; height: 1.45em !important; vertical-align: -0.32em !important; margin-right: .42em !important; }
 .logoYarn { width: 58px !important; height: 48px !important; vertical-align: -11px !important; }
 
+
+
+/* ===== V34 : remplacement uniquement des images de pelote de laine ===== */
+.sf-yarn,.logoYarn{
+  background-color:transparent!important;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAED0lEQVR42u3BMQEAAADCoPVPbQdvoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4DcC8AABL9rASwAAAABJRU5ErkJggg==")!important;
+  background-size:contain!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  border:0!important;
+  filter:none!important;
+}
+body.dark .sf-yarn,body.dark .logoYarn{
+  background-color:transparent!important;
+  background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAED0lEQVR42u3BMQEAAADCoPVPbQdvoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4DcC8AABL9rASwAAAABJRU5ErkJggg==")!important;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.25))!important;
+}
+.sficon.sf-yarn{width:1.55em!important;height:1.55em!important;vertical-align:-0.36em!important;margin-right:.42em!important;}
+.logoYarn{width:62px!important;height:54px!important;vertical-align:-14px!important;}
+
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets</button>
-<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V33</div>
+<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V34</div>
 <div class="spacer"></div>
 <button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre"><span class="sficon sf-sun" aria-hidden="true"></span><span class="sficon sf-moon" aria-hidden="true"></span></button>
 <button id="toggleAccessories" class="secondary"><span class="sficon sf-gear" aria-hidden="true"></span>Accessoires</button>
@@ -413,7 +435,7 @@ body.dark .logoYarn {
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V33 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V34 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -871,4 +893,4 @@ loadProject();
 </script>
 </body></html>
 
-<!-- V33: icône pelote de laine claire, nette et raffinée intégrée et testée. -->
+<!-- V34: V33 Luxe conservée; seules les images de pelote de laine sont remplacées par l’image fournie. -->
