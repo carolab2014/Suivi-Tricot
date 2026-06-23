@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V37 Luxe</title>
+<title>Suivi Tricot V38 Luxe</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#B58A58">
 <style>:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
@@ -413,6 +413,21 @@ body.dark .projectCoverBox{background:rgba(255,255,255,.04)}
 .projectTileMeta{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 
+
+/* ===== V38 : galerie de projets compacte en liste déroulante ===== */
+.projectImageDropdown{margin-top:10px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.38);overflow:hidden}
+body.dark .projectImageDropdown{background:rgba(255,255,255,.035)}
+.projectImageDropdown summary{list-style:none;cursor:pointer;padding:9px 10px;display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink);user-select:none}
+.projectImageDropdown summary::-webkit-details-marker{display:none}
+.projectImageDropdown summary:after{content:'⌄';margin-left:auto;color:var(--muted);font-size:18px;line-height:1}
+.projectImageDropdown[open] summary:after{content:'⌃'}
+.projectSummaryThumb{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:rgba(197,154,90,.14);display:flex;align-items:center;justify-content:center;overflow:hidden;flex:0 0 42px;color:var(--muted);font-size:10px;font-weight:900}
+.projectSummaryThumb img{width:100%;height:100%;object-fit:cover;display:block}
+.projectSummaryText{min-width:0;display:flex;flex-direction:column;gap:2px}
+.projectSummaryName{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
+.projectSummaryMeta{font-size:11px;color:var(--muted);font-weight:800}
+.projectImageDropdown .projectGallery{padding:0 10px 10px 10px;margin-top:0;max-height:260px;overflow:auto}
+
 /* ===== V37 : soulignement manuel bleu harmonisé avec la flèche ===== */
 .manualHighlight{
   background:rgba(0,87,184,.34)!important;
@@ -439,7 +454,7 @@ body.dark .manualPreview{
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets</button>
-<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V37</div>
+<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V38</div>
 <div class="spacer"></div>
 <button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre"><span class="sficon sf-sun" aria-hidden="true"></span><span class="sficon sf-moon" aria-hidden="true"></span></button>
 <button id="toggleAccessories" class="secondary"><span class="sficon sf-gear" aria-hidden="true"></span>Accessoires</button>
@@ -455,7 +470,13 @@ body.dark .manualPreview{
   <div id="projectCoverPreview" class="projectCoverPreview">Image du projet</div>
   <div class="row"><button id="chooseProjectImage" class="secondary"><span class="sficon sf-doc" aria-hidden="true"></span>Choisir image</button><button id="removeProjectImage" class="secondary"><span class="sficon sf-trash" aria-hidden="true"></span>Retirer</button></div>
   <input type="file" id="projectImageInput" accept="image/*" style="display:none">
-  <div id="projectGallery" class="projectGallery"></div>
+  <details id="projectImageDropdown" class="projectImageDropdown">
+    <summary id="projectImageSummary">
+      <span class="projectSummaryThumb">Image</span>
+      <span class="projectSummaryText"><span class="projectSummaryName">Galerie projets</span><span class="projectSummaryMeta">Ouvrir la liste</span></span>
+    </summary>
+    <div id="projectGallery" class="projectGallery"></div>
+  </details>
 </div>
 </div>
 <div class="card stickyCounter"><h2><span class="sficon sf-counter" aria-hidden="true"></span>Compteurs de rang</h2><div id="counters"></div><button id="addCounter"><span class="sficon sf-counter" aria-hidden="true"></span>Ajouter un compteur</button></div>
@@ -475,7 +496,7 @@ body.dark .manualPreview{
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V37 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V38 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites','Crochet'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -510,6 +531,13 @@ function updateProjectCoverPreview(){
 }
 function renderProjectGallery(){
   const gal=document.getElementById('projectGallery');
+  const summary=document.getElementById('projectImageSummary');
+  const cur=p();
+  if(summary && cur){
+    const hasPdf=!!(cur.pdfName||cur.pdfData);
+    const thumb=cur.coverData?'<img alt="" src="'+escapeAttr(cur.coverData)+'">':'Image';
+    summary.innerHTML='<span class="projectSummaryThumb">'+thumb+'</span><span class="projectSummaryText"><span class="projectSummaryName">'+escapeHtml(cur.name)+'</span><span class="projectSummaryMeta">'+(hasPdf?'PDF présent':'Aucun PDF')+' · ouvrir la liste</span></span>';
+  }
   if(!gal)return;
   gal.innerHTML='';
   data.projects.forEach(pr=>{
@@ -519,7 +547,7 @@ function renderProjectGallery(){
     const img=pr.coverData?'<img alt="" src="'+escapeAttr(pr.coverData)+'">':'Aucune image';
     const hasPdf=!!(pr.pdfName||pr.pdfData);
     tile.innerHTML='<div class="projectTileImg">'+img+'</div><div class="projectTileName">'+escapeHtml(pr.name)+'</div><div class="projectTileMeta">'+(hasPdf?'PDF présent':'Aucun PDF')+'</div>';
-    tile.onclick=()=>{currentId=pr.id;save();loadProject();};
+    tile.onclick=()=>{currentId=pr.id;save();loadProject();const dd=document.getElementById('projectImageDropdown'); if(dd)dd.open=false;};
     gal.appendChild(tile);
   });
 }
@@ -978,6 +1006,7 @@ loadProject();
   });
 })();
 </script>
+<!-- V38: images de projets dans une liste déroulante compacte. -->
 </body></html>
 
 <!-- V34: V33 Luxe conservée; seules les images de pelote de laine sont remplacées par l’image fournie. -->
