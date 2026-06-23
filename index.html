@@ -801,7 +801,7 @@ function renderManualHighlights(){
   updateManualHighlightUI();
 }
 function toggleManualHighlight(){p().manualHighlightMode=!p().manualHighlightMode; save(); ensureManualOverlay(); updateManualHighlightUI();}
-function undoManualHighlight(){
+function undoLastManualHighlight(){
   const pr=p(); if(!pr.manualHighlights) return;
   let bestKey=null,bestIndex=-1,bestTime=-1;
   Object.keys(pr.manualHighlights).forEach(key=>{
@@ -820,6 +820,7 @@ function undoManualHighlight(){
   pr.manualHighlights[bestKey].splice(bestIndex,1);
   save(); renderManualHighlights();
 }
+window.undoLastManualHighlight=undoLastManualHighlight;
 function clearPageManualHighlights(){if(confirm('Effacer les soulignements de cette page?')){p().manualHighlights[pageKey()]=[]; save(); renderManualHighlights();}}
 
 async function renderPage(){if(!pdfDoc)return;let pr=p();pageNum=pr.page||1;scale=pr.scale||1.15;pdfwrap.innerHTML='<div id="rule" class="rule"><div id="ruleArrow" class="ruleArrow"></div><div class="ruleLabel">ligne</div></div>';window.rule=document.getElementById('rule');bindRule();let page=await pdfDoc.getPage(pageNum);let viewport=page.getViewport({scale});let canvas=document.createElement('canvas');canvas.className='pdfcanvas';canvas.width=viewport.width;canvas.height=viewport.height;pdfwrap.style.width=viewport.width+'px';pdfwrap.style.height=viewport.height+'px';pdfwrap.appendChild(canvas);await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;await renderTextLayer(page,viewport);ensureManualOverlay();renderManualHighlights();pdfwrap.appendChild(rule);renderAll();pageInfo.textContent=`${pr.pdfName||'PDF'} — page ${pageNum} / ${pdfDoc.numPages}`}
@@ -1044,7 +1045,7 @@ addCombo.onclick=()=>{let name=comboName.value.trim()||'Combinaison';p().combos.
 [startDate,endDate].forEach(el=>el.oninput=e=>{p()[el.id]=e.target.value;save();updateDuration();});
 if(window.resetArrow)resetArrow.onclick=()=>{p().ruleArrowLeft=50;save();renderAll()};
 if(window.manualHighlightToggle)manualHighlightToggle.onclick=toggleManualHighlight;
-if(window.undoManualHighlight)undoManualHighlight.onclick=undoManualHighlight;
+const undoBtn=document.getElementById('undoManualHighlight'); if(undoBtn) undoBtn.onclick=undoLastManualHighlight;
 if(window.clearPageHighlights)clearPageHighlights.onclick=clearPageManualHighlights;
 loadProject();
 </script>
