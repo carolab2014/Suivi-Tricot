@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Suivi Tricot V38 Luxe</title>
+<title>Suivi Tricot V39 Luxe</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#B58A58">
 <style>:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
@@ -413,21 +413,6 @@ body.dark .projectCoverBox{background:rgba(255,255,255,.04)}
 .projectTileMeta{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 
-
-/* ===== V38 : galerie de projets compacte en liste déroulante ===== */
-.projectImageDropdown{margin-top:10px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.38);overflow:hidden}
-body.dark .projectImageDropdown{background:rgba(255,255,255,.035)}
-.projectImageDropdown summary{list-style:none;cursor:pointer;padding:9px 10px;display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink);user-select:none}
-.projectImageDropdown summary::-webkit-details-marker{display:none}
-.projectImageDropdown summary:after{content:'⌄';margin-left:auto;color:var(--muted);font-size:18px;line-height:1}
-.projectImageDropdown[open] summary:after{content:'⌃'}
-.projectSummaryThumb{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:rgba(197,154,90,.14);display:flex;align-items:center;justify-content:center;overflow:hidden;flex:0 0 42px;color:var(--muted);font-size:10px;font-weight:900}
-.projectSummaryThumb img{width:100%;height:100%;object-fit:cover;display:block}
-.projectSummaryText{min-width:0;display:flex;flex-direction:column;gap:2px}
-.projectSummaryName{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}
-.projectSummaryMeta{font-size:11px;color:var(--muted);font-weight:800}
-.projectImageDropdown .projectGallery{padding:0 10px 10px 10px;margin-top:0;max-height:260px;overflow:auto}
-
 /* ===== V37 : soulignement manuel bleu harmonisé avec la flèche ===== */
 .manualHighlight{
   background:rgba(0,87,184,.34)!important;
@@ -448,13 +433,19 @@ body.dark .manualPreview{
   box-shadow:0 0 2px rgba(124,203,255,.45)!important;
 }
 
+.yarnEntry{border:1px solid var(--border);border-radius:18px;padding:12px;margin:12px 0;background:rgba(255,255,255,.32)}
+body.dark .yarnEntry{background:rgba(255,255,255,.035)}
+.yarnEntryHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;font-weight:800;color:var(--text)}
+.yarnEntry .miniTitle{font-weight:800;margin:8px 0 6px;color:var(--muted)}
+.swatchGrid label{display:block;margin-bottom:10px}
+
 </style>
 </head>
 <body>
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets</button>
-<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V38</div>
+<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V39</div>
 <div class="spacer"></div>
 <button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre"><span class="sficon sf-sun" aria-hidden="true"></span><span class="sficon sf-moon" aria-hidden="true"></span></button>
 <button id="toggleAccessories" class="secondary"><span class="sficon sf-gear" aria-hidden="true"></span>Accessoires</button>
@@ -491,12 +482,13 @@ body.dark .manualPreview{
 <div class="card"><h2><span class="sficon sf-link" aria-hidden="true"></span>Combinaisons choisies</h2><p class="hint">Indique seulement les combinaisons réellement utilisées pour ce patron.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo"><span class="sficon sf-link" aria-hidden="true"></span>Ajouter la combinaison</button><div id="comboList"></div></div>
 <div style="display:none"><div id="needleTypesBox"></div><div id="needleSizesBox"></div><div id="needleLengthsBox"></div><div id="cables"></div></div>
 <div class="card"><h2><span class="sficon sf-scissors" aria-hidden="true"></span>Outils</h2><div id="tools"></div></div>
-<div class="card"><h2><span class="sficon sf-yarn" aria-hidden="true"></span>Laine</h2><div id="yarnFieldsBox"></div></div>
+<div class="card"><h2><span class="sficon sf-yarn" aria-hidden="true"></span>Laine</h2><div id="yarnFieldsBox"></div><button id="addYarn"><span class="sficon sf-yarn" aria-hidden="true"></span>Ajout laine</button></div>
+<div class="card"><h2><span class="sficon sf-check" aria-hidden="true"></span>Échantillon</h2><div id="swatchFieldsBox" class="swatchGrid"></div></div>
 </aside>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V38 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V39 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites','Crochet'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
@@ -505,8 +497,25 @@ const baseTools=['Marqueurs de mailles','Ciseaux','Aiguille à tapisserie','Ruba
 const yarnWeights=['0- Dentelle - Lace','1- Fingering - Super fin','2- Sport - Fine','3- DK - Léger','4- Worsted - Moyen','5- Bulky - Chunky','6- Super Bulky - Très épais','7- Jumbo - Ruban à filer'];
 let data=load(), currentId=data.currentId, pdfDoc=null, pageNum=1, scale=1.15, pdfBytes=null;
 function uid(){return 'p'+Date.now()+Math.random().toString(16).slice(2)}
-function defaultProject(name='Nouveau projet'){return {id:uid(),name,coverName:'',coverData:'',pdfName:'',pdfData:'',page:1,scale:1.15,ruleTop:120,ruleArrowLeft:50,ruleOpacity:42,ruleLocked:false,counters:[{name:'Corps',value:0}],notes:'',startDate:'',endDate:'',sizeLabel:'',sizePosition:'4',highlightColor:'manualPink',manualHighlightMode:false,manualHighlights:{},checks:{},customTools:[],yarn:{},combos:[]}}
-function normalizeProject(pr){let d=defaultProject(pr?.name||'Projet');return Object.assign(d,pr,{coverName:pr?.coverName||'',coverData:pr?.coverData||'',pdfData:pr?.pdfData||'',checks:pr?.checks||{},customTools:pr?.customTools||[],yarn:pr?.yarn||{},combos:pr?.combos||[]})}
+function defaultProject(name='Nouveau projet'){return {id:uid(),name,coverName:'',coverData:'',pdfName:'',pdfData:'',page:1,scale:1.15,ruleTop:120,ruleArrowLeft:50,ruleOpacity:42,ruleLocked:false,counters:[{name:'Corps',value:0}],notes:'',startDate:'',endDate:'',sizeLabel:'',sizePosition:'4',highlightColor:'manualPink',manualHighlightMode:false,manualHighlights:{},checks:{},customTools:[],yarn:{},yarns:[],swatch:{},combos:[]}}
+function normalizeProject(pr){
+  let d=defaultProject(pr?.name||'Projet');
+  let obj=Object.assign(d,pr,{coverName:pr?.coverName||'',coverData:pr?.coverData||'',pdfData:pr?.pdfData||'',checks:pr?.checks||{},customTools:pr?.customTools||[],yarn:pr?.yarn||{},yarns:Array.isArray(pr?.yarns)?pr.yarns:[],swatch:pr?.swatch||{},combos:pr?.combos||[]});
+  // Migration V39 -> V39 : l'ancien bloc Laine devient la première entrée de laine.
+  if(!obj.yarns.length && obj.yarn && Object.keys(obj.yarn).length){
+    const y=Object.assign({},obj.yarn);
+    obj.swatch={
+      'Requis': y['L’échantillon requis']||'',
+      'Essai 1': y['Échantillon obtenu']||'',
+      'Essai 2': obj.swatch?.['Essai 2']||''
+    };
+    delete y['L’échantillon requis'];
+    delete y['Échantillon obtenu'];
+    obj.yarns=[{fields:y,weights:{}}];
+  }
+  if(!obj.yarns.length)obj.yarns=[{fields:{},weights:{}}];
+  return obj;
+}
 function load(){for(const k of [KEY,...OLDKEYS]){try{let d=JSON.parse(localStorage.getItem(k));if(d&&d.projects?.length){d.projects=d.projects.map(normalizeProject);if(!d.currentId||!d.projects.some(p=>p.id===d.currentId))d.currentId=d.projects[0].id;localStorage.setItem(KEY,JSON.stringify(d));return d}}catch(e){}}let p=defaultProject('Nouveau patron');return {currentId:p.id,projects:[p]}}
 function save(){
   if(!data.projects.some(pr=>pr.id===currentId)&&data.projects.length)currentId=data.projects[0].id;
@@ -578,7 +587,52 @@ function renderCheckList(container,items,prefix){container.innerHTML='';items.fo
 function renderComboSelectors(){comboNeedle.innerHTML=allNeedles().map(n=>`<option>${n}</option>`).join('');comboCable.innerHTML=allCables().map(c=>`<option>${c}</option>`).join('');comboType.innerHTML=needleTypesList.map(t=>`<option>${t}</option>`).join('');comboLength.innerHTML=needleLengthsList.map(l=>`<option>${l}</option>`).join('')}
 function renderCombos(){comboList.innerHTML='';(p().combos||[]).forEach((c,i)=>{let div=document.createElement('div');div.className='combo';div.innerHTML=`<div class="comboTitle">${escapeHtml(c.name||'Combinaison')}</div><div class="comboMeta">${escapeHtml(c.type||'')} • ${escapeHtml(c.needle)} • ${escapeHtml(c.length||'')} • câble ${escapeHtml(c.cable)}</div>${c.note?`<div class="comboMeta">${escapeHtml(c.note)}</div>`:''}<button class="danger small">Supprimer</button>`;div.querySelector('button').onclick=()=>{p().combos.splice(i,1);save();renderCombos()};comboList.appendChild(div)})}
 function renderTools(){tools.innerHTML='';baseTools.forEach(it=>{let k=checkKey('tool',it), lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[k]?'checked':''}> <span>${it}${it==='Marqueurs de mailles'?', Nombre :':it==='Autre'?' :':''}</span>`;lab.querySelector('input').onchange=e=>{p().checks[k]=e.target.checked;save()};tools.appendChild(lab);if(it==='Marqueurs de mailles'||it==='Autre'){let inp=document.createElement('input');inp.placeholder=it==='Marqueurs de mailles'?'Nombre':'Préciser';inp.value=(p().toolNotes&&p().toolNotes[it])||'';inp.oninput=e=>{p().toolNotes=p().toolNotes||{};p().toolNotes[it]=e.target.value;save()};tools.appendChild(inp)}})}
-function renderYarn(){yarnFieldsBox.innerHTML='';['Marque','Nom','Couleur'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))});let title=document.createElement('div');title.innerHTML='<strong>Épaisseur :</strong>';yarnFieldsBox.appendChild(title);yarnWeights.forEach(f=>{let lab=document.createElement('label');lab.className='check';lab.innerHTML=`<input type="checkbox" ${p().checks[checkKey('yarnWeight',f)]?'checked':''}> <span>${f}</span>`;lab.querySelector('input').onchange=e=>{p().checks[checkKey('yarnWeight',f)]=e.target.checked;save()};yarnFieldsBox.appendChild(lab)});['Fibre','Le poids et métrage','Le nombre d’écheveaux/pelotes','Prix total','L’échantillon requis','Échantillon obtenu'].forEach(f=>{let div=document.createElement('label');div.textContent=f+' :';div.innerHTML+=`<input value="${escapeAttr(p().yarn[f]||'')}">`;div.querySelector('input').oninput=e=>{p().yarn[f]=e.target.value;save()};yarnFieldsBox.appendChild(div);yarnFieldsBox.appendChild(document.createElement('br'))})}
+function ensureYarns(){const pr=p(); if(!Array.isArray(pr.yarns)||!pr.yarns.length)pr.yarns=[{fields:{},weights:{}}]; pr.yarns.forEach(y=>{y.fields=y.fields||{};y.weights=y.weights||{}})}
+function renderYarn(){
+  ensureYarns();
+  yarnFieldsBox.innerHTML='';
+  p().yarns.forEach((entry,i)=>{
+    const card=document.createElement('div');
+    card.className='yarnEntry';
+    card.innerHTML=`<div class="yarnEntryHeader"><span>Laine ${i+1}</span>${p().yarns.length>1?'<button class="danger small removeYarn">Supprimer</button>':''}</div>`;
+    ['Marque','Nom','Couleur'].forEach(f=>{
+      let lab=document.createElement('label');
+      lab.textContent=f+' :';
+      lab.innerHTML+=`<input value="${escapeAttr(entry.fields[f]||'')}">`;
+      lab.querySelector('input').oninput=e=>{entry.fields[f]=e.target.value;save()};
+      card.appendChild(lab);
+    });
+    let title=document.createElement('div');title.className='miniTitle';title.textContent='Épaisseur :';card.appendChild(title);
+    yarnWeights.forEach(f=>{
+      let lab=document.createElement('label');lab.className='check';
+      lab.innerHTML=`<input type="checkbox" ${entry.weights[f]?'checked':''}> <span>${f}</span>`;
+      lab.querySelector('input').onchange=e=>{entry.weights[f]=e.target.checked;save()};
+      card.appendChild(lab);
+    });
+    ['Fibre','Le poids et métrage','Le nombre d’écheveaux/pelotes','Prix total'].forEach(f=>{
+      let lab=document.createElement('label');
+      lab.textContent=f+' :';
+      lab.innerHTML+=`<input value="${escapeAttr(entry.fields[f]||'')}">`;
+      lab.querySelector('input').oninput=e=>{entry.fields[f]=e.target.value;save()};
+      card.appendChild(lab);
+    });
+    const rem=card.querySelector('.removeYarn');
+    if(rem)rem.onclick=()=>{p().yarns.splice(i,1);save();renderYarn()};
+    yarnFieldsBox.appendChild(card);
+  });
+}
+function renderSwatch(){
+  if(!window.swatchFieldsBox)return;
+  const pr=p(); pr.swatch=pr.swatch||{};
+  swatchFieldsBox.innerHTML='';
+  ['Requis','Essai 1','Essai 2'].forEach(f=>{
+    let lab=document.createElement('label');
+    lab.textContent=f+' :';
+    lab.innerHTML+=`<input value="${escapeAttr(pr.swatch[f]||'')}">`;
+    lab.querySelector('input').oninput=e=>{pr.swatch[f]=e.target.value;save()};
+    swatchFieldsBox.appendChild(lab);
+  });
+}
 function renderCounters(){counters.innerHTML='';p().counters.forEach((c,i)=>{let div=document.createElement('div');div.className='counter';div.innerHTML=`<input value="${escapeAttr(c.name)}"><div class="num">${c.value}</div><div class="row"><button class="secondary minus">−</button><button class="plus">+</button><button class="danger small del"><span class="sficon sf-trash" aria-hidden="true"></span>Supprimer</button></div>`;div.querySelector('input').oninput=e=>{c.name=e.target.value;save()};div.querySelector('.minus').onclick=()=>{c.value=Math.max(0,c.value-1);save();renderCounters()};div.querySelector('.plus').onclick=()=>{c.value++;save();renderCounters()};div.querySelector('.del').onclick=()=>{p().counters.splice(i,1);save();renderCounters()};counters.appendChild(div)})}
 function updateDuration(){let pr=p();startDate.value=pr.startDate||'';endDate.value=pr.endDate||'';if(!pr.startDate){duration.textContent='Aucune date sélectionnée';return}let s=new Date(pr.startDate+'T00:00:00'),e=pr.endDate?new Date(pr.endDate+'T00:00:00'):new Date();let days=Math.max(0,Math.round((e-s)/86400000));duration.textContent=pr.endDate?`Projet terminé en ${days} jour${days>1?'s':''}`:`Projet en cours depuis ${days} jour${days>1?'s':''}`}
 function applyRuleStyle(){
@@ -592,7 +646,7 @@ function applyRuleStyle(){
     window.rule.style.opacity='1';
   }
 }
-function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderCounters();notes.value=p().notes||'';applyRuleStyle();if(window.rule){renderManualHighlights();updateManualHighlightUI();rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.innerHTML=p().ruleLocked?'Déverrouiller règle':'<span class="sficon sf-lock" aria-hidden="true"></span>Verrouiller règle';updateDuration()}
+function renderAll(){renderProjects();renderCheckList(needleTypesBox,needleTypesList,'needleType');renderCheckList(needleSizesBox,needleSizesList,'needleSize');renderCheckList(needleLengthsBox,needleLengthsList,'needleLength');renderCheckList(cables,cableList,'cable');renderComboSelectors();renderCombos();renderTools();renderYarn();renderSwatch();renderCounters();notes.value=p().notes||'';applyRuleStyle();if(window.rule){renderManualHighlights();updateManualHighlightUI();rule.style.top=(p().ruleTop||120)+'px';let a=document.getElementById('ruleArrow');if(a)a.style.left=(p().ruleArrowLeft||50)+'%';rule.classList.toggle('locked',!!p().ruleLocked)}lockRule.innerHTML=p().ruleLocked?'Déverrouiller règle':'<span class="sficon sf-lock" aria-hidden="true"></span>Verrouiller règle';updateDuration()}
 function arrayBufferToBase64(buffer){let binary='', bytes=new Uint8Array(buffer), chunk=0x8000; for(let i=0;i<bytes.length;i+=chunk){binary+=String.fromCharCode.apply(null,bytes.subarray(i,i+chunk));} return btoa(binary)}
 function base64ToArrayBuffer(base64){let binary=atob(base64), len=binary.length, bytes=new Uint8Array(len); for(let i=0;i<len;i++)bytes[i]=binary.charCodeAt(i); return bytes.buffer}
 
@@ -943,6 +997,7 @@ toggleSide.onclick=()=>{
 ruleOpacity.oninput=e=>{p().ruleOpacity=Math.max(10,Math.min(100,parseInt(e.target.value,10)||42));save();applyRuleStyle();};lockRule.onclick=()=>{p().ruleLocked=!p().ruleLocked;save();renderAll()};
 addCounter.onclick=()=>{p().counters.push({name:'Nouveau compteur',value:0});save();renderCounters()};notes.oninput=e=>{p().notes=e.target.value;save()};
 
+if(window.addYarn)addYarn.onclick=()=>{ensureYarns();p().yarns.push({fields:{},weights:{}});save();renderYarn()};
 addCombo.onclick=()=>{let name=comboName.value.trim()||'Combinaison';p().combos.push({name,type:comboType.value,needle:comboNeedle.value,length:comboLength.value,cable:comboCable.value,note:comboNote.value.trim()});comboName.value='';comboNote.value='';save();renderCombos()};
 [startDate,endDate].forEach(el=>el.oninput=e=>{p()[el.id]=e.target.value;save();updateDuration();});
 if(window.resetArrow)resetArrow.onclick=()=>{p().ruleArrowLeft=50;save();renderAll()};
@@ -1006,7 +1061,7 @@ loadProject();
   });
 })();
 </script>
-<!-- V38: images de projets dans une liste déroulante compacte. -->
+<!-- V39: images de projets dans une liste déroulante compacte. -->
 </body></html>
 
 <!-- V34: V33 Luxe conservée; seules les images de pelote de laine sont remplacées par l’image fournie. -->
