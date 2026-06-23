@@ -437,6 +437,33 @@ body.dark .manualPreview{
 body.dark .yarnEntry{background:rgba(255,255,255,.035)}
 .yarnEntryHeader{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;font-weight:800;color:var(--text)}
 .yarnEntry .miniTitle{font-weight:800;margin:8px 0 6px;color:var(--muted)}
+/* ===== V39.1 correction pelote : vraie image visible ===== */
+.yarnPhoto{
+  display:inline-block;
+  width:1.45em;
+  height:1.45em;
+  object-fit:contain;
+  vertical-align:-0.32em;
+  margin-right:.42em;
+  border:0;
+  background:transparent;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.18));
+}
+.title .yarnPhoto{
+  width:58px;
+  height:48px;
+  vertical-align:-11px;
+  margin-right:8px;
+}
+button .yarnPhoto{
+  width:1.25em;
+  height:1.25em;
+  vertical-align:-0.25em;
+}
+body.dark .yarnPhoto{
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.45));
+}
+
 .swatchGrid label{display:block;margin-bottom:10px}
 
 </style>
@@ -445,7 +472,7 @@ body.dark .yarnEntry{background:rgba(255,255,255,.035)}
 <div class="app">
 <header class="topbar">
 <button id="toggleSide" class="secondary"><span class="sficon sf-lightbulb" aria-hidden="true"></span>Projets</button>
-<div class="title"><span class="logoYarn" aria-hidden="true"></span>Suivi Tricot V39.1</div>
+<div class="title"><img class="yarnPhoto" src="yarn_v34_icon.png" alt="">Suivi Tricot V39.1</div>
 <div class="spacer"></div>
 <button id="themeToggle" class="secondary themeBtn" title="Mode clair/sombre"><span class="sficon sf-sun" aria-hidden="true"></span><span class="sficon sf-moon" aria-hidden="true"></span></button>
 <button id="toggleAccessories" class="secondary"><span class="sficon sf-gear" aria-hidden="true"></span>Accessoires</button>
@@ -482,7 +509,7 @@ body.dark .yarnEntry{background:rgba(255,255,255,.035)}
 <div class="card"><h2><span class="sficon sf-link" aria-hidden="true"></span>Combinaisons choisies</h2><p class="hint">Indique seulement les combinaisons réellement utilisées pour ce patron.</p><label>Nom / ensemble :<input id="comboName" placeholder="Ex: Interchangeables 3"></label><div class="row"><label>Grosseur :<select id="comboNeedle"></select></label><label>Câble :<select id="comboCable"></select></label></div><div class="row"><label>Type :<select id="comboType"></select></label><label>Longueur aiguilles :<select id="comboLength"></select></label></div><label>Note :<input id="comboNote" placeholder="Ex: manches, corps, col..."></label><button id="addCombo"><span class="sficon sf-link" aria-hidden="true"></span>Ajouter la combinaison</button><div id="comboList"></div></div>
 <div style="display:none"><div id="needleTypesBox"></div><div id="needleSizesBox"></div><div id="needleLengthsBox"></div><div id="cables"></div></div>
 <div class="card"><h2><span class="sficon sf-scissors" aria-hidden="true"></span>Outils</h2><div id="tools"></div></div>
-<div class="card"><h2><span class="sficon sf-yarn" aria-hidden="true"></span>Laine</h2><div id="yarnFieldsBox"></div><button id="addYarn"><span class="sficon sf-yarn" aria-hidden="true"></span>Ajout laine</button></div>
+<div class="card"><h2><img class="yarnPhoto" src="yarn_v34_icon.png" alt="">Laine</h2><div id="yarnFieldsBox"></div><button id="addYarn"><img class="yarnPhoto" src="yarn_v34_icon.png" alt="">Ajout laine</button></div>
 <div class="card"><h2><span class="sficon sf-check" aria-hidden="true"></span>Échantillon</h2><div id="swatchFieldsBox" class="swatchGrid"></div></div>
 </aside>
 </div>
