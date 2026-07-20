@@ -1073,6 +1073,100 @@ body.dark .v47-category-image,body.dark .v47-category-image .v57-category-photo{
 body.dark .v47-category-body{border-top-color:#9d784b!important}
 @media(max-width:700px){.v47-category-image{height:90px!important}}
 </style>
+
+<style id="v59-final-uniform-category-frames">
+/* V59 FINAL — cadre visuel strictement identique pour toutes les catégories */
+.v47-category-grid{
+  align-items:stretch!important;
+}
+button.v47-category-card,
+.v47-category-card{
+  -webkit-appearance:none!important;
+  appearance:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  padding:0!important;
+  margin:0!important;
+  border:1px solid #c9a06b!important;
+  border-width:1px!important;
+  border-radius:22px!important;
+  outline:none!important;
+  background:#fffaf2!important;
+  background-image:none!important;
+  overflow:hidden!important;
+  box-shadow:0 7px 22px rgba(82,58,32,.08)!important;
+  min-height:0!important;
+}
+.v47-category-card::before,.v47-category-card::after,
+.v47-category-image::before,.v47-category-image::after{
+  content:none!important;
+  display:none!important;
+}
+.v47-category-image{
+  flex:0 0 126px!important;
+  width:100%!important;
+  height:126px!important;
+  min-height:126px!important;
+  margin:0!important;
+  padding:8px 10px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:#fffaf2!important;
+  background-image:none!important;
+  overflow:hidden!important;
+  box-shadow:none!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.v47-category-image .v57-category-photo,
+.v47-category-image>img{
+  -webkit-appearance:none!important;
+  appearance:none!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  background:#fffaf2!important;
+}
+.v47-category-body{
+  flex:1 1 auto!important;
+  width:100%!important;
+  margin:0!important;
+  padding:14px 16px 15px!important;
+  border:0!important;
+  border-top:1px solid #c9a06b!important;
+  border-radius:0!important;
+  background:#bd8d55!important;
+  color:#fff!important;
+  box-shadow:none!important;
+}
+.v47-category-name{color:#fff!important;}
+.v47-category-count{color:rgba(70,57,44,.70)!important;}
+body.dark button.v47-category-card,body.dark .v47-category-card{
+  background:#24211e!important;
+  border-color:#9d784b!important;
+}
+body.dark .v47-category-image,body.dark .v47-category-image .v57-category-photo{
+  background:#24211e!important;
+}
+body.dark .v47-category-body{
+  border-top-color:#9d784b!important;
+  background:#8d6b3f!important;
+}
+@media(max-width:700px){
+  .v47-category-image{flex-basis:100px!important;height:100px!important;min-height:100px!important;padding:7px 9px!important;}
+}
+</style>
 </head>
 <body>
 <div class="v47-screen" hidden="" id="v47Home">
@@ -1129,7 +1223,7 @@ body.dark .v47-category-body{border-top-color:#9d784b!important}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <!-- V41: correctifs règle, compteur et image projet. -->
 <script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-const VERSION='Suivi Tricot V58 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
+const VERSION='Suivi Tricot V59 Luxe', KEY='suivi-tricot-v15-data', OLDKEYS=['suivi-tricot-v16-data','suivi-tricot-v15-data','suivi-tricot-v14-data','suivi-tricot-v13-data','suivi-tricot-v12-data','suivi-tricot-v11-data','suivi-tricot-v10-data','suivi-tricot-v9-data'];
 const needleTypesList=['Interchangeables','Circulaires à câble fixe','Double pointes','Droites','Crochet'];
 const needleSizesList=['1.00 mm — pas de taille US','1.25 mm — pas de taille US','1.50 mm — taille US 000','1.75 mm — pas de taille US','2.00 mm — taille US 0','2.25 mm — taille US 1','2.50 mm — pas de taille US','2.75 mm — taille US 2','3.00 mm — pas de taille US','3.25 mm — taille US 3','3.50 mm — taille US 4','3.75 mm — taille US 5','4.00 mm — taille US 6','4.25 mm — taille US 7','4.50 mm — taille US 7','5.00 mm — taille US 8','5.50 mm — taille US 9','6.00 mm — taille US 10','6.50 mm — taille US 10.5','7.00 mm — pas de taille US','7.50 mm — pas de taille US','8.00 mm — taille US 11','9.00 mm — taille US 13','10.00 mm — taille US 15','11.00 mm — taille US 13 ou 17','12.00 mm — pas de taille US','12.50 mm — taille US 17','15.00 mm — taille US 19'];
 const needleLengthsList=['2 po (5 cm)','3 po (8 cm)','4 po (10 cm)','5 po (13 cm)','6 po (15 cm)','8 po (20 cm)','10 po (25 cm)','13 po (33 cm)','14 po (35 cm)'];
