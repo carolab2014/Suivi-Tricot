@@ -2,9 +2,37 @@
 
 <html lang="fr">
 <head>
+<script>
+/* V74.3 — retire les anciens service workers et caches de la V74 en dossiers. */
+(function(){
+  const key='caro-v743-cache-cleaned';
+  if(sessionStorage.getItem(key)) return;
+  sessionStorage.setItem(key,'1');
+  const jobs=[];
+  if('serviceWorker' in navigator){
+    jobs.push(navigator.serviceWorker.getRegistrations().then(function(regs){
+      return Promise.all(regs.map(function(reg){ return reg.unregister(); }));
+    }).catch(function(){}));
+  }
+  if('caches' in window){
+    jobs.push(caches.keys().then(function(names){
+      return Promise.all(names.filter(function(n){return /caro|tricot|v74/i.test(n);}).map(function(n){return caches.delete(n);}));
+    }).catch(function(){}));
+  }
+  Promise.all(jobs).then(function(){
+    const u=new URL(location.href);
+    if(u.searchParams.get('clean')!=='743'){
+      u.searchParams.set('v','743');
+      u.searchParams.set('clean','743');
+      location.replace(u.toString());
+    }
+  });
+})();
+</script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>Caro-Tricot etc. — Version 74.2 monofichier</title>
+<title>Caro-Tricot etc. — Version 74.3 monofichier</title>
 <!-- Version monofichier : aucun dossier externe requis -->
 <meta content="#B58A58" name="theme-color"/>
 <style>:root{--bg:#fbf7fb;--card:#fff;--ink:#2e2630;--muted:#746a76;--accent:#8b5a83;--accent2:#f0d9ec;--line:#e8dfea;--danger:#b23b3b;--ok:#8D6B3F;--shadow:0 8px 24px rgba(66,38,68,.14)}
@@ -2114,7 +2142,7 @@ if(window.manualHighlightToggle)manualHighlightToggle.onclick=toggleManualHighli
 const undoBtn=document.getElementById('undoManualHighlight'); if(undoBtn) undoBtn.onclick=undoLastManualHighlight;
 if(window.clearPageHighlights)clearPageHighlights.onclick=clearPageManualHighlights;
 /*
- V74.2 — démarrage protégé sur iPad.
+ V74.3 — démarrage protégé sur iPad.
  Ne charge pas automatiquement le PDF du dernier projet au lancement,
  afin d'éviter qu'un gros PDF fasse fermer la page par Safari.
 */
@@ -2418,7 +2446,7 @@ body.dark #v60Back,body.dark #v61CategoriesHome{
 (()=>{
   'use strict';
   function applyV63(){
-    document.title='Caro-Tricot etc. — Version 74.2 monofichier';
+    document.title='Caro-Tricot etc. — Version 74.3 monofichier';
     document.querySelectorAll('.v62-page-brand').forEach(el=>el.remove());
     const inv=document.getElementById('v60Back');
     const cat=document.getElementById('v61CategoriesHome');
@@ -2536,7 +2564,7 @@ body.dark #v47Category #v47CategoryLogo{
 (()=>{
   'use strict';
   function applyV64(){
-    document.title='Caro-Tricot etc. — Version 74.2 monofichier';
+    document.title='Caro-Tricot etc. — Version 74.3 monofichier';
     const official=document.getElementById('v61HomeLogo');
     const home=document.getElementById('v47HomeLogo');
     const detail=document.getElementById('v47CategoryLogo');
@@ -2649,7 +2677,7 @@ document.addEventListener('DOMContentLoaded',()=>{
    const box=document.createElement('div');box.className='v67-yarn-inventory';box.innerHTML=`<div class="v67-row"><button type="button" class="v67-choose">🧶 Choisir dans l’inventaire</button><span class="v67-stock">${entry.inventoryLink?'Stock disponible : '+available+' pelote(s)':'Aucune laine liée à l’inventaire'}</span></div><div class="v67-row" style="margin-top:10px"><label>Nombre de pelotes pour ce projet :<input class="v67-project-qty" type="number" min="0" step="1" value="${esc(entry.projectPellets||'')}"></label>${entry.inventoryLink?'<button type="button" class="v67-deduct">Déduire de l’inventaire</button>':''}</div><div class="v67-link-note">La sélection remplit automatiquement les informations de la laine. Le stock n’est modifié que lorsque vous choisissez « Déduire de l’inventaire ».</div>`;
    card.insertBefore(box,card.children[1]||null);box.querySelector('.v67-choose').onclick=()=>openPicker(entry);box.querySelector('.v67-project-qty').oninput=e=>{entry.projectPellets=e.target.value;save()};const db=box.querySelector('.v67-deduct');if(db)db.onclick=()=>deduct(entry);
  })}
- function install(){if(typeof window.renderYarn==='function'&&!window.__v67Wrapped){const old=window.renderYarn;window.renderYarn=function(){old();enhance()};window.__v67Wrapped=true;window.renderYarn()}const c=$('v67PickerClose'),bg=document.querySelector('#v67YarnPicker .v67-picker-bg');if(c)c.onclick=closePicker;if(bg)bg.onclick=closePicker;document.title='Caro-Tricot etc. — Version 74.2 monofichier'}
+ function install(){if(typeof window.renderYarn==='function'&&!window.__v67Wrapped){const old=window.renderYarn;window.renderYarn=function(){old();enhance()};window.__v67Wrapped=true;window.renderYarn()}const c=$('v67PickerClose'),bg=document.querySelector('#v67YarnPicker .v67-picker-bg');if(c)c.onclick=closePicker;if(bg)bg.onclick=closePicker;document.title='Caro-Tricot etc. — Version 74.3 monofichier'}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();setTimeout(install,500);
 })();
 </script>
@@ -2689,7 +2717,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  function section(title,rows){if(!rows||!rows.length)return '';return '<h2>'+esc(title)+'</h2><ul>'+rows.map(v=>'<li>'+esc(v)+'</li>').join('')+'</ul>'}
  function makePdf(){const x=ensure();if(!x)return;const yarns=(x.yarns||[]).map(y=>{const f=y.fields||{};return [f.Marque,f.Nom,f.Couleur,y.projectPellets&&y.projectPellets+' pelote(s)'].filter(Boolean).join(' — ')}).filter(Boolean);const reservations=(x.inventoryReservations||[]).map(r=>r.name+(r.state==='released'?' (libéré)':' (réservé)'));const counters=(x.counters||[]).map(c=>(c.name||'Compteur')+' : '+(c.value||0));const combos=(x.combos||[]).map(c=>[c.name,c.needle,c.cable,c.type,c.length,c.note].filter(Boolean).join(' — '));const start=x.startDate||'Non indiquée',end=x.endDate||'Projet en cours';const w=window.open('','_blank');if(!w)return alert('Autorisez les fenêtres contextuelles pour créer le PDF.');w.document.write('<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>'+esc(x.name||'Projet')+'</title><style>body{font-family:Arial,sans-serif;color:#2b2420;margin:35px;line-height:1.45}header{text-align:center;border:3px solid #b77b20;border-radius:16px;padding:18px;margin-bottom:22px}h1{color:#971d45;font-family:Georgia,serif;margin:5px}h2{color:#971d45;border-bottom:1px solid #d9bd95;padding-bottom:5px}img{max-width:420px;max-height:320px;object-fit:contain;display:block;margin:10px auto}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#f8f2e9;padding:14px;border-radius:10px}.notes{white-space:pre-wrap;background:#fffaf4;padding:12px;border:1px solid #dec7a7;border-radius:10px}@media print{button{display:none}body{margin:16mm}}</style></head><body><header><h1>Caro-Tricot etc.</h1><h2>'+esc(x.name||'Projet')+'</h2><div>'+esc(x.category||'')+'</div></header>'+(x.coverData?'<img src="'+x.coverData+'" alt="Photo du projet">':'')+'<div class="meta"><div><strong>Date de début :</strong> '+esc(start)+'</div><div><strong>Date de fin :</strong> '+esc(end)+'</div><div><strong>Statut :</strong> '+esc(x.projectStatus||'En cours')+'</div><div><strong>Catégorie :</strong> '+esc(x.category||'')+'</div></div><h2>Notes</h2><div class="notes">'+esc(x.notes||'Aucune note')+'</div>'+section('Laine utilisée',yarns)+section('Matériel et outils',reservations)+section('Combinaisons',combos)+section('Compteurs finaux',counters)+'<p style="text-align:center;margin-top:35px;color:#766">© 2026 Carolina Gonzalez — Caro-Tricot etc.</p><button onclick="window.print()">Imprimer ou enregistrer en PDF</button></body></html>');w.document.close();setTimeout(()=>w.print(),500)}
  function sync(){addProjectControls();addInventoryCard();renderReservations();const x=ensure();if(x){const a=$('v68Start'),b=$('v68End'),c=$('v68Status');if(a)a.value=x.startDate||'';if(b)b.value=x.endDate||'';if(c)c.value=x.projectStatus||'En cours'}}
- function install(){document.title='Caro-Tricot etc. — Version 74.2 monofichier';document.querySelectorAll('strong').forEach(el=>{if(el.textContent.trim()==='Version 67')el.textContent='Version 68'});$('v68PickerClose').onclick=closePicker;document.querySelector('#v68Picker .v68-picker-bg').onclick=closePicker;if(typeof window.renderTools==='function'&&!window.__v68Tools){const old=window.renderTools;window.renderTools=function(){old();setTimeout(addInventoryCard,0)};window.__v68Tools=true}if(typeof window.loadProject==='function'&&!window.__v68Load){const old=window.loadProject;window.loadProject=function(){old();setTimeout(sync,0)};window.__v68Load=true}sync()}
+ function install(){document.title='Caro-Tricot etc. — Version 74.3 monofichier';document.querySelectorAll('strong').forEach(el=>{if(el.textContent.trim()==='Version 67')el.textContent='Version 68'});$('v68PickerClose').onclick=closePicker;document.querySelector('#v68Picker .v68-picker-bg').onclick=closePicker;if(typeof window.renderTools==='function'&&!window.__v68Tools){const old=window.renderTools;window.renderTools=function(){old();setTimeout(addInventoryCard,0)};window.__v68Tools=true}if(typeof window.loadProject==='function'&&!window.__v68Load){const old=window.loadProject;window.loadProject=function(){old();setTimeout(sync,0)};window.__v68Load=true}sync()}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();setTimeout(install,700);
 })();
 </script>
@@ -2729,7 +2757,7 @@ $('v70InvActions').append(makeButton('Enregistrer Inventaire.cti',exportInventor
 $('v70ProjectActions').append(makeButton('Enregistrer tous les projets',exportProjects),makeButton('Ouvrir Mes-Projets.ctp',()=>projInput.click(),'v70-data-btn secondary'),makeButton('Importer un projet',()=>oneInput.click(),'v70-data-btn secondary'));
 }
 function installProjectButton(){if($('v70ExportProject'))return;const saveBtn=$('saveProject');if(!saveBtn)return;const b=makeButton('Enregistrer ce projet (.ctp)',exportCurrentProject,'secondary');b.id='v70ExportProject';b.style.marginTop='10px';saveBtn.insertAdjacentElement('afterend',b)}
-function updateVersion(){document.title='Caro-Tricot etc. — Version 74.2 monofichier';document.querySelectorAll('strong,div,p,span').forEach(el=>{if(el.childElementCount===0&&/^Version\s+(68|69(?:\.1)?)$/.test(el.textContent.trim()))el.textContent='Version 74.2';if(el.childElementCount===0&&/^Dernière mise à jour\s*:/.test(el.textContent.trim()))el.textContent='Dernière mise à jour : 26 juillet 2026'});}
+function updateVersion(){document.title='Caro-Tricot etc. — Version 74.3 monofichier';document.querySelectorAll('strong,div,p,span').forEach(el=>{if(el.childElementCount===0&&/^Version\s+(68|69(?:\.1)?)$/.test(el.textContent.trim()))el.textContent='Version 74.3';if(el.childElementCount===0&&/^Dernière mise à jour\s*:/.test(el.textContent.trim()))el.textContent='Dernière mise à jour : 26 juillet 2026'});}
 function install(){updateVersion();installHomePanel();installProjectButton();setTimeout(()=>{updateVersion();installHomePanel();installProjectButton()},800)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
@@ -2774,7 +2802,7 @@ body.dark #v72GlobalTheme{background:rgba(32,32,32,.94)!important;color:#8CCBFF!
  }
  function installArrow(){document.querySelectorAll('.ruleArrow').forEach(a=>{if(!a.querySelector('.v72-blue-arrow'))a.innerHTML='<svg class="v72-blue-arrow" viewBox="0 0 36 42" aria-hidden="true"><path d="M18 1 L35 20 H25 V40 H11 V20 H1 Z"/></svg>'})}
  function normalizeHomeButtons(){document.querySelectorAll('button').forEach(b=>{const t=(b.textContent||'').trim();if(/^([⌂🏠]\s*)?Accueil$/i.test(t)){b.classList.add('v72-home-button');b.innerHTML='<span aria-hidden="true">⌂</span> Accueil'}if(/Supprimer/i.test(t))b.classList.add('danger')})}
- function updateTitles(){document.title='Caro-Tricot etc. — Version 74.2 monofichier';document.querySelectorAll('strong,div,p,span').forEach(el=>{if(el.childElementCount===0&&/^Version\s+(68|69(?:\.1)?|70|71)$/.test(el.textContent.trim()))el.textContent='Version 74.2'})}
+ function updateTitles(){document.title='Caro-Tricot etc. — Version 74.3 monofichier';document.querySelectorAll('strong,div,p,span').forEach(el=>{if(el.childElementCount===0&&/^Version\s+(68|69(?:\.1)?|70|71)$/.test(el.textContent.trim()))el.textContent='Version 74.3'})}
  function install(){installTheme();installArrow();normalizeHomeButtons();updateTitles();const obs=new MutationObserver(()=>{installArrow();normalizeHomeButtons();setThemeLabel()});obs.observe(document.body,{childList:true,subtree:true})}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
@@ -2863,7 +2891,7 @@ body.dark .app .topbar .title img.yarnPhotoTitle{background:#fffdf9!important;fi
     img.alt='Logo Caro-Tricot etc.';
     if(official&&official.src) img.src=official.src;
     img.removeAttribute('width');img.removeAttribute('height');
-    document.title='Caro-Tricot etc. — Version 74.2 monofichier';
+    document.title='Caro-Tricot etc. — Version 74.3 monofichier';
   }
   document.addEventListener('DOMContentLoaded',()=>{
     restoreProjectLogo();
@@ -2930,7 +2958,7 @@ body.dark .app .topbar .title img.yarnPhotoTitle{background:#fffdf9!important;fi
  function cleanup(){const old=$('v68InventoryCard');if(old)old.remove()}
  function updatePdfData(){const x=ensure();if(!x)return;x.combos=(x.v69Combinations||[]).map(c=>({name:c.name,needle:c.needle&&c.needle.name,cable:c.cable&&c.cable.name,type:c.hook&&c.hook.name,length:'',note:''}));persist()}
  function sync(){cleanup();installComboManager();installTools();renderCombos();refreshToolSelect();renderTools();updatePdfData()}
- function install(){document.title='Caro-Tricot etc. — Version 74.2 monofichier';document.querySelectorAll('strong').forEach(el=>{if(/^Version 6[789]/.test(el.textContent.trim()))el.textContent='Version 69.1'});document.querySelectorAll('div,p,span').forEach(el=>{if(el.childElementCount===0&&/Dernière mise à jour\s*:\s*25 juillet 2026/.test(el.textContent))el.textContent='Dernière mise à jour : 26 juillet 2026'});document.querySelectorAll('strong').forEach(el=>{if(/^Version 6[78]/.test(el.textContent.trim()))el.textContent='Version 69.1'});if(typeof window.loadProject==='function'&&!window.__v69Load){const old=window.loadProject;window.loadProject=function(){old();setTimeout(sync,50)};window.__v69Load=true}if(typeof window.renderTools==='function'&&!window.__v69Tools){const old=window.renderTools;window.renderTools=function(){old();setTimeout(sync,50)};window.__v69Tools=true}sync();setTimeout(sync,700)}
+ function install(){document.title='Caro-Tricot etc. — Version 74.3 monofichier';document.querySelectorAll('strong').forEach(el=>{if(/^Version 6[789]/.test(el.textContent.trim()))el.textContent='Version 69.1'});document.querySelectorAll('div,p,span').forEach(el=>{if(el.childElementCount===0&&/Dernière mise à jour\s*:\s*25 juillet 2026/.test(el.textContent))el.textContent='Dernière mise à jour : 26 juillet 2026'});document.querySelectorAll('strong').forEach(el=>{if(/^Version 6[78]/.test(el.textContent.trim()))el.textContent='Version 69.1'});if(typeof window.loadProject==='function'&&!window.__v69Load){const old=window.loadProject;window.loadProject=function(){old();setTimeout(sync,50)};window.__v69Load=true}if(typeof window.renderTools==='function'&&!window.__v69Tools){const old=window.renderTools;window.renderTools=function(){old();setTimeout(sync,50)};window.__v69Tools=true}sync();setTimeout(sync,700)}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
 </script>
@@ -2979,7 +3007,7 @@ $('v70InvActions').append(makeButton('Enregistrer Inventaire.cti',exportInventor
 $('v70ProjectActions').append(makeButton('Enregistrer tous les projets',exportProjects),makeButton('Ouvrir Mes-Projets.ctp',()=>projInput.click(),'v70-data-btn secondary'),makeButton('Importer un projet',()=>oneInput.click(),'v70-data-btn secondary'));
 }
 function installProjectButton(){if($('v70ExportProject'))return;const saveBtn=$('saveProject');if(!saveBtn)return;const b=makeButton('Enregistrer ce projet (.ctp)',exportCurrentProject,'secondary');b.id='v70ExportProject';b.style.marginTop='10px';saveBtn.insertAdjacentElement('afterend',b)}
-function updateVersion(){document.title='Caro-Tricot etc. — Version 74.2 monofichier';document.querySelectorAll('strong,div,p,span').forEach(el=>{if(el.childElementCount===0&&/^Version\s+(68|69(?:\.1)?)$/.test(el.textContent.trim()))el.textContent='Version 74.2';if(el.childElementCount===0&&/^Dernière mise à jour\s*:/.test(el.textContent.trim()))el.textContent='Dernière mise à jour : 26 juillet 2026'});}
+function updateVersion(){document.title='Caro-Tricot etc. — Version 74.3 monofichier';document.querySelectorAll('strong,div,p,span').forEach(el=>{if(el.childElementCount===0&&/^Version\s+(68|69(?:\.1)?)$/.test(el.textContent.trim()))el.textContent='Version 74.3';if(el.childElementCount===0&&/^Dernière mise à jour\s*:/.test(el.textContent.trim()))el.textContent='Dernière mise à jour : 26 juillet 2026'});}
 function install(){updateVersion();installHomePanel();installProjectButton();setTimeout(()=>{updateVersion();installHomePanel();installProjectButton()},800)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
 })();
